@@ -1,7 +1,7 @@
 import { Aboutpage, Media } from "@/types/cms";
 import clsx from "clsx";
 import Image from "next/image";
-import ImageKit from "../components/ImageKit";
+import ImageKit from "../../components/ImageKit";
 
 const items = [
   {

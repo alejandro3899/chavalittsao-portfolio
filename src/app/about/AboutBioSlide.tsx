@@ -7,7 +7,7 @@ import { Autoplay, EffectFade } from "swiper/modules";
 import { useRef, useState } from "react";
 import clsx from "clsx";
 import { Aboutpage, Media } from "@/types/cms";
-import ImageKit from "../components/ImageKit";
+import ImageKit from "../../components/ImageKit";
 
 const items = [
   {
@@ -69,7 +69,7 @@ export default function AboutBioSlide({
             </p>
           </div>
 
-          <div className="w-full flex flex-col-reverse lg:flex-col gap-20 sm:gap-0">
+          <div className="w-full flex flex-col-reverse lg:flex-col gap-20 lg:gap-0">
             <div className="custom-scrollbar w-full max-w-full flex justify-center lg:hidden overflow-auto mb-10">
               <ul className="flex flex-wrap gap-6 sm:gap-8 mx-auto items-center">
                 {(bioSlide ?? []).map((_, i) => (
@@ -108,6 +108,7 @@ export default function AboutBioSlide({
                 ))}
               </ul>
             </div>
+
             <Swiper
               modules={[Autoplay, EffectFade]}
               autoplay={{
@@ -145,7 +146,7 @@ export default function AboutBioSlide({
                           <div className="w-full bg-white rounded-lg" />
                         )}
                       </div>
-                      <div className="md:flex-[0.5] flex flex-col justify-center sm:items-center">
+                      <div className="max-w-[552px] mx-auto md:flex-[0.5] flex flex-col justify-center sm:items-center">
                         <h3 className="text-xl sm:text-center tracking-tight mb-2 sm:mb-4">
                           {title}
                         </h3>

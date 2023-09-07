@@ -1,7 +1,7 @@
 import { Aboutpage, Media, Podcast } from "@/types/cms";
-import PrimaryButton from "../components/PrimaryButton";
+import PrimaryButton from "../../components/PrimaryButton";
 import Link from "next/link";
-import ImageKit from "../components/ImageKit";
+import ImageKit from "../../components/ImageKit";
 
 export default function AboutPodcastSpotlight({
   podcastSpotlight,

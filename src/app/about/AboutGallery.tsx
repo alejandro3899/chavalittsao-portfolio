@@ -1,7 +1,7 @@
 import "swiper/css/bundle";
 
 import { Aboutpage, Media } from "@/types/cms";
-import ImageKit from "../components/ImageKit";
+import ImageKit from "../../components/ImageKit";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperType from "swiper";
 import { useRef, useState } from "react";

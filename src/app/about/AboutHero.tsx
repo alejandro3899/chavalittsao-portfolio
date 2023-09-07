@@ -1,5 +1,5 @@
 import { Aboutpage, Media } from "@/types/cms";
-import ImageKit from "../components/ImageKit";
+import ImageKit from "../../components/ImageKit";
 
 export default function AboutHero({ hero }: { hero: Aboutpage["hero"] }) {
   const { heading, subHeading, text, heroImage } = hero;

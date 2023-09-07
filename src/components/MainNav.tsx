@@ -21,7 +21,7 @@ export default function MainNav({
 
   return (
     <nav className="absolute left-0 top-0 w-full flex items-center justify-center text-white py-5 px-4 sm:px-5 z-10">
-      <div className="w-full flex justify-between items-center gap-8 sm:gap-12">
+      <div className="w-full max-w-[1600px] flex justify-between items-center gap-8 sm:gap-12">
         <div className="md:flex-[0.5] flex">
           <Logo text="CHAVALIT TSAO" theme={theme} />
         </div>

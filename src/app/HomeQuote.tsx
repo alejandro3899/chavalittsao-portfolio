@@ -1,5 +1,5 @@
 import { Homepage, Media } from "@/types/cms";
-import QuoteBlock from "./components/QuoteBlock";
+import QuoteBlock from "../components/QuoteBlock";
 
 export default function HomeQuote({
   quoteBlock: { quote },

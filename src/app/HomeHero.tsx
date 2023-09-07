@@ -1,8 +1,8 @@
 import { Homepage, Media } from "@/types/cms";
-import Hero from "./components/Hero";
+import Hero from "../components/Hero";
 
 export default function HomeHero({ hero }: { hero: Homepage["hero"] }) {
-  const { baseImage, mobileImage, tabletImage } = hero.heroBackgrond;
+  const { baseImage, mobileImage, tabletImage } = hero.backgroundImage;
 
   return (
     <Hero
@@ -12,8 +12,8 @@ export default function HomeHero({ hero }: { hero: Homepage["hero"] }) {
       mobileBgImage={(mobileImage as Media)?.imagekit?.url}
     >
       <div className="w-full flex max-w-[300px] sm:max-w-full">
-        <div className="container h-full 2xl:!max-w-6xl flex flex-col lg:flex-row lg:items-end justify-end lg:justify-between gap-6 lg:gap-8 text-white">
-          <div>
+        <div className="container h-full flex flex-col lg:flex-row lg:items-end justify-end lg:justify-between gap-6 lg:gap-8 text-white">
+          <div className="lg:flex-[0.5]">
             <p className="text-sm uppercase text-white leading-[1.4] tracking-[-0.24px] mb-2">
               {hero.heading}
             </p>
@@ -22,7 +22,7 @@ export default function HomeHero({ hero }: { hero: Homepage["hero"] }) {
             </h1>
           </div>
 
-          <div>
+          <div className="lg:flex-[0.5]">
             <p className="paragraph text-white max-w-[505px]">
               {hero.heroText}
             </p>

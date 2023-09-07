@@ -8,31 +8,19 @@
 
 export interface Config {
   collections: {
-    users: User;
     media: Media;
     podcasts: Podcast;
+    users: User;
   };
   globals: {
     navigation: Navigation;
     footer: Footer;
     socials: Social;
+    settings: Setting;
     'work-summary': WorkSummary;
     homepage: Homepage;
     aboutpage: Aboutpage;
   };
-}
-export interface User {
-  id: string;
-  updatedAt: string;
-  createdAt: string;
-  email: string;
-  resetPasswordToken?: string;
-  resetPasswordExpiration?: string;
-  salt?: string;
-  hash?: string;
-  loginAttempts?: number;
-  lockUntil?: string;
-  password?: string;
 }
 export interface Media {
   id: string;
@@ -78,6 +66,19 @@ export interface Podcast {
   }[];
   updatedAt: string;
   createdAt: string;
+}
+export interface User {
+  id: string;
+  updatedAt: string;
+  createdAt: string;
+  email: string;
+  resetPasswordToken?: string;
+  resetPasswordExpiration?: string;
+  salt?: string;
+  hash?: string;
+  loginAttempts?: number;
+  lockUntil?: string;
+  password?: string;
 }
 export interface Navigation {
   id: string;
@@ -126,6 +127,14 @@ export interface Social {
   updatedAt?: string;
   createdAt?: string;
 }
+export interface Setting {
+  id: string;
+  siteTitle: string;
+  siteDescription: string;
+  siteBranding: string;
+  updatedAt?: string;
+  createdAt?: string;
+}
 export interface WorkSummary {
   id: string;
   works?: {
@@ -148,7 +157,7 @@ export interface Homepage {
     heading: string;
     subHeading: string;
     heroText?: string;
-    heroBackgrond: {
+    backgroundImage: {
       baseImage: string | Media;
       tabletImage?: string | Media;
       mobileImage?: string | Media;
@@ -184,6 +193,11 @@ export interface Homepage {
   workSummary: {
     heading: string;
   };
+  meta?: {
+    title?: string;
+    description?: string;
+    image?: string | Media;
+  };
   updatedAt?: string;
   createdAt?: string;
 }
@@ -210,8 +224,8 @@ export interface Aboutpage {
       title: string;
       description: string;
       images?: {
-        size?: 'full' | 'default';
         image: string | Media;
+        size?: 'default' | 'full';
         id?: string;
       }[];
       id?: string;
@@ -252,6 +266,11 @@ export interface Aboutpage {
   };
   workSummary: {
     heading: string;
+  };
+  meta?: {
+    title?: string;
+    description?: string;
+    image?: string | Media;
   };
   updatedAt?: string;
   createdAt?: string;

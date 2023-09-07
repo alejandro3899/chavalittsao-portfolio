@@ -7,7 +7,7 @@ import { Autoplay, EffectFade } from "swiper/modules";
 import { useRef, useState } from "react";
 import clsx from "clsx";
 import { Homepage, Media } from "@/types/cms";
-import ImageKit from "./components/ImageKit";
+import ImageKit from "../components/ImageKit";
 
 export default function HomeAbout({ about }: { about: Homepage["about"] }) {
   const [tabIndex, setTabIndex] = useState(0);
@@ -76,6 +76,7 @@ export default function HomeAbout({ about }: { about: Homepage["about"] }) {
                 ))}
               </ul>
             </div>
+
             <Swiper
               modules={[Autoplay, EffectFade]}
               autoplay={{
@@ -113,7 +114,7 @@ export default function HomeAbout({ about }: { about: Homepage["about"] }) {
                           <div className="w-full bg-white rounded-lg" />
                         )}
                       </div>
-                      <div className="md:flex-[0.5] flex flex-col justify-center items-center">
+                      <div className="max-w-[552px] mx-auto md:flex-[0.5] flex flex-col justify-center items-center">
                         <h3 className="text-xl text-center tracking-tight mb-4">
                           {title}
                         </h3>

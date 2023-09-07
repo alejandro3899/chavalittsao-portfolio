@@ -1,6 +1,6 @@
 import { Aboutpage, Media } from "@/types/cms";
-import LinkButton from "../components/LinkButton";
-import ImageKit from "../components/ImageKit";
+import LinkButton from "../../components/LinkButton";
+import ImageKit from "../../components/ImageKit";
 
 export default function AboutIntro({ intro }: { intro: Aboutpage["intro"] }) {
   const { heading, image, excerpt, readMoreLink } = intro;

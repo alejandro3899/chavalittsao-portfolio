@@ -6,7 +6,7 @@ import HomeForum from "./HomeForum";
 import HomeHero from "./HomeHero";
 import HomeIntro from "./HomeIntro";
 import HomeQuote from "./HomeQuote";
-import WorkSummary from "./components/WorkSummary";
+import WorkSummary from "../components/WorkSummary";
 
 export default function HomePage({
   home,

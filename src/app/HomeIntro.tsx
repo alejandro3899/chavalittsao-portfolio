@@ -1,6 +1,6 @@
 import { Homepage, Media } from "@/types/cms";
-import LinkButton from "./components/LinkButton";
-import ImageKit from "./components/ImageKit";
+import LinkButton from "../components/LinkButton";
+import ImageKit from "../components/ImageKit";
 
 export default function HomeIntro({ intro }: { intro: Homepage["intro"] }) {
   const { heading, image, excerpt, readMoreLink } = intro;
