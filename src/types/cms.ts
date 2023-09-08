@@ -10,6 +10,7 @@ export interface Config {
   collections: {
     media: Media;
     podcasts: Podcast;
+    books: Book;
     users: User;
   };
   globals: {
@@ -20,6 +21,9 @@ export interface Config {
     'work-summary': WorkSummary;
     homepage: Homepage;
     aboutpage: Aboutpage;
+    podcastspage: Podcastspage;
+    mediapage: Mediapage;
+    bookspage: Bookspage;
   };
 }
 export interface Media {
@@ -57,6 +61,8 @@ export interface Podcast {
     title: string;
     presentedBy: string;
     moderator: string;
+    date: string;
+    duration: string;
     linkToEpisode?: {
       label?: string;
       url?: string;
@@ -64,6 +70,30 @@ export interface Podcast {
     };
     id?: string;
   }[];
+  share: {
+    label: string;
+    platform: 'appleMusic' | 'spotify' | 'youTube' | 'amazon' | 'deezer';
+    link: string;
+    id?: string;
+  }[];
+  updatedAt: string;
+  createdAt: string;
+}
+export interface Book {
+  id: string;
+  name: string;
+  description: string;
+  bookImage: string | Media;
+  learnMoreLink?: {
+    label?: string;
+    url?: string;
+    newTab?: boolean;
+  };
+  linkToBuy?: {
+    label?: string;
+    url?: string;
+    newTab?: boolean;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -265,6 +295,97 @@ export interface Aboutpage {
     }[];
   };
   workSummary: {
+    heading: string;
+  };
+  meta?: {
+    title?: string;
+    description?: string;
+    image?: string | Media;
+  };
+  updatedAt?: string;
+  createdAt?: string;
+}
+export interface Podcastspage {
+  id: string;
+  hero: {
+    heroImage: string | Media;
+    showcasePodcast: string | Podcast;
+  };
+  workSummary: {
+    heading: string;
+  };
+  meta?: {
+    title?: string;
+    description?: string;
+    image?: string | Media;
+  };
+  updatedAt?: string;
+  createdAt?: string;
+}
+export interface Mediapage {
+  id: string;
+  header: {
+    heading: string;
+  };
+  press: {
+    pressReleases?: {
+      title: string;
+      date: string;
+      link?: {
+        label?: string;
+        url?: string;
+        newTab?: boolean;
+      };
+      id?: string;
+    }[];
+  };
+  pressMaterial: {
+    pressMaterials?: {
+      title: string;
+      image: string | Media;
+      id?: string;
+    }[];
+  };
+  bios: {
+    bios?: {
+      name: string;
+      bio: string;
+      image: string | Media;
+      id?: string;
+    }[];
+  };
+  socials: {
+    heading: string;
+    socialMediaLinks?: {
+      label: string;
+      icon: string | Media;
+      link: string;
+      id?: string;
+    }[];
+  };
+  meta?: {
+    title?: string;
+    description?: string;
+    image?: string | Media;
+  };
+  updatedAt?: string;
+  createdAt?: string;
+}
+export interface Bookspage {
+  id: string;
+  hero: {
+    heroImage: string | Media;
+    bookShowcase: string | Book;
+  };
+  intro: {
+    introText: string;
+  };
+  bookExcerpt: {
+    excerpt: string;
+    page: string;
+    image: string | Media;
+  };
+  otherBooks: {
     heading: string;
   };
   meta?: {

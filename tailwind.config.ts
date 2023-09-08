@@ -23,6 +23,7 @@ const config: Config = {
         "deep-purple": "#534B6B",
         sand: "#F2F1ED",
         pebble: "#F2F1ED",
+        grey: "#EAEBEA",
       },
       fontFamily: {
         sans: ["var(--font-poppins)"],

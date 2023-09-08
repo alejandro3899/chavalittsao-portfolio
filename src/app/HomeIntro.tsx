@@ -28,7 +28,7 @@ export default function HomeIntro({ intro }: { intro: Homepage["intro"] }) {
               alt={(image as Media)?.altText}
               width={400}
               height={400}
-              className="w-full h-auto rounded-md"
+              className="w-full h-auto rounded-lg"
             />
           </div>
         </div>
