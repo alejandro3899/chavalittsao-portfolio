@@ -28,7 +28,7 @@ export default function AboutHero({ hero }: { hero: Aboutpage["hero"] }) {
               width={700}
               height={700}
               sizes="100vw"
-              className="w-full h-auto"
+              className="w-full object-contain"
             />
           </div>
         </div>

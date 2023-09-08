@@ -1,6 +1,6 @@
 import { Media, WorkSummary } from "@/types/cms";
-import clsx from "clsx";
 import ImageKit from "./ImageKit";
+import clsx from "clsx";
 import Link from "next/link";
 
 export default function WorkSummary({
@@ -11,7 +11,7 @@ export default function WorkSummary({
   const { works = [] } = workSummary;
 
   return (
-    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {works.map(({ title, excerpt, image, link }, i) => {
         return (
           <div key={i} className="w-full flex flex-col">
@@ -26,7 +26,7 @@ export default function WorkSummary({
               />
             </div>
             <div className="sm:max-w-[370px] mx-auto flex flex-col sm:items-center gap-3">
-              <h3 className="text-base leading-none tracking-tighter uppercase">
+              <h3 className="text-base leading-none tracking-tighter sm:text-center uppercase">
                 {title}
               </h3>
               <p className="leading-[1.3] text-sm text-light sm:text-center tracking-tightest">
@@ -35,7 +35,7 @@ export default function WorkSummary({
               <Link
                 href={link?.url ?? "#"}
                 className={clsx(
-                  "outline-none font-bold text-xs leading-tight -tracking-[0.24px]",
+                  "outline-none font-semibold text-xs leading-tight -tracking-[0.24px]",
                   "focus:outline-none text-royal-purple/80 hover:text-royal-purple"
                 )}
               >

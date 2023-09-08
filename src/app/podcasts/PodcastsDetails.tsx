@@ -1,7 +1,8 @@
-import LinkButton from "@/components/LinkButton";
 import { Podcast, Podcastspage } from "@/types/cms";
+import LinkButton from "@/components/LinkButton";
 import clsx from "clsx";
 import Link from "next/link";
+import { Fragment } from "react";
 
 export default function PodcastsDetails({
   podcast,
@@ -64,7 +65,7 @@ export default function PodcastsDetails({
               });
 
               return (
-                <>
+                <Fragment key={i}>
                   <div
                     key={i}
                     className={clsx(
@@ -119,7 +120,7 @@ export default function PodcastsDetails({
                     </div>
                   </div>
                   <div className="w-full h-[1px] bg-royal-purple block sm:hidden" />
-                </>
+                </Fragment>
               );
             }
           )}

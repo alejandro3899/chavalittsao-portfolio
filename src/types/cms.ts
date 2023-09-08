@@ -220,6 +220,13 @@ export interface Homepage {
       size?: 'extraSmall' | 'small' | 'medium' | 'large';
     };
   };
+  gallery: {
+    images?: {
+      label: string;
+      image: string | Media;
+      id?: string;
+    }[];
+  };
   workSummary: {
     heading: string;
   };
@@ -347,6 +354,7 @@ export interface Mediapage {
     }[];
   };
   bios: {
+    heading: string;
     bios?: {
       name: string;
       bio: string;

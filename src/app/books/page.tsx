@@ -1,7 +1,8 @@
-import { Bookspage } from "@/types/cms";
-import { getGlob } from "@/utils/api";
+import { Book, Bookspage } from "@/types/cms";
+import { getColl, getGlob } from "@/utils/api";
 import { baseMetadata } from "@/utils/baseMetadata";
 import BooksPage from "./BooksPage";
+import BaseLayout from "@/components/BaseLayout";
 
 export async function generateMetadata() {
   const { meta } = await getGlob<Bookspage>(
@@ -24,10 +25,15 @@ export default async function Books() {
     {},
     { next: { tags: ["bookspage"] } }
   );
+  const { docs: allBooks } = await getColl<Book>(
+    "/books",
+    {},
+    { next: { tags: ["books"] } }
+  );
 
   return (
-    <>
-      <BooksPage books={books} />
-    </>
+    <BaseLayout theme="default">
+      <BooksPage books={books} allBooks={allBooks} />
+    </BaseLayout>
   );
 }

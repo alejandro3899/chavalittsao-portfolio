@@ -5,8 +5,8 @@ import { FC } from "react";
 
 type Props = {
   image?: ImageType;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   alt?: string;
 } & Omit<ImageProps, "src" | "alt">;
 
@@ -21,7 +21,11 @@ const ImageKit: FC<Props> = function ({
   return image && image.imagekit?.url ? (
     <Image
       className={clsx(className)}
-      src={`${image.imagekit?.url!}?tr=w-${width * 2},h-${height * 2},c-at_max`}
+      src={
+        width && height
+          ? `${image.imagekit?.url!}?tr=w-${width * 2},h-${height * 2},c-at_max`
+          : image.imagekit?.url!
+      }
       alt={alt ?? image.altText!}
       width={width}
       height={height}

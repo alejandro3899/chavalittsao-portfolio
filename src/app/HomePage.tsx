@@ -2,7 +2,7 @@
 
 import { Homepage, WorkSummary as WorkSummaryType } from "@/types/cms";
 import HomeAbout from "./HomeAbout";
-import HomeForum from "./HomeForum";
+import HomeGallery from "./HomeGallery";
 import HomeHero from "./HomeHero";
 import HomeIntro from "./HomeIntro";
 import HomeQuote from "./HomeQuote";
@@ -15,7 +15,14 @@ export default function HomePage({
   home: Homepage;
   workSummary: WorkSummaryType;
 }) {
-  const { hero, intro, about, quoteBlock, workSummary: homeWorkSummary } = home;
+  const {
+    hero,
+    intro,
+    about,
+    quoteBlock,
+    workSummary: homeWorkSummary,
+    gallery,
+  } = home;
 
   return (
     <>
@@ -31,7 +38,7 @@ export default function HomePage({
           <WorkSummary workSummary={workSummary} />
         </div>
       </section>
-      <HomeForum />
+      <HomeGallery gallery={gallery} />
     </>
   );
 }

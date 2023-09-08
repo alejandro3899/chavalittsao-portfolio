@@ -20,8 +20,8 @@ export default function MainNav({
   const isLight = theme === "light";
 
   return (
-    <nav className="absolute left-0 top-0 w-full flex items-center justify-center text-white py-5 px-4 sm:px-5 z-10">
-      <div className="w-full max-w-[1600px] flex justify-between items-center gap-8 sm:gap-12">
+    <nav className="absolute left-0 top-0 w-full flex items-center justify-center text-white py-5 z-10">
+      <div className="w-full max-w-[1600px] flex justify-between items-center gap-8 sm:gap-12 px-4 sm:px-5">
         <div className="md:flex-[0.5] flex">
           <Logo text="CHAVALIT TSAO" theme={theme} />
         </div>
@@ -51,17 +51,17 @@ export default function MainNav({
               )
           )}
         </ul>
+        <Menu as="div" className="relative block md:hidden">
+          {({ open, close }) => (
+            <NavMobile
+              open={open}
+              close={close}
+              navLinks={navData["mainNavigation"]}
+              theme={theme}
+            />
+          )}
+        </Menu>
       </div>
-      <Menu as="div" className="relative block md:hidden">
-        {({ open, close }) => (
-          <NavMobile
-            open={open}
-            close={close}
-            navLinks={navData["mainNavigation"]}
-            theme={theme}
-          />
-        )}
-      </Menu>
     </nav>
   );
 }

@@ -1,10 +1,11 @@
 import "swiper/css/bundle";
 
 import { Aboutpage, Media } from "@/types/cms";
-import ImageKit from "../../components/ImageKit";
+// import ImageKit from "../../components/ImageKit";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperType from "swiper";
 import { useRef, useState } from "react";
+import clsx from "clsx";
 
 export default function AboutGallery({
   gallery,
@@ -32,7 +33,7 @@ export default function AboutGallery({
           preventInteractionOnTransition={true}
           loopPreventsSliding={true}
           breakpoints={{
-            560: {
+            640: {
               slidesPerView: 2,
             },
             768: {
@@ -52,14 +53,19 @@ export default function AboutGallery({
         >
           {images.map(({ image }, i) => {
             return (
-              <SwiperSlide key={i} className="w-full">
+              <SwiperSlide
+                key={i}
+                className={clsx(
+                  "w-full max-w-full sm:max-w-[calc(50%-(16px/2))] md:max-w-[calc(33%-((2*12px)/3))] lg:max-w-[calc(25%-((3*12px)/4))]",
+                  i !== images.length - 1 ? "mr-3" : "!mr-0"
+                )}
+              >
                 <div className="w-full h-full">
-                  <ImageKit
-                    image={image as Media}
+                  <img
+                    src={(image as Media)?.imagekit?.url}
                     alt={(image as Media)?.altText ?? `Image ${i + 1}`}
-                    width={0}
-                    height={0}
-                    sizes="100vw"
+                    width={391}
+                    height={575}
                     className="w-full h-full object-cover"
                   />
                 </div>

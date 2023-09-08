@@ -24,6 +24,7 @@ const config: Config = {
         sand: "#F2F1ED",
         pebble: "#F2F1ED",
         grey: "#EAEBEA",
+        neutral: "#E5E0CF",
       },
       fontFamily: {
         sans: ["var(--font-poppins)"],
