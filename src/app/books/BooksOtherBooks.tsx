@@ -64,12 +64,12 @@ export default function BooksOtherBooks({
                   y2="-1"
                   transform="matrix(-1 0 0 1 41 24)"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
                 <path
                   d="M19 12L8 23L19 34"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
               </svg>
             </button>
@@ -90,12 +90,12 @@ export default function BooksOtherBooks({
                   x2="40"
                   y2="23"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
                 <path
                   d="M30 12L41 23L30 34"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
               </svg>
             </button>

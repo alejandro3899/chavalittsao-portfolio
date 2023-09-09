@@ -11,7 +11,7 @@ export default function MediaPressMaterial({
   return (
     <section className="w-full bg-lilac pt-8 sm:pt-12 pb-20 sm:pb-24">
       <div className="container xl:!max-w-[1200px] w-full">
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-12">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6 md:gap-y-12">
           {pressMaterials.map(({ title, image }, i) => {
             return (
               <div key={i} className="flex flex-col gap-4">

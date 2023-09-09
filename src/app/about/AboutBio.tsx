@@ -110,7 +110,7 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
   }
 
   return (
-    <section>
+    <section className="w-full py-8">
       <div className="container w-full flex flex-col gap-8">
         {bioSections.map(({ title, description, images = [] }, i) => {
           const firstImage = images?.[0].image;
@@ -120,7 +120,7 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
               key={i}
               className={clsx(
                 `influence-${i + 1}`,
-                "w-full flex flex-col md:flex-row justify-between py-12"
+                "w-full flex flex-col md:flex-row justify-between py-8 sm:py-12"
               )}
             >
               <div className="hidden sm:block md:flex-[0.5]">
@@ -137,7 +137,7 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
                       alt={(firstImage as Media)?.altText!}
                       width={400}
                       height={300}
-                      className="w-full h-[320px] object-cover rounded-lg"
+                      className="w-full h-[340px] object-cover rounded-lg"
                     />
                   </div>
                 )}

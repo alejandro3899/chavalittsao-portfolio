@@ -1,11 +1,11 @@
-import { Homepage, Podcastspage, WorkSummary } from "@/types/cms";
+import { Podcastspage, WorkSummary } from "@/types/cms";
 import { getGlob } from "@/utils/api";
 import { baseMetadata } from "@/utils/baseMetadata";
 import PodcastsPage from "./PodcastsPage";
 import BaseLayout from "@/components/BaseLayout";
 
 export async function generateMetadata() {
-  const { meta } = await getGlob<Homepage>(
+  const { meta } = await getGlob<Podcastspage>(
     "/podcastspage",
     {},
     { next: { tags: ["podcastspage"] } }

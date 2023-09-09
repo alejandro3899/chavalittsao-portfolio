@@ -14,16 +14,18 @@ export interface Config {
     users: User;
   };
   globals: {
-    navigation: Navigation;
-    footer: Footer;
-    socials: Social;
-    settings: Setting;
-    'work-summary': WorkSummary;
     homepage: Homepage;
     aboutpage: Aboutpage;
     podcastspage: Podcastspage;
     mediapage: Mediapage;
     bookspage: Bookspage;
+    privacypolicypage: Privacypolicypage;
+    navigation: Navigation;
+    footer: Footer;
+    favicon: Favicon;
+    socials: Social;
+    settings: Setting;
+    'work-summary': WorkSummary;
   };
 }
 export interface Media {
@@ -109,77 +111,6 @@ export interface User {
   loginAttempts?: number;
   lockUntil?: string;
   password?: string;
-}
-export interface Navigation {
-  id: string;
-  mainNavigation?: {
-    label: string;
-    url: string;
-    newTab?: boolean;
-    hide?: boolean;
-    id?: string;
-  }[];
-  updatedAt?: string;
-  createdAt?: string;
-}
-export interface Footer {
-  id: string;
-  footerLogo: string;
-  footerLinks?: {
-    label: string;
-    url: string;
-    newTab?: boolean;
-    hide?: boolean;
-    id?: string;
-  }[];
-  contact?: {
-    content: string;
-    id?: string;
-  }[];
-  footerText: string;
-  companyLinks?: {
-    link: string;
-    logo: string | Media;
-    hide: boolean;
-    id?: string;
-  }[];
-  updatedAt?: string;
-  createdAt?: string;
-}
-export interface Social {
-  id: string;
-  socialMediaLinks?: {
-    link: string;
-    logo: string | Media;
-    hide: boolean;
-    id?: string;
-  }[];
-  updatedAt?: string;
-  createdAt?: string;
-}
-export interface Setting {
-  id: string;
-  siteTitle: string;
-  siteDescription: string;
-  siteBranding: string;
-  updatedAt?: string;
-  createdAt?: string;
-}
-export interface WorkSummary {
-  id: string;
-  works?: {
-    title: string;
-    image: string | Media;
-    excerpt: string;
-    link?: {
-      label?: string;
-      url?: string;
-      newTab?: boolean;
-    };
-    id?: string;
-  }[];
-  updatedAt?: string;
-  createdAt?: string;
 }
 export interface Homepage {
   id: string;
@@ -401,6 +332,97 @@ export interface Bookspage {
     description?: string;
     image?: string | Media;
   };
+  updatedAt?: string;
+  createdAt?: string;
+}
+export interface Privacypolicypage {
+  id: string;
+  heading?: string;
+  content?: {
+    [k: string]: unknown;
+  }[];
+  meta?: {
+    title?: string;
+    description?: string;
+    image?: string | Media;
+  };
+  updatedAt?: string;
+  createdAt?: string;
+}
+export interface Navigation {
+  id: string;
+  mainNavigation?: {
+    label: string;
+    url: string;
+    newTab?: boolean;
+    hide?: boolean;
+    id?: string;
+  }[];
+  updatedAt?: string;
+  createdAt?: string;
+}
+export interface Footer {
+  id: string;
+  footerLogo: string;
+  footerLinks?: {
+    label: string;
+    url: string;
+    newTab?: boolean;
+    hide?: boolean;
+    id?: string;
+  }[];
+  contact?: {
+    content: string;
+    id?: string;
+  }[];
+  footerText: string;
+  companyLinks?: {
+    link: string;
+    logo: string | Media;
+    hide: boolean;
+    id?: string;
+  }[];
+  updatedAt?: string;
+  createdAt?: string;
+}
+export interface Favicon {
+  id: string;
+  favicon: string | Media;
+  updatedAt?: string;
+  createdAt?: string;
+}
+export interface Social {
+  id: string;
+  socialMediaLinks?: {
+    link: string;
+    logo: string | Media;
+    hide: boolean;
+    id?: string;
+  }[];
+  updatedAt?: string;
+  createdAt?: string;
+}
+export interface Setting {
+  id: string;
+  siteTitle: string;
+  siteDescription: string;
+  siteBranding: string;
+  updatedAt?: string;
+  createdAt?: string;
+}
+export interface WorkSummary {
+  id: string;
+  works?: {
+    title: string;
+    image: string | Media;
+    excerpt: string;
+    link?: {
+      label?: string;
+      url?: string;
+      newTab?: boolean;
+    };
+    id?: string;
+  }[];
   updatedAt?: string;
   createdAt?: string;
 }

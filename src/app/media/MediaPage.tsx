@@ -11,7 +11,7 @@ export default function MediaPage({ media }: { media: Mediapage }) {
 
   return (
     <>
-      <section className="w-full bg-lilac pt-[calc(var(--nav-offset)+24px)] sm:pt-[calc(var(--nav-offset)+36px)] pb-8 sm:pb-12">
+      <section className="w-full bg-lilac pt-[calc(var(--nav-offset)+24px)] sm:pt-[calc(var(--nav-offset)+36px)] pb-2">
         <div className="container xl:!max-w-[1200px] w-full">
           <header>
             <h1 className="text-4xl sm:text-[42px] leading-none -tracking-[1.26px]">

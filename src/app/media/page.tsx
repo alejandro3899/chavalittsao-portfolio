@@ -12,7 +12,7 @@ export async function generateMetadata() {
   );
 
   return baseMetadata({
-    title: meta?.title ?? "Podcasts",
+    title: meta?.title ?? "Media",
     description: meta?.description,
     slug: "",
     image: (meta?.image as any)?.imagekit?.url,

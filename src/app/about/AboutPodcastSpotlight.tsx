@@ -60,7 +60,7 @@ export default function AboutPodcastSpotlight({
                 width={0}
                 height={0}
                 sizes="100vw"
-                className="h-[420px] sm:h-[500px] lg:h-[600px] w-auto rounded-lg"
+                className="h-[420px] sm:h-[500px] lg:h-[600px] w-auto rounded-lg object-cover"
               />
             </div>
           </div>

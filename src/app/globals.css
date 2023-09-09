@@ -20,8 +20,29 @@
   body {
     @apply text-base-purple antialiased;
   }
-  h2 {
-    @apply text-[1.5rem] sm:text-[28px];
+  h1,
+  .h1 {
+    @apply text-3xl sm:text-[34px];
+  }
+  h2,
+  .h2 {
+    @apply text-[24px] sm:text-[28px];
+  }
+  h3,
+  .h3 {
+    @apply text-2xl sm:text-[24px];
+  }
+  h4,
+  .h4 {
+    @apply text-xl sm:text-[20px];
+  }
+  h5,
+  .h5 {
+    @apply text-lg sm:text-[18px];
+  }
+  h6,
+  .h6 {
+    @apply text-base sm:text-[16px];
   }
   a,
   button {
@@ -65,6 +86,77 @@
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: rgb(190, 190, 190);
+}
+
+/* rich text */
+.richtext p:empty,
+.richtext hr,
+.richtext ul:empty,
+.richtext ol:empty,
+.richtext figure,
+.richtext .richtext-video {
+  @apply mb-7;
+}
+.richtext h1,
+.richtext h2,
+.richtext h3,
+.richtext h4,
+.richtext h5,
+.richtext h6 {
+  @apply mb-3;
+}
+.richtext h1 {
+  @apply h2 leading-none;
+}
+.richtext h2 {
+  @apply h3 leading-none;
+}
+.richtext h3 {
+  @apply h4 leading-none;
+}
+.richtext h4 {
+  @apply h5 leading-none;
+}
+.richtext h5 {
+  @apply h6 leading-none;
+}
+.richtext h6 {
+  @apply text-lg font-bold leading-none;
+}
+.richtext p,
+.richtext li {
+  @apply whitespace-pre-line;
+}
+.richtext li {
+  @apply my-3 ml-5;
+}
+.richtext a {
+  @apply underline;
+}
+.richtext ul {
+  @apply list-disc;
+}
+.richtext ol {
+  @apply list-decimal;
+}
+.richtext ul a,
+.richtext ol a {
+  @apply no-underline hover:underline;
+}
+.richtext figure {
+  @apply grid gap-4;
+}
+.richtext img {
+  @apply mx-auto max-w-[300px] rounded-lg sm:max-w-[500px];
+}
+.richtext figcaption {
+  @apply mx-auto max-w-[500px] text-center text-xs italic leading-[1.4];
+}
+.richtext figcaption a {
+  @apply no-underline;
+}
+.richtext .font-normal {
+  font-weight: normal;
 }
 
 @media screen and (max-width: 767px) {

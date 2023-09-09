@@ -5,6 +5,8 @@ import clsx from "clsx";
 import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
 import type { Metadata } from "next";
+import { getGlob } from "@/utils/api";
+import { Favicon, Media } from "@/types/cms";
 
 const gtAlpina = localFont({
   src: [
@@ -31,11 +33,25 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // const { favicon } = await getGlob<Favicon>("/favicon");
+  const { favicon } = await getGlob<Favicon>("/favicon");
 
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <meta name="color-scheme" content="light only" />
+      <head>
+        {/* <meta name="viewport" content="width=device-width, initial-scale=1.0" /> */}
+        <meta name="color-scheme" content="light only" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href={(favicon as Media)?.imagekit?.url ?? ""}
+          sizes="any"
+        />
+      </head>
       <body
         className={clsx(
           poppins.variable,
