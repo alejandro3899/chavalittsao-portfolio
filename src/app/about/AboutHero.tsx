@@ -7,7 +7,7 @@ export default function AboutHero({ hero }: { hero: Aboutpage["hero"] }) {
   return (
     <section className="w-full bg-lilac pt-[var(--nav-offset)] pb-8 sm:pb-12">
       <div className="container w-full flex flex-col gap-8 sm:gap-10">
-        <div className="w-full flex flex-col sm:flex-row justify-between gap-2 md:gap-6 lg:gap-10">
+        <div className="w-full flex flex-col sm:flex-row justify-between gap-2 md:gap-6 lg:gap-12">
           <div className="flex-[0.5]">
             <h1 className="leading-snug -tracking-[0.24px] text-sm">
               {heading}

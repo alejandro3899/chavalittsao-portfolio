@@ -46,7 +46,7 @@ export default function BooksHero({ hero }: { hero: Bookspage["hero"] }) {
               sizes="100vw"
               width={0}
               height={0}
-              className="max-w-[630px] w-full h-auto aspect-[1_/_1.16] rounded-lg"
+              className="max-w-[630px] w-full h-auto lg:aspect-[1_/_1.025] rounded-lg lg:object-cover"
             />
           </div>
         </div>

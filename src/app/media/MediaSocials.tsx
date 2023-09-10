@@ -17,10 +17,11 @@ export default function MediaSocials({
           </h3>
         </div>
         <div className="max-w-xl mx-auto w-full flex flex-wrap items-center justify-center gap-6 sm:gap-8">
-          {socialMediaLinks.map(({ icon, label, link }) => {
+          {socialMediaLinks.map(({ icon, label, link }, i) => {
             return (
               link && (
                 <Link
+                  key={i}
                   href={link}
                   className="w-16 h-16 flex items-center justify-center border-neutral border rounded-full"
                 >

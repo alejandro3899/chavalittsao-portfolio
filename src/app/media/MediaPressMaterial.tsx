@@ -21,7 +21,7 @@ export default function MediaPressMaterial({
                     alt={(image as Media)?.altText}
                     width={650}
                     height={400}
-                    className="w-full h-full object-fit md:object-cover"
+                    className="w-full h-full object-fit md:object-cover md:aspect-[1.47_/_1]"
                   />
                 </div>
                 <div className="w-full flex items-center justify-between">
@@ -29,11 +29,14 @@ export default function MediaPressMaterial({
                     {title}
                   </p>
                   <a
+                    className="text-base-purple text-xs leading-snug -tracking-[0.24px] cursor-pointer"
                     href={(image as Media)?.imagekit?.url}
                     download={
                       (image as Media)?.imagekit?.name ?? "press-material"
                     }
-                    className="text-base-purple text-xs leading-snug -tracking-[0.24px]"
+                    target="_blank"
+                    rel="noreferrer"
+                    // onClick={(e) => e.preventDefault()}
                   >
                     Download
                   </a>

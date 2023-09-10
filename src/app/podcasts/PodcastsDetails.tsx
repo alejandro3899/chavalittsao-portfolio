@@ -77,7 +77,7 @@ export default function PodcastsDetails({
                     )}
                   >
                     <div className="flex-[0.5] flex justify-between gap-2 sm:gap-12">
-                      <div className="w-full h-full flex-col justify-between">
+                      <div className="w-full h-full flex flex-col justify-between gap-2 sm:gap-0">
                         <h4 className="font-serif font-light text-3xl sm:text-[34px]">
                           {title}
                         </h4>

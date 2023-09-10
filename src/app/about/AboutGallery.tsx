@@ -56,7 +56,7 @@ export default function AboutGallery({
               <SwiperSlide
                 key={i}
                 className={clsx(
-                  "w-full max-w-full sm:max-w-[calc(50%-(16px/2))] md:max-w-[calc(33%-((2*12px)/3))] lg:max-w-[calc(25%-((3*12px)/4))]",
+                  "w-full max-w-full sm:max-w-[calc(50%-(16px/2))] md:max-w-[calc((100%/3)-((2*12px)/3))] lg:max-w-[calc(25%-((3*12px)/4))]",
                   i !== images.length - 1 ? "mr-3" : "!mr-0"
                 )}
               >

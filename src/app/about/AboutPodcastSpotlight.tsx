@@ -14,7 +14,7 @@ export default function AboutPodcastSpotlight({
     <section className="w-full py-8 sm:py-12">
       <div className="w-full max-w-lg md:max-w-full mx-auto">
         <div className="container w-fit md:w-full flex flex-col-reverse md:flex-row gap-8 items-stretch justify-between">
-          <div className="w-full flex md:flex-[0.5] flex-col justify-end gap-0 md:gap-10">
+          <div className="w-full flex md:flex-[0.4] lg:flex-[0.5] flex-col justify-end gap-0 md:gap-10">
             <div className="flex flex-col max-w-[380px] mb-8 md:mb-0">
               <h3 className="text-xs leading-tight tracking-tight mb-2">
                 PODCAST
@@ -52,7 +52,7 @@ export default function AboutPodcastSpotlight({
             )}
           </div>
 
-          <div className="flex flex-1 md:flex-[0.5] md:items-end">
+          <div className="flex flex-1 md:flex-[0.6] lg:flex-[0.5] md:items-end">
             <div className="w-full md:w-fit md:ml-auto">
               <ImageKit
                 image={podcast.image as Media}
@@ -60,7 +60,7 @@ export default function AboutPodcastSpotlight({
                 width={0}
                 height={0}
                 sizes="100vw"
-                className="h-[420px] sm:h-[500px] lg:h-[600px] w-auto rounded-lg object-cover"
+                className="h-[420px] sm:h-[480px] lg:h-[600px] w-auto rounded-lg object-cover"
               />
             </div>
           </div>

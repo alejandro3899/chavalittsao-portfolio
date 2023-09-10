@@ -20,7 +20,7 @@ export default function PodcastsPage({
       <PodcastsDetails podcast={hero.showcasePodcast} />
       <section className="w-full pt-8 sm:pt-12 pb-24">
         <div className="container flex flex-col">
-          <h2 className="tracking-[-0.84px] mb-8">
+          <h2 className="text-center md:text-left tracking-[-0.84px] mb-8">
             {podcastsWorkSummary.heading}
           </h2>
           <WorkSummary workSummary={workSummary} />

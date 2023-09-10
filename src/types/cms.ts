@@ -190,7 +190,9 @@ export interface Aboutpage {
   bio: {
     bioSections?: {
       title: string;
-      description: string;
+      description: {
+        [k: string]: unknown;
+      }[];
       images?: {
         image: string | Media;
         size?: 'default' | 'full';

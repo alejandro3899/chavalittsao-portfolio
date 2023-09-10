@@ -64,7 +64,7 @@ export default function AboutPage({
       <AboutGallery gallery={gallery} />
       <section className="w-full bg-lilac pt-8 sm:pt-12 pb-24">
         <div className="container flex flex-col">
-          <h2 className="tracking-[-0.84px] mb-8">
+          <h2 className="text-center md:text-left tracking-[-0.84px] mb-8">
             {aboutWorkSummary.heading}
           </h2>
           <WorkSummary workSummary={workSummary} />

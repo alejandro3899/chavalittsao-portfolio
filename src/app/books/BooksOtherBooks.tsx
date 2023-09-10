@@ -48,7 +48,7 @@ export default function BooksOtherBooks({
           </h2>
           <div className="flex items-center gap-5">
             <button
-              className="group outline-none focus:outline-none focus-visible:outline-none text-royal-purple disabled:text-royal-purple/50"
+              className="group outline-none focus:outline-none focus-visible:outline-none text-royal-purple disabled:text-royal-purple/40"
               onClick={() => slideRef?.current?.slidePrev()}
               disabled={tabIndex === 0}
             >
@@ -74,7 +74,7 @@ export default function BooksOtherBooks({
               </svg>
             </button>
             <button
-              className="group outline-none focus:outline-none focus-visible:outline-none text-royal-purple disabled:text-royal-purple/50"
+              className="group outline-none focus:outline-none focus-visible:outline-none text-royal-purple disabled:text-royal-purple/40"
               onClick={() => slideRef?.current?.slideNext()}
               disabled={nextDisabled}
             >
@@ -139,7 +139,7 @@ export default function BooksOtherBooks({
                 <SwiperSlide
                   key={i}
                   className={clsx(
-                    "max-w-full md:max-w-[calc(50%-(16px/2))] lg:max-w-[calc(33%-((2*16px)/3))]",
+                    "max-w-full md:max-w-[calc(50%-(16px/2))] lg:max-w-[calc(calc(100%/3)-(32px/3))]",
                     i !== books.length - 1 ? "mr-4" : "!mr-0"
                   )}
                 >

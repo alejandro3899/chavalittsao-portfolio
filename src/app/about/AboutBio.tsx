@@ -2,6 +2,7 @@ import { Aboutpage, Media } from "@/types/cms";
 import clsx from "clsx";
 import Image from "next/image";
 import ImageKit from "../../components/ImageKit";
+import slateToHtml, { richTextConfig } from "@/utils/slateToHtml";
 
 const items = [
   {
@@ -141,16 +142,20 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
                     />
                   </div>
                 )}
-                <p className="text-xs leading-snug -tracking-[0.24px]">
-                  {description}
-                </p>
+                <div
+                  className="richtext text-xs [&_*]:text-xs [&_*]:-tracking-[0.24px] [&_*]:leading-snug"
+                  dangerouslySetInnerHTML={slateToHtml(
+                    description,
+                    richTextConfig
+                  )}
+                />
                 <div className="hidden sm:grid grid-cols-2 gap-12">
                   {(images ?? []).map(({ image, size }, i) => (
                     <div
                       key={i}
                       className={clsx(
                         "flex items-center",
-                        images?.length === 1
+                        images?.length === 1 && size !== "full"
                           ? "col-[span_1_/_3]"
                           : {
                               "col-span-2": size === "full",

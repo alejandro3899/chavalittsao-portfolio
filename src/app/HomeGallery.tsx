@@ -1,14 +1,13 @@
 import "swiper/css/bundle";
 import "swiper/css/autoplay";
 
-import SwiperType from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade } from "swiper/modules";
-import Image from "next/image";
-import { useRef, useState } from "react";
-import clsx from "clsx";
 import { Homepage, Media } from "@/types/cms";
 import ImageKit from "@/components/ImageKit";
+import clsx from "clsx";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
+import SwiperType from "swiper";
+import { useRef, useState } from "react";
 
 export default function HomeForum({
   gallery,

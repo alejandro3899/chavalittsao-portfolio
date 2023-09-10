@@ -1,5 +1,5 @@
-import ImageKit from "@/components/ImageKit";
 import { Bookspage, Media } from "@/types/cms";
+import ImageKit from "@/components/ImageKit";
 
 export default function BooksExcerpt({
   excerpt,
@@ -10,16 +10,16 @@ export default function BooksExcerpt({
 
   return (
     <section className="w-full py-8 sm:py-12">
-      <div className="container w-full flex flex-col md:flex-row justify-between items-stretch gap-8 lg:gap-24">
+      <div className="container lg:min-h-[95vh] w-full flex flex-col md:flex-row justify-between items-stretch gap-8 lg:gap-24">
         <div className="max-w-[522px] md:max-w-full w-full mx-auto md:flex-[0.5]">
           <div className="w-full h-full">
             <ImageKit
               image={image as Media}
               alt={(image as Media)?.altText}
               width={0}
-              height={0}
+              height={760}
               sizes="100vw"
-              className="w-full h-auto rounded-lg"
+              className="w-full h-[600px] lg:h-full rounded-lg object-cover"
             />
           </div>
         </div>
