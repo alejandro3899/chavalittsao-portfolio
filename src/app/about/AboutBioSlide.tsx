@@ -1,41 +1,14 @@
 import "swiper/css/bundle";
 import "swiper/css/autoplay";
 
-import SwiperType from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade } from "swiper/modules";
-import { useRef, useState } from "react";
-import clsx from "clsx";
 import { Aboutpage, Media } from "@/types/cms";
-import ImageKit from "../../components/ImageKit";
-
-const items = [
-  {
-    heading: "The Business Reformist",
-    text: "The veteran businessman has personally experienced the birth of the market economy and saw the unhinged growth at all cost model. As Chavalit evolved as an entrepreneur and member of the global business community, he became conscious about urgency of business reform to restore “add value to life” as the core purpose of all businesses. ",
-    image: "",
-  },
-  {
-    heading: "Fourth Generation Steward",
-    text: "The veteran businessman has personally experienced the birth of the market economy and saw the unhinged growth at all cost model. As Chavalit evolved as an entrepreneur and member of the global business community, he became conscious about urgency of business reform to restore “add value to life” as the core purpose of all businesses. ",
-    image: "",
-  },
-  {
-    heading: "Chairman of FBN Council of Wisdom",
-    text: "The veteran businessman has personally experienced the birth of the market economy and saw the unhinged growth at all cost model. As Chavalit evolved as an entrepreneur and member of the global business community, he became conscious about urgency of business reform to restore “add value to life” as the core purpose of all businesses. ",
-    image: "",
-  },
-  {
-    heading: "Founder of Octave Institute",
-    text: "The veteran businessman has personally experienced the birth of the market economy and saw the unhinged growth at all cost model. As Chavalit evolved as an entrepreneur and member of the global business community, he became conscious about urgency of business reform to restore “add value to life” as the core purpose of all businesses. ",
-    image: "",
-  },
-  {
-    heading: "East West Bridge",
-    text: "The veteran businessman has personally experienced the birth of the market economy and saw the unhinged growth at all cost model. As Chavalit evolved as an entrepreneur and member of the global business community, he became conscious about urgency of business reform to restore “add value to life” as the core purpose of all businesses. ",
-    image: "",
-  },
-];
+import slateToHtml, { richTextConfig } from "@/utils/slateToHtml";
+import ImageKit from "@/components/ImageKit";
+import clsx from "clsx";
+import { Autoplay, EffectFade } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperType from "swiper";
+import { useRef, useState } from "react";
 
 export default function AboutBioSlide({
   about,
@@ -48,8 +21,8 @@ export default function AboutBioSlide({
   const { heading, subHeading, bioSlide = [] } = about;
 
   function handleSlide(index: number) {
-    const prev = tabIndex === 0 ? (items ?? []).length - 1 : tabIndex - 1;
-    const next = tabIndex === (items ?? []).length - 1 ? 0 : tabIndex + 1;
+    const prev = tabIndex === 0 ? (bioSlide ?? []).length - 1 : tabIndex - 1;
+    const next = tabIndex === (bioSlide ?? []).length - 1 ? 0 : tabIndex + 1;
 
     index === next
       ? slideRef.current?.slideNext()
@@ -70,6 +43,7 @@ export default function AboutBioSlide({
           </div>
 
           <div className="w-full flex flex-col-reverse lg:flex-col gap-20 lg:gap-0">
+            {/* mobile */}
             <div className="custom-scrollbar w-full max-w-full flex justify-center lg:hidden overflow-auto mb-10">
               <ul className="flex flex-wrap gap-6 sm:gap-8 mx-auto items-center">
                 {(bioSlide ?? []).map((_, i) => (
@@ -89,8 +63,9 @@ export default function AboutBioSlide({
                 ))}
               </ul>
             </div>
+            {/* desktop */}
             <div className="custom-scrollbar w-full max-w-full hidden lg:block overflow-auto mb-10">
-              <ul className="max-w-fit min-w-fit flex gap-8 sm:gap-10 mx-auto items-center">
+              <ul className="w-full flex flex-wrap gap-x-8 sm:gap-x-10 gap-y-4 mx-auto justify-center items-center">
                 {(bioSlide ?? []).map(({ title }, i) => (
                   <li
                     key={i}
@@ -109,6 +84,7 @@ export default function AboutBioSlide({
               </ul>
             </div>
 
+            {/* content */}
             <Swiper
               modules={[Autoplay, EffectFade]}
               autoplay={{
@@ -132,8 +108,8 @@ export default function AboutBioSlide({
               {(bioSlide ?? []).map(({ title, description, image }, i) => {
                 return (
                   <SwiperSlide key={i} className="bg-pebble w-full !h-auto">
-                    <div className="w-full flex flex-col md:flex-row justify-between gap-5 sm:gap-10">
-                      <div className="w-full md:flex-[0.5] flex items-stretch h-[320px] md:h-auto min-h-[320px] md:min-h-[450px] lg:min-h-[600px]">
+                    <div className="w-full mx-auto max-w-[480px] md:max-w-full flex flex-col md:flex-row justify-between gap-5 sm:gap-10">
+                      <div className="w-full md:flex-[0.5] flex items-stretch mx-auto max-w-[480px] md:max-w-full h-[320px] lg:h-auto min-h-[320px] lg:min-h-[600px]">
                         {image ? (
                           <ImageKit
                             image={image as Media}
@@ -146,13 +122,20 @@ export default function AboutBioSlide({
                           <div className="w-full bg-white rounded-lg" />
                         )}
                       </div>
-                      <div className="max-w-[552px] mx-auto md:flex-[0.5] flex flex-col justify-center sm:items-center">
-                        <h3 className="text-xl sm:text-center tracking-tight mb-2 sm:mb-4">
+                      <div className="relative max-w-[552px] mx-auto md:flex-[0.5] flex flex-col justify-center md:items-center">
+                        <h3 className="text-xl md:text-center tracking-tight mb-2 sm:mb-4">
                           {title}
                         </h3>
-                        <p className="font-light sm:text-center leading-snug text-[13px]">
-                          {description}
-                        </p>
+                        <div
+                          className="richtext font-light md:text-center leading-snug text-[13px] -tracking-[0.26px]"
+                          dangerouslySetInnerHTML={slateToHtml(
+                            description,
+                            richTextConfig
+                          )}
+                        />
+                        <span className="absolute bottom-0 left-1/2 hidden lg:block text-[13px] leading-none -transalte-x-1/2">
+                          {(i + 1).toString().padStart(2, "0")}
+                        </span>
                       </div>
                     </div>
                   </SwiperSlide>

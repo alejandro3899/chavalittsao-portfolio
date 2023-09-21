@@ -36,10 +36,12 @@ const config: Config = {
       },
       backgroundImage: {},
       letterSpacing: {
-        wider: "0.02em",
-        tight: "-0.0125em",
-        tighter: "-0.02em",
-        tightest: "-0.02625em",
+        widest: "0.02625em", // 0.42px
+        wider: "0.02em", // 0.32px
+        wide: "0.0125em", // 0.2px
+        tight: "-0.0125em", // 0.2px
+        tighter: "-0.02em", // -0.2px
+        tightest: "-0.02625em", // -0.42px
       },
       lineHeight: {
         snug: "1.4",

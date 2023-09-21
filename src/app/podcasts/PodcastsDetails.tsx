@@ -126,7 +126,7 @@ export default function PodcastsDetails({
           )}
         </div>
         <div>
-          <LinkButton href="#" className="leading-snug tracking-tighter">
+          <LinkButton className="leading-snug tracking-tighter">
             more+
           </LinkButton>
         </div>

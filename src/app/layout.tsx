@@ -2,11 +2,11 @@ import "./globals.css";
 
 import clsx from "clsx";
 
+import { Favicon, Media } from "@/types/cms";
+import { getGlob } from "@/utils/api";
 import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
 import type { Metadata } from "next";
-import { getGlob } from "@/utils/api";
-import { Favicon, Media } from "@/types/cms";
 
 const gtAlpina = localFont({
   src: [

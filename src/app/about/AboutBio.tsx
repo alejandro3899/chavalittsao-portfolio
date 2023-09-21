@@ -1,77 +1,7 @@
 import { Aboutpage, Media } from "@/types/cms";
-import clsx from "clsx";
-import Image from "next/image";
-import ImageKit from "../../components/ImageKit";
 import slateToHtml, { richTextConfig } from "@/utils/slateToHtml";
-
-const items = [
-  {
-    title: "EARLY INFLUENCES",
-    text: `
-        Chavalit was formally educated at the University of Michigan, USA. Having been exposed to both Eastern and Western cultures, Chavalit became the product of his time and his exposure. He is a product of both the East and the West. Chavalit saw his destiny to be intertwined with that of his family business and poured himself into it, finding success early in his life. The young chairman found himself in a strong financial position within a flourishing capitalist system. He felt that he could live forever and that the sky was the limit to his ambitions and passions.
-
-        The businessman felt that he had done justice to the family business he inherited and could imagine how to continue exploiting the markets and growing the family coffers even more. During these turbulent times, he saw the invisible hand of the market moving and saw the very real greed behind many of the decisions that would continue to shape the economy. 
-        `,
-    images: [
-      {
-        size: "half",
-        src: "/images/chavalit-6.png",
-      },
-    ],
-  },
-  {
-    title: "THE RISE & FALL OF THE ASIAN MIRACLE",
-    text: `
-        Chavalit was formally educated at the University of Michigan, USA. Having been exposed to both Eastern and Western cultures, Chavalit became the product of his time and his exposure. He is a product of both the East and the West. Chavalit saw his destiny to be intertwined with that of his family business and poured himself into it, finding success early in his life. The young chairman found himself in a strong financial position within a flourishing capitalist system. He felt that he could live forever and that the sky was the limit to his ambitions and passions.
-        `,
-    images: [
-      {
-        size: "half",
-        src: "/images/chavalit-7.png",
-      },
-    ],
-  },
-  {
-    title: "THE TIME FOR RESEARCH IS NOW",
-    text: `
-        Chavalit was formally educated at the University of Michigan, USA. Having been exposed to both Eastern and Western cultures, Chavalit became the product of his time and his exposure. He is a product of both the East and the West. Chavalit saw his destiny to be intertwined with that of his family business and poured himself into it, finding success early in his life. The young chairman found himself in a strong financial position within a flourishing capitalist system. He felt that he could live forever and that the sky was the limit to his ambitions and passions.
-        `,
-    images: [
-      {
-        size: "full",
-        src: "/images/chavalit-8.png",
-      },
-    ],
-  },
-  {
-    title: "THE AWAKENING & THE NEW ERA",
-    text: `
-        Chavalit was formally educated at the University of Michigan, USA. Having been exposed to both Eastern and Western cultures, Chavalit became the product of his time and his exposure. He is a product of both the East and the West. Chavalit saw his destiny to be intertwined with that of his family business and poured himself into it, finding success early in his life. The young chairman found himself in a strong financial position within a flourishing capitalist system. He felt that he could live forever and that the sky was the limit to his ambitions and passions.
-        `,
-    images: [
-      {
-        size: "half",
-        src: "/images/chavalit-9.png",
-      },
-      {
-        size: "half",
-        src: "/images/chavalit-6.png",
-      },
-    ],
-  },
-  {
-    title: "QUANTUM LEADERSHIP, A CALLING",
-    text: `
-        Chavalit was formally educated at the University of Michigan, USA. Having been exposed to both Eastern and Western cultures, Chavalit became the product of his time and his exposure. He is a product of both the East and the West. Chavalit saw his destiny to be intertwined with that of his family business and poured himself into it, finding success early in his life. The young chairman found himself in a strong financial position within a flourishing capitalist system. He felt that he could live forever and that the sky was the limit to his ambitions and passions.
-        `,
-    images: [
-      {
-        size: "half",
-        src: "/images/chavalit-3.png",
-      },
-    ],
-  },
-];
+import ImageKit from "../../components/ImageKit";
+import clsx from "clsx";
 
 export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
   const { bioSections = [] } = bio;
@@ -124,7 +54,7 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
                 "w-full flex flex-col md:flex-row justify-between py-8 sm:py-12"
               )}
             >
-              <div className="hidden sm:block md:flex-[0.5]">
+              <div className="hidden md:block md:flex-[0.5]">
                 <Nav active={title} />
               </div>
               <div className="md:flex-[0.5] flex flex-col gap-6 sm:gap-8">
@@ -149,7 +79,7 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
                     richTextConfig
                   )}
                 />
-                <div className="hidden sm:grid grid-cols-2 gap-12">
+                <div className="hidden sm:grid grid-cols-2 gap-8 md:gap-12">
                   {(images ?? []).map(({ image, size }, i) => (
                     <div
                       key={i}

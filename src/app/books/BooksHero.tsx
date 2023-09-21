@@ -1,7 +1,7 @@
+import { Book, Bookspage, Media } from "@/types/cms";
 import ImageKit from "@/components/ImageKit";
 import LinkButton from "@/components/LinkButton";
 import PrimaryButton from "@/components/PrimaryButton";
-import { Book, Bookspage, Media } from "@/types/cms";
 import Link from "next/link";
 
 export default function BooksHero({ hero }: { hero: Bookspage["hero"] }) {
@@ -21,12 +21,7 @@ export default function BooksHero({ hero }: { hero: Bookspage["hero"] }) {
                 {description}
               </p>
               {learnMoreLink && (
-                <LinkButton
-                  href={learnMoreLink?.url!}
-                  className="text-xs leading-tight"
-                >
-                  more+
-                </LinkButton>
+                <LinkButton className="text-xs leading-tight">more+</LinkButton>
               )}
             </div>
 

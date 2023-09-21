@@ -126,12 +126,9 @@ export interface Homepage {
   };
   intro: {
     heading: string;
-    excerpt: string;
-    readMoreLink?: {
-      label?: string;
-      url?: string;
-      newTab?: boolean;
-    };
+    excerpt: {
+      [k: string]: unknown;
+    }[];
     image: string | Media;
   };
   about: {
@@ -139,7 +136,9 @@ export interface Homepage {
     subHeading: string;
     bioSlide?: {
       title: string;
-      description: string;
+      description: {
+        [k: string]: unknown;
+      }[];
       image?: string | Media;
       id?: string;
     }[];
@@ -179,12 +178,9 @@ export interface Aboutpage {
   };
   intro: {
     heading: string;
-    excerpt: string;
-    readMoreLink?: {
-      label?: string;
-      url?: string;
-      newTab?: boolean;
-    };
+    excerpt: {
+      [k: string]: unknown;
+    }[];
     image: string | Media;
   };
   bio: {
@@ -206,7 +202,9 @@ export interface Aboutpage {
     subHeading: string;
     bioSlide?: {
       title: string;
-      description: string;
+      description: {
+        [k: string]: unknown;
+      }[];
       image?: string | Media;
       id?: string;
     }[];

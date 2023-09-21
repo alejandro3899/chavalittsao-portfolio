@@ -40,7 +40,7 @@ export default function AboutGallery({
               slidesPerView: 3,
             },
             1024: {
-              slidesPerView: 4,
+              slidesPerView: 3,
             },
           }}
           onInit={(swiper) => {
@@ -56,11 +56,11 @@ export default function AboutGallery({
               <SwiperSlide
                 key={i}
                 className={clsx(
-                  "w-full max-w-full sm:max-w-[calc(50%-(16px/2))] md:max-w-[calc((100%/3)-((2*12px)/3))] lg:max-w-[calc(25%-((3*12px)/4))]",
+                  "w-full max-w-full sm:max-w-[calc(50%-(16px/2))] md:max-w-[calc((100%/3)-((2*12px)/3))]",
                   i !== images.length - 1 ? "mr-3" : "!mr-0"
                 )}
               >
-                <div className="w-full h-full">
+                <div className="w-full h-full overflow-hidden rounded-lg">
                   <img
                     src={(image as Media)?.imagekit?.url}
                     alt={(image as Media)?.altText ?? `Image ${i + 1}`}

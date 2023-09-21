@@ -1,9 +1,10 @@
 import { Aboutpage, Media } from "@/types/cms";
 import LinkButton from "../../components/LinkButton";
 import ImageKit from "../../components/ImageKit";
+import ClampedText from "@/components/ClampedText";
 
 export default function AboutIntro({ intro }: { intro: Aboutpage["intro"] }) {
-  const { heading, image, excerpt, readMoreLink } = intro;
+  const { heading, image, excerpt } = intro;
 
   return (
     <section className="w-full bg-lilac pt-8 sm:pt-12 pb-20 sm:pb-12">
@@ -26,12 +27,12 @@ export default function AboutIntro({ intro }: { intro: Aboutpage["intro"] }) {
             <h2 className="hidden sm:block text-[21px] uppercase leading-tight">
               {heading}
             </h2>
-            <p className="paragraph">{excerpt}</p>
-            {readMoreLink && (
-              <LinkButton href={readMoreLink?.url!}>
-                {readMoreLink.label}
-              </LinkButton>
-            )}
+            <ClampedText
+              richContent={excerpt}
+              lines={8}
+              className="paragraph"
+              buttonClassName="text-base leading-[1.4] tracking-tighter"
+            />
           </div>
         </div>
       </div>
