@@ -18,7 +18,7 @@ export default function AboutGallery({
   const { images = [] } = gallery;
 
   return (
-    <section className="w-full bg-lilac py-20 px-4 sm:px-0">
+    <section className="w-full bg-lilac py-20 px-4 sm:px-0 overflow-hidden">
       <div className="w-full mb-9">
         <h2 className="text-center leading-none -tracking-[0.84px]">Gallery</h2>
       </div>

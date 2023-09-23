@@ -7,19 +7,15 @@ function apiFetch(url: string, options: RequestInit = {}) {
     headers: {
       "Content-Type": "application/json",
     },
-    next: {
-      revalidate: 30,
-    },
   };
 
-  const next = {
-    revalidate: 30,
-    ...options.next,
-  };
   const mergedOptions = {
     ...defaultOptions,
     ...options,
-    next,
+    next: {
+      revalidate: 30,
+      ...options.next,
+    },
   };
 
   return fetch(url, mergedOptions).then((res) => {
@@ -35,27 +31,27 @@ function apiFetch(url: string, options: RequestInit = {}) {
 export async function getColl<T>(
   endpoint: string,
   query?: PayloadApiArgs,
-  fetechOptions?: RequestInit
+  fetchOptions?: RequestInit
 ): Promise<PayloadCollection<T>> {
   const stringifiedQuery = qs.stringify(
     { limit: 1000, ...query },
     { addQueryPrefix: true }
   );
   const url = `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/api${endpoint}${stringifiedQuery}`;
-  const data = await apiFetch(url, fetechOptions ?? {});
+  const data = await apiFetch(url, fetchOptions ?? {});
   return data;
 }
 
 export async function getGlob<T>(
   endpoint: string,
   query?: PayloadApiArgs,
-  fetechOptions?: RequestInit
+  fetchOptions?: RequestInit
 ): Promise<T> {
   const stringifiedQuery = qs.stringify(
     { limit: 1000, ...query },
     { addQueryPrefix: true }
   );
   const url = `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/api/globals${endpoint}${stringifiedQuery}`;
-  const data = await apiFetch(url, fetechOptions ?? {});
+  const data = await apiFetch(url, fetchOptions ?? {});
   return data;
 }

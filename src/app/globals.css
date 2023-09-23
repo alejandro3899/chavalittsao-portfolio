@@ -10,10 +10,10 @@
 }
 
 @layer base {
-  html,
+  /* html,
   body {
     @apply overflow-x-hidden;
-  }
+  } */
   html {
     scroll-behavior: smooth;
   }
@@ -60,6 +60,13 @@
   .paragraph {
     @apply text-base leading-[1.4] tracking-tighter;
   }
+  .hidden-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hidden-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -74,8 +81,8 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 4px;
+  height: 4px;
 }
 .custom-scrollbar::-webkit-scrollbar-track {
   background: rgb(235, 235, 235);

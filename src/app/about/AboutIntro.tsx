@@ -1,6 +1,5 @@
 import { Aboutpage, Media } from "@/types/cms";
-import LinkButton from "../../components/LinkButton";
-import ImageKit from "../../components/ImageKit";
+import ImageKit from "@/components/ImageKit";
 import ClampedText from "@/components/ClampedText";
 
 export default function AboutIntro({ intro }: { intro: Aboutpage["intro"] }) {
@@ -8,7 +7,7 @@ export default function AboutIntro({ intro }: { intro: Aboutpage["intro"] }) {
 
   return (
     <section className="w-full bg-lilac pt-8 sm:pt-12 pb-20 sm:pb-12">
-      <div className="container w-full flex flex-col md:flex-row justify-between items-stretch gap-4 md:gap-12 sm:gap-[60px]">
+      <div className="container w-full flex flex-col md:flex-row justify-between items-stretch gap-4 md:gap-16 sm:gap-[60px]">
         <h2 className="block sm:hidden text-center text-[21px] uppercase leading-tight mb-2">
           {heading}
         </h2>

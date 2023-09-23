@@ -1,8 +1,8 @@
 import { Privacypolicypage } from "@/types/cms";
 import { getGlob } from "@/utils/api";
 import { baseMetadata } from "@/utils/baseMetadata";
-import PrivacyPolicyPage from "./PrivacyPolicyPage";
 import BaseLayout from "@/components/BaseLayout";
+import PrivacyPolicyPage from "./PrivacyPolicyPage";
 
 export async function generateMetadata() {
   const { meta } = await getGlob<Privacypolicypage>(
@@ -14,7 +14,7 @@ export async function generateMetadata() {
   return baseMetadata({
     title: meta?.title ?? "Privacy Policy",
     description: meta?.description,
-    slug: "",
+    slug: "privacy-policy",
     image: (meta?.image as any)?.imagekit?.url,
   });
 }

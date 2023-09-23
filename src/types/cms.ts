@@ -148,6 +148,7 @@ export interface Homepage {
       quoteText: string;
       image: string | Media;
       size?: 'extraSmall' | 'small' | 'medium' | 'large';
+      hide: boolean;
     };
   };
   gallery: {
@@ -214,6 +215,7 @@ export interface Aboutpage {
       quoteText: string;
       image: string | Media;
       size?: 'extraSmall' | 'small' | 'medium' | 'large';
+      hide: boolean;
     };
   };
   quoteBlock2: {
@@ -221,6 +223,7 @@ export interface Aboutpage {
       quoteText: string;
       image: string | Media;
       size?: 'extraSmall' | 'small' | 'medium' | 'large';
+      hide: boolean;
     };
   };
   podcastSpotlight: {
@@ -387,7 +390,7 @@ export interface Footer {
 }
 export interface Favicon {
   id: string;
-  favicon: string | Media;
+  favicon?: string | Media;
   updatedAt?: string;
   createdAt?: string;
 }

@@ -111,7 +111,7 @@ export default function HomeForum({
                 return (
                   <SwiperSlide
                     key={i}
-                    className="bg-pebble w-full !h-auto flex items-center"
+                    className="bg-sand w-full !h-auto flex items-center"
                   >
                     <div className="h-full flex md:flex-[0.5]">
                       <div className="w-full h-full flex items-center">

@@ -35,7 +35,7 @@ export default function AboutBioSlide({
     <>
       <section className="w-full py-8 sm:py-12">
         <div className="container flex flex-col">
-          <div className="w-full max-w-[660px] mx-auto flex flex-col justify-center items-center mb-10">
+          <div className="w-full max-w-[480px] md:max-w-[660px] mx-auto flex flex-col justify-center items-center mb-10">
             <h2 className="text-center mb-2 sm:mb-4">{heading}</h2>
             <p className="max-w-[473px] mx-auto paragraph text-center">
               {subHeading}
@@ -107,7 +107,7 @@ export default function AboutBioSlide({
             >
               {(bioSlide ?? []).map(({ title, description, image }, i) => {
                 return (
-                  <SwiperSlide key={i} className="bg-pebble w-full !h-auto">
+                  <SwiperSlide key={i} className="bg-sand w-full !h-auto">
                     <div className="w-full mx-auto max-w-[480px] md:max-w-full flex flex-col md:flex-row justify-between gap-5 sm:gap-10">
                       <div className="w-full md:flex-[0.5] flex items-stretch mx-auto max-w-[480px] md:max-w-full h-[320px] lg:h-auto min-h-[320px] lg:min-h-[600px]">
                         {image ? (

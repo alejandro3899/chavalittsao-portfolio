@@ -23,14 +23,11 @@ export default function AboutPage({
     about: aboutTab,
     bio,
     gallery,
-    quoteBlock1,
-    quoteBlock2,
+    quoteBlock1: { quote: quote1 },
+    quoteBlock2: { quote: quote2 },
     podcastSpotlight,
     workSummary: aboutWorkSummary,
   } = about;
-
-  const { quote: quote1 } = quoteBlock1;
-  const { quote: quote2 } = quoteBlock2;
 
   return (
     <>
@@ -38,28 +35,20 @@ export default function AboutPage({
       <AboutIntro intro={intro} />
       <AboutBio bio={bio} />
       <AboutBioSlide about={aboutTab} />
-      <section className="w-full py-8 sm:py-12">
-        <div className="container flex justify-center">
-          <QuoteBlock
-            theme="dark"
-            imgSrc={(quote1.image as Media).imagekit?.url!}
-            imgAlt={(quote1.image as Media)?.altText ?? "Quote"}
-            size={quote1.size}
-            text={quote1.quoteText}
-          />
-        </div>
-      </section>
-      <section className="w-full py-8 sm:py-12">
-        <div className="container flex justify-center">
-          <QuoteBlock
-            theme="light"
-            imgSrc={(quote2.image as Media).imagekit?.url!}
-            imgAlt={(quote2.image as Media)?.altText ?? "Quote"}
-            size={quote2.size}
-            text={quote2.quoteText}
-          />
-        </div>
-      </section>
+      {!quote1.hide && (
+        <section className="w-full py-8 sm:py-12">
+          <div className="container flex justify-center">
+            <QuoteBlock theme="dark" quote={quote1} />
+          </div>
+        </section>
+      )}
+      {!quote2.hide && (
+        <section className="w-full py-8 sm:py-12">
+          <div className="container flex justify-center">
+            <QuoteBlock theme="light" quote={quote2} />
+          </div>
+        </section>
+      )}
       <AboutPodcastSpotlight podcastSpotlight={podcastSpotlight} />
       <AboutGallery gallery={gallery} />
       <section className="w-full bg-lilac pt-8 sm:pt-12 pb-24">

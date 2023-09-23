@@ -34,7 +34,7 @@ export default function ClampedText({
             overflow: "hidden",
             display: "-webkit-box",
             "-webkit-box-orient": "vertical",
-            "-webkit-line-clamp": lines,
+            "-webkit-line-clamp": lines.toString(),
           } as any
         }
         className={clsx("richtext", className)}

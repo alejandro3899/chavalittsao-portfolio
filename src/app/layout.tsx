@@ -1,9 +1,8 @@
 import "./globals.css";
 
-import clsx from "clsx";
-
 import { Favicon, Media } from "@/types/cms";
 import { getGlob } from "@/utils/api";
+import clsx from "clsx";
 import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
 import type { Metadata } from "next";
@@ -34,29 +33,25 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const { favicon } = await getGlob<Favicon>("/favicon");
+  const faviconUrl = (favicon as Media)?.imagekit?.url;
 
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <meta name="color-scheme" content="light only" />
       <head>
-        {/* <meta name="viewport" content="width=device-width, initial-scale=1.0" /> */}
         <meta name="color-scheme" content="light only" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"
         />
-        <link
-          rel="icon"
-          type="image/x-icon"
-          href={(favicon as Media)?.imagekit?.url ?? ""}
-          sizes="any"
-        />
+        {faviconUrl && (
+          <link rel="icon" type="image/x-icon" href={faviconUrl} sizes="any" />
+        )}
       </head>
       <body
         className={clsx(
           poppins.variable,
           gtAlpina.variable,
-          "bg-pebble font-sans text-royal-purple"
+          "bg-sand font-sans text-royal-purple"
         )}
         suppressHydrationWarning={true}
       >

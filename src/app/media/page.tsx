@@ -14,7 +14,7 @@ export async function generateMetadata() {
   return baseMetadata({
     title: meta?.title ?? "Media",
     description: meta?.description,
-    slug: "",
+    slug: "media",
     image: (meta?.image as any)?.imagekit?.url,
   });
 }

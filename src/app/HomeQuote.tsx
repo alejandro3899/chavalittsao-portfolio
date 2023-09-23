@@ -1,4 +1,4 @@
-import { Homepage, Media } from "@/types/cms";
+import { Homepage } from "@/types/cms";
 import QuoteBlock from "../components/QuoteBlock";
 
 export default function HomeQuote({
@@ -6,21 +6,13 @@ export default function HomeQuote({
 }: {
   quoteBlock: Homepage["quoteBlock"];
 }) {
-  const { image, quoteText, size } = quote;
-
   return (
-    <>
+    !quote.hide && (
       <section className="w-full py-8 sm:py-12">
         <div className="container flex justify-center">
-          <QuoteBlock
-            theme="dark"
-            imgSrc={(quote.image as Media).imagekit?.url!}
-            imgAlt={(image as Media)?.altText ?? "Quote"}
-            size={size}
-            text={quoteText}
-          />
+          <QuoteBlock theme="dark" quote={quote} />
         </div>
       </section>
-    </>
+    )
   );
 }

@@ -103,7 +103,7 @@ export default function HomeAbout({ about }: { about: Homepage["about"] }) {
             >
               {(bioSlide ?? []).map(({ title, description, image }, i) => {
                 return (
-                  <SwiperSlide key={i} className="bg-pebble w-full !h-auto">
+                  <SwiperSlide key={i} className="bg-sand w-full !h-auto">
                     <div className="w-full mx-auto max-w-[480px] md:max-w-full flex flex-col md:flex-row justify-between gap-10">
                       <div className="w-full md:flex-[0.5] flex items-stretch mx-auto max-w-[480px] md:max-w-full h-[320px] lg:h-auto min-h-[320px] lg:min-h-[600px]">
                         {image ? (

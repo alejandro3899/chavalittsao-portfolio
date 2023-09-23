@@ -14,7 +14,7 @@ export async function generateMetadata() {
   return baseMetadata({
     title: meta?.title ?? "Podcasts",
     description: meta?.description,
-    slug: "",
+    slug: "podcasts",
     image: (meta?.image as any)?.imagekit?.url,
   });
 }
