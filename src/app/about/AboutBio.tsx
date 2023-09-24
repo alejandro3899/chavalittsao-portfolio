@@ -2,7 +2,7 @@ import { Aboutpage, Media } from "@/types/cms";
 import slateToHtml, { richTextConfig } from "@/utils/slateToHtml";
 import ImageKit from "@/components/ImageKit";
 import clsx from "clsx";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
   const [active, setActive] = useState(0);
@@ -61,8 +61,8 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
   }, []);
 
   return (
-    <section className="relative w-full">
-      <div className="container flex justify-center md:justify-start gap-4 md:gap-16">
+    <section className="relative w-full bg-sand">
+      <div className="container flex justify-center md:justify-start gap-4 md:gap-14">
         <div className="sticky top-0 hidden md:block md:flex-[0.5] z-10">
           <div
             className="sticky top-0 z-10 py-8 sm:py-12"
@@ -78,7 +78,7 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
             const firstImage = images?.[0].image;
 
             return (
-              <>
+              <Fragment key={i}>
                 <div className={clsx(`influence-${i + 1}`, "h-0 w-0")} />
                 <div
                   key={i}
@@ -137,7 +137,7 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
                     </div>
                   </div>
                 </div>
-              </>
+              </Fragment>
             );
           })}
         </div>

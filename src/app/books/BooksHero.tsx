@@ -1,28 +1,30 @@
 import { Book, Bookspage, Media } from "@/types/cms";
 import ImageKit from "@/components/ImageKit";
-import LinkButton from "@/components/LinkButton";
 import PrimaryButton from "@/components/PrimaryButton";
+import ClampedText from "@/components/ClampedText";
 import Link from "next/link";
 
 export default function BooksHero({ hero }: { hero: Bookspage["hero"] }) {
   const { bookShowcase, heroImage } = hero;
-  const { name, description, linkToBuy, learnMoreLink } = bookShowcase as Book;
+  const { name, description, linkToBuy } = bookShowcase as Book;
 
   return (
     <section className="w-full pb-8 sm:pb-12 pt-[var(--nav-offset)]">
-      <div className="container w-full">
-        <div className="max-w-[640px] lg:max-w-full w-full flex flex-col-reverse lg:flex-row justify-between gap-8 lg:gap-20 mx-auto">
-          <div className="max-w-[390px] lg:flex-[0.5] flex flex-col gap-8">
-            <div className="w-full h-full flex flex-col justify-end gap-4">
+      <div className="container lg:max-h-[800px] w-full lg:h-[calc(100vh-var(--nav-offset))]">
+        <div className="max-w-[640px] lg:max-w-full w-full h-full flex flex-col-reverse lg:flex-row justify-between gap-8 lg:gap-12 mx-auto">
+          <div className="max-w-[390px] lg:flex-[0.5] h-full flex flex-col gap-8">
+            <div className="w-full h-full flex flex-col justify-end">
               <h1 className="text-3xl sm:text-[32px] tracking-tighter">
                 {name}
               </h1>
-              <p className="leading-snug -tracking-[0.24px] text-xs">
-                {description}
-              </p>
-              {learnMoreLink && (
-                <LinkButton className="text-xs leading-tight">more+</LinkButton>
-              )}
+              <div>
+                <ClampedText
+                  richContent={description}
+                  lines={7}
+                  buttonClassName="mt-0"
+                  className="text-xs leading-snug -tracking-[0.24px]"
+                />
+              </div>
             </div>
 
             {linkToBuy && (
@@ -34,14 +36,14 @@ export default function BooksHero({ hero }: { hero: Bookspage["hero"] }) {
             )}
           </div>
 
-          <div className="lg:flex-[0.5] w-full flex lg:justify-end">
+          <div className="lg:flex-[0.5] w-full h-full flex lg:justify-end lg:items-end">
             <ImageKit
               image={heroImage as Media}
               alt={(heroImage as Media)?.altText}
               sizes="100vw"
               width={0}
               height={0}
-              className="max-w-[630px] w-full h-auto lg:aspect-[1_/_1.025] rounded-lg lg:object-cover"
+              className="max-w-[630px] w-full h-auto lg:h-full lg:aspect-[1_/_1.025] rounded-lg lg:object-cover"
             />
           </div>
         </div>

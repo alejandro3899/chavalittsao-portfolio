@@ -7,8 +7,8 @@ export default function AboutIntro({ intro }: { intro: Aboutpage["intro"] }) {
 
   return (
     <section className="w-full bg-lilac pt-8 sm:pt-12 pb-20 sm:pb-12">
-      <div className="container w-full flex flex-col md:flex-row justify-between items-stretch gap-4 md:gap-16 sm:gap-[60px]">
-        <h2 className="block sm:hidden text-center text-[21px] uppercase leading-tight mb-2">
+      <div className="container w-full flex flex-col md:flex-row justify-between items-stretch gap-4 md:gap-14">
+        <h2 className="block md:hidden text-center text-[21px] uppercase leading-tight mb-2">
           {heading}
         </h2>
         <div className="md:flex-[0.5] flex items-center">
@@ -22,8 +22,8 @@ export default function AboutIntro({ intro }: { intro: Aboutpage["intro"] }) {
           />
         </div>
         <div className="md:flex-[0.5] flex items-end">
-          <div className="max-w-[480px] w-full flex flex-col justify-end gap-4 sm:gap-6">
-            <h2 className="hidden sm:block text-[21px] uppercase leading-tight">
+          <div className="max-w-[480px] w-full flex flex-col justify-end md:gap-6">
+            <h2 className="hidden md:block text-[21px] uppercase leading-tight">
               {heading}
             </h2>
             <ClampedText

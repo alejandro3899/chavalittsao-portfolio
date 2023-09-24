@@ -84,7 +84,9 @@ export interface Podcast {
 export interface Book {
   id: string;
   name: string;
-  description: string;
+  description: {
+    [k: string]: unknown;
+  }[];
   bookImage: string | Media;
   learnMoreLink?: {
     label?: string;
@@ -284,6 +286,11 @@ export interface Mediapage {
     pressMaterials?: {
       title: string;
       image: string | Media;
+      downloadLink?: {
+        label?: string;
+        url?: string;
+        newTab?: boolean;
+      };
       id?: string;
     }[];
   };

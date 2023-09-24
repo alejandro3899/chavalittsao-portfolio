@@ -1,7 +1,7 @@
 import { Footer as FooterType, Navigation, Social } from "@/types/cms";
+import { getGlob } from "@/utils/api";
 import Footer from "./Footer";
 import MainNav from "./MainNav";
-import { getGlob } from "../utils/api";
 
 export default async function BaseLayout({
   children,

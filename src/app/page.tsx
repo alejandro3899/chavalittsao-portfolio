@@ -1,8 +1,8 @@
 import { Homepage, WorkSummary } from "@/types/cms";
-import BaseLayout from "../components/BaseLayout";
-import HomePage from "./HomePage";
-import { getGlob } from "../utils/api";
+import { getGlob } from "@/utils/api";
 import { baseMetadata } from "@/utils/baseMetadata";
+import BaseLayout from "@/components/BaseLayout";
+import HomePage from "./HomePage";
 
 export async function generateMetadata() {
   const { meta } = await getGlob<Homepage>("/homepage");

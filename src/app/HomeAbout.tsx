@@ -2,13 +2,13 @@ import "swiper/css/bundle";
 import "swiper/css/autoplay";
 
 import { Homepage, Media } from "@/types/cms";
+import slateToHtml, { richTextConfig } from "@/utils/slateToHtml";
 import ImageKit from "@/components/ImageKit";
 import clsx from "clsx";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import SwiperType from "swiper";
 import { useRef, useState } from "react";
-import slateToHtml, { richTextConfig } from "@/utils/slateToHtml";
 
 export default function HomeAbout({ about }: { about: Homepage["about"] }) {
   const [tabIndex, setTabIndex] = useState(0);

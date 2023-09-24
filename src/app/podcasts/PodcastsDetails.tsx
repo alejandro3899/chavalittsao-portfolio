@@ -1,14 +1,18 @@
+"use client";
+
 import { Podcast, Podcastspage } from "@/types/cms";
 import LinkButton from "@/components/LinkButton";
 import clsx from "clsx";
 import Link from "next/link";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 
 export default function PodcastsDetails({
   podcast,
 }: {
   podcast: Podcastspage["hero"]["showcasePodcast"];
 }) {
+  const [hideAll, setHideAll] = useState(true);
+
   const { episodes = [] } = podcast as Podcast;
 
   function LinkIcon({
@@ -52,8 +56,8 @@ export default function PodcastsDetails({
         <h3 className="hidden sm:block text-xs leading-tight tracking-tight mb-7">
           ALL EPISODES
         </h3>
-        <div className="flex flex-col mb-7 gap-6 sm:gap-0">
-          {episodes.map(
+        <div className="flex flex-col gap-6 sm:gap-0">
+          {(hideAll ? episodes.slice(0, 5) : episodes).map(
             (
               { title, moderator, presentedBy, date, duration, linkToEpisode },
               i
@@ -125,11 +129,16 @@ export default function PodcastsDetails({
             }
           )}
         </div>
-        <div>
-          <LinkButton className="leading-snug tracking-tighter">
-            more+
-          </LinkButton>
-        </div>
+        {hideAll && (
+          <div className="mt-7">
+            <LinkButton
+              className="leading-snug tracking-tighter"
+              onClick={() => setHideAll(false)}
+            >
+              more+
+            </LinkButton>
+          </div>
+        )}
       </div>
     </section>
   );

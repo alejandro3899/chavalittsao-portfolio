@@ -17,14 +17,13 @@ export default function MediaBios({ bios }: { bios: Mediapage["bios"] }) {
           {allBios?.map(({ bio, image, name }, i) => {
             return (
               <div key={i} className="flex flex-col gap-4">
-                <div className="w-ful h-[360px] lg:h-[450px] mb-2">
+                <div className="w-ful h-[400px] lg:h-[450px] mb-2">
                   <ImageKit
                     image={image as Media}
                     alt={(image as Media)?.altText}
                     width={0}
                     height={0}
                     sizes="100vw"
-                    // title={name}
                     className="w-full h-full object-cover rounded-lg"
                   />
                 </div>

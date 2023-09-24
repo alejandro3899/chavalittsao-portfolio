@@ -10,8 +10,8 @@ export default function BooksExcerpt({
 
   return (
     <section className="w-full py-8 sm:py-12">
-      <div className="container w-full flex flex-col md:flex-row justify-between items-stretch gap-8 lg:gap-24">
-        <div className="max-w-[522px] md:h-[95vh] md:max-h-[800px] md:max-w-full w-full mx-auto md:flex-[0.5]">
+      <div className="container w-full flex flex-col lg:flex-row justify-between items-stretch gap-8 lg:gap-24">
+        <div className="max-w-[522px] lg:h-[95vh] lg:max-h-[800px] lg:max-w-full w-full mx-auto lg:flex-[0.5]">
           <div className="w-full h-full">
             <ImageKit
               image={image as Media}
@@ -19,11 +19,11 @@ export default function BooksExcerpt({
               width={0}
               height={0}
               sizes="100vw"
-              className="w-full h-[600px] lg:h-full rounded-lg object-cover"
+              className="w-full h-auto lg:h-full rounded-lg object-contain lg:object-cover"
             />
           </div>
         </div>
-        <div className="md:flex-[0.5]">
+        <div className="lg:flex-[0.5]">
           <div className="max-w-[522px] mx-auto w-full h-full flex flex-col justify-between gap-6">
             <div>
               <h2 className="text-xs uppercase text-center">Excerpt</h2>

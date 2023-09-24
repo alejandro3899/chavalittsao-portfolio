@@ -1,7 +1,7 @@
-import { Metadata } from "next";
+import { Setting } from "@/types/cms";
 import { appUrl } from ".";
 import { getGlob } from "./api";
-import { Setting } from "@/types/cms";
+import { Metadata } from "next";
 
 export async function baseMetadata({
   title,

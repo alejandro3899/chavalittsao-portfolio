@@ -1,5 +1,5 @@
 import { Homepage, Media } from "@/types/cms";
-import Hero from "../components/Hero";
+import Hero from "@/components/Hero";
 
 export default function HomeHero({ hero }: { hero: Homepage["hero"] }) {
   const { baseImage, mobileImage, tabletImage } = hero.backgroundImage;

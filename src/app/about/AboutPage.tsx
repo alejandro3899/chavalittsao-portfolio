@@ -1,8 +1,8 @@
 "use client";
 
-import { Aboutpage, Media, WorkSummary as WorkSummaryType } from "@/types/cms";
-import QuoteBlock from "../../components/QuoteBlock";
-import WorkSummary from "../../components/WorkSummary";
+import { Aboutpage, WorkSummary as WorkSummaryType } from "@/types/cms";
+import QuoteBlock from "@/components/QuoteBlock";
+import WorkSummary from "@/components/WorkSummary";
 import AboutBio from "./AboutBio";
 import AboutBioSlide from "./AboutBioSlide";
 import AboutGallery from "./AboutGallery";

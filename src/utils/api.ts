@@ -1,5 +1,5 @@
+import type { PayloadApiArgs, PayloadCollection } from "@/types/payload";
 import qs from "qs";
-import type { PayloadApiArgs, PayloadCollection } from "../types/payload";
 
 function apiFetch(url: string, options: RequestInit = {}) {
   const defaultOptions: RequestInit = {

@@ -1,12 +1,12 @@
 "use client";
 
+import { Navigation } from "@/types/cms";
 import Logo from "./Logo";
 import clsx from "clsx";
-import Link from "next/link";
-import { useSelectedLayoutSegment } from "next/navigation";
-import { Fragment, useEffect, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { Navigation } from "@/types/cms";
+import { useSelectedLayoutSegment } from "next/navigation";
+import Link from "next/link";
+import { Fragment, useEffect, useState } from "react";
 
 export default function MainNav({
   theme = "default",

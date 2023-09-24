@@ -1,7 +1,7 @@
 import { Aboutpage, WorkSummary } from "@/types/cms";
-import { getGlob } from "../../utils/api";
-import AboutPage from "./AboutPage";
+import { getGlob } from "@/utils/api";
 import { baseMetadata } from "@/utils/baseMetadata";
+import AboutPage from "./AboutPage";
 
 export async function generateMetadata() {
   const { meta } = await getGlob<Aboutpage>("/aboutpage");

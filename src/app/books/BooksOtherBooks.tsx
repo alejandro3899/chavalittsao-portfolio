@@ -10,6 +10,7 @@ import clsx from "clsx";
 import SwiperType from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useState, useRef, useEffect } from "react";
+import slateToHtml, { richTextConfig } from "@/utils/slateToHtml";
 
 export default function BooksOtherBooks({
   otherBooks,
@@ -158,11 +159,15 @@ export default function BooksOtherBooks({
                       <h3 className="text-base leading-none tracking-tighter md:text-center uppercase">
                         {name}
                       </h3>
-                      <p className="leading-[1.3] text-sm text-light md:text-center tracking-tightest">
-                        {description}
-                      </p>
+                      <div
+                        className="leading-[1.3] text-sm text-light md:text-center tracking-tightest"
+                        dangerouslySetInnerHTML={slateToHtml(
+                          description,
+                          richTextConfig
+                        )}
+                      />
                       <Link
-                        href={learnMoreLink?.url ?? "#"}
+                        href={"#"}
                         className={clsx(
                           "outline-none font-semibold text-xs leading-tight -tracking-[0.24px]",
                           "focus:outline-none text-royal-purple/80 hover:text-royal-purple"
