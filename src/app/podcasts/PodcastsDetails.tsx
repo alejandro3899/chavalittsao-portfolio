@@ -22,7 +22,7 @@ export default function PodcastsDetails({
   }) {
     return (
       link && (
-        <Link href={link?.url!}>
+        <Link href={link?.url!} className="h-fit">
           <svg
             width="48"
             height="48"

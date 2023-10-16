@@ -44,8 +44,8 @@ export default function AboutPodcastSpotlight({
             </div>
 
             {podcast.linkToListen && (
-              <Link href={podcast?.linkToListen?.url!}>
-                <PrimaryButton className="w-fit">
+              <Link href={podcast?.linkToListen?.url!} className="w-fit">
+                <PrimaryButton className="w-fit" tabIndex={-1}>
                   {podcast.linkToListen?.label}
                 </PrimaryButton>
               </Link>

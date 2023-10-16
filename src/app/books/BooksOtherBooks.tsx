@@ -49,7 +49,7 @@ export default function BooksOtherBooks({
           </h2>
           <div className="flex items-center gap-5">
             <button
-              className="group outline-none focus:outline-none focus-visible:outline-none text-royal-purple disabled:text-royal-purple/40"
+              className="group text-royal-purple disabled:text-royal-purple/40"
               onClick={() => slideRef?.current?.slidePrev()}
               disabled={tabIndex === 0}
             >
@@ -75,7 +75,7 @@ export default function BooksOtherBooks({
               </svg>
             </button>
             <button
-              className="group outline-none focus:outline-none focus-visible:outline-none text-royal-purple disabled:text-royal-purple/40"
+              className="group text-royal-purple disabled:text-royal-purple/40"
               onClick={() => slideRef?.current?.slideNext()}
               disabled={nextDisabled}
             >
@@ -151,7 +151,6 @@ export default function BooksOtherBooks({
                         alt={(bookImage as Media)?.altText}
                         width={512}
                         height={530}
-                        // sizes="100vw"
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -169,8 +168,8 @@ export default function BooksOtherBooks({
                       <Link
                         href={"#"}
                         className={clsx(
-                          "outline-none font-semibold text-xs leading-tight -tracking-[0.24px]",
-                          "focus:outline-none text-royal-purple/80 hover:text-royal-purple"
+                          "font-semibold text-royal-purple/90 text-xs leading-tight -tracking-[0.24px]",
+                          "hover:text-royal-purple"
                         )}
                       >
                         {learnMoreLink?.label ?? "LEARN MORE"}

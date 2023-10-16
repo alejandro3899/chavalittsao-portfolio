@@ -10,16 +10,14 @@
 }
 
 @layer base {
-  /* html,
-  body {
-    @apply overflow-x-hidden;
-  } */
   html {
     scroll-behavior: smooth;
   }
+
   body {
     @apply text-base-purple antialiased;
   }
+
   h1,
   .h1 {
     @apply text-3xl sm:text-[34px];
@@ -44,12 +42,10 @@
   .h6 {
     @apply text-base sm:text-[16px];
   }
+
   a,
   button {
-    @apply font-sans;
-  }
-  button {
-    @apply outline-none focus:outline-none focus-visible:outline-none;
+    @apply font-sans focus:border-none outline-dashed outline-transparent outline-1 focus-visible:outline-royal-purple;
   }
 }
 

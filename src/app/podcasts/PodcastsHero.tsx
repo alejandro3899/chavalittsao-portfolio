@@ -31,7 +31,7 @@ export default function PodcastsHero({ hero }: { hero: Podcastspage["hero"] }) {
             </div>
           </div>
           <div className="lg:flex-[0.5]">
-            <div className="lg:h-[clamp(550px,calc(100vh-var(--nav-offset)),800px)] w-full flex items-center lg:justify-end">
+            <div className="lg:h-[100vh] lg:h-[clamp(550px,calc(100vh-var(--nav-offset)),800px)] w-full flex items-center lg:justify-end">
               <ImageKit
                 image={heroImage as Media}
                 alt={(heroImage as Media)?.altText ?? "Podcast"}

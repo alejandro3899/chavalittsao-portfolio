@@ -41,40 +41,42 @@ export default function HomeAbout({ about }: { about: Homepage["about"] }) {
           <div className="w-full">
             {/* mobile */}
             <div className="custom-scrollbar w-full max-w-full flex justify-center lg:hidden overflow-auto mb-10">
-              <ul className="flex flex-wrap gap-6 sm:gap-8 mx-auto items-center">
+              <ul className="flex flex-wrap gap-6 sm:gap-8 mx-auto items-center py-0.5">
                 {(bioSlide ?? []).map((_, i) => (
-                  <li
-                    key={i}
-                    className={clsx(
-                      "w-8 h-8 flex items-center justify-center text-[10px] leading-tight border -tracking-[0.16px] rounded-full cursor-pointer",
-                      tabIndex === i
-                        ? "border-royal-purple"
-                        : "border-transparent",
-                      "hover:border-royal-purple transition-all"
-                    )}
-                    onClick={() => handleSlide(i)}
-                  >
-                    {(i + 1).toString().padStart(2, "0")}
+                  <li key={i}>
+                    <button
+                      className={clsx(
+                        "w-8 h-8 flex items-center justify-center text-[10px] leading-tight border -tracking-[0.16px] rounded-full cursor-pointer",
+                        tabIndex === i
+                          ? "border-royal-purple"
+                          : "border-transparent",
+                        "hover:border-royal-purple transition-all"
+                      )}
+                      onClick={() => handleSlide(i)}
+                    >
+                      {(i + 1).toString().padStart(2, "0")}
+                    </button>
                   </li>
                 ))}
               </ul>
             </div>
             {/* desktop */}
             <div className="custom-scrollbar w-full max-w-full hidden lg:block overflow-auto mb-10">
-              <ul className="w-full flex flex-wrap gap-x-8 sm:gap-x-10 gap-y-4 mx-auto items-center justify-center">
+              <ul className="w-full flex flex-wrap gap-x-8 sm:gap-x-10 gap-y-4 mx-auto items-center justify-center py-0.5">
                 {(bioSlide ?? []).map(({ title }, i) => (
-                  <li
-                    key={i}
-                    className={clsx(
-                      "w-max text-base tracking-tighter cursor-pointer",
-                      tabIndex === i
-                        ? "text-royal-purple"
-                        : "text-royal-purple/40",
-                      "hover:text-royal-purple transition-all"
-                    )}
-                    onClick={() => handleSlide(i)}
-                  >
-                    {title}
+                  <li key={i}>
+                    <button
+                      className={clsx(
+                        "w-max text-base tracking-tighter cursor-pointer",
+                        tabIndex === i
+                          ? "text-royal-purple"
+                          : "text-royal-purple/40",
+                        "hover:text-royal-purple transition-all"
+                      )}
+                      onClick={() => handleSlide(i)}
+                    >
+                      {title}
+                    </button>
                   </li>
                 ))}
               </ul>
