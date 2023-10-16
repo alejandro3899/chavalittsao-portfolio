@@ -28,7 +28,7 @@ export default function BooksHero({ hero }: { hero: Bookspage["hero"] }) {
             </div>
 
             {linkToBuy && (
-              <Link href={linkToBuy?.url!}>
+              <Link href={linkToBuy?.url!} className="w-fit">
                 <PrimaryButton className="text-xs font-semibold leading-tight -tracking-[0.24px]">
                   {linkToBuy?.label ?? "BUY"}
                 </PrimaryButton>
@@ -43,7 +43,7 @@ export default function BooksHero({ hero }: { hero: Bookspage["hero"] }) {
               sizes="100vw"
               width={0}
               height={0}
-              className="max-w-[630px] w-full h-auto lg:h-full lg:aspect-[1_/_1.15] rounded-lg lg:object-cover"
+              className="max-w-[630px] w-full lg:w-auto h-auto lg:h-full lg:aspect-[1_/_1.17] rounded-lg lg:object-cover"
             />
           </div>
         </div>
