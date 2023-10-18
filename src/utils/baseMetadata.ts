@@ -1,4 +1,4 @@
-import { Setting } from "@/types/cms";
+import { Settings } from "@/types/cms";
 import { appUrl } from ".";
 import { getGlob } from "./api";
 import { Metadata } from "next";
@@ -14,7 +14,7 @@ export async function baseMetadata({
   slug?: string;
   image?: string;
 }): Promise<Metadata> {
-  const { siteTitle, siteDescription } = await getGlob<Setting>(
+  const { siteTitle, siteDescription } = await getGlob<Settings>(
     "/settings",
     {},
     { next: { tags: ["settings"] } }

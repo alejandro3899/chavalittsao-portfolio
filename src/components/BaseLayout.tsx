@@ -1,4 +1,9 @@
-import { Footer as FooterType, Navigation, Social } from "@/types/cms";
+import {
+  Footer as FooterType,
+  Navigation,
+  Settings,
+  Social,
+} from "@/types/cms";
 import { getGlob } from "@/utils/api";
 import Footer from "./Footer";
 import MainNav from "./MainNav";
@@ -10,6 +15,11 @@ export default async function BaseLayout({
   children: React.ReactNode;
   theme?: "light" | "default";
 }) {
+  const settings = await getGlob<Settings>(
+    "/settings",
+    {},
+    { next: { tags: ["settings"] } }
+  );
   const navData = await getGlob<Navigation>(
     "/navigation",
     {},
@@ -28,7 +38,7 @@ export default async function BaseLayout({
 
   return (
     <>
-      <MainNav theme={theme} navData={navData} />
+      <MainNav settings={settings} theme={theme} navData={navData} />
       <main className="w-full min-h-screen flex flex-col items-center">
         {children}
       </main>

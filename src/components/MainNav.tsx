@@ -1,6 +1,6 @@
 "use client";
 
-import { Navigation } from "@/types/cms";
+import { Navigation, Settings } from "@/types/cms";
 import Logo from "./Logo";
 import clsx from "clsx";
 import { Menu, Transition } from "@headlessui/react";
@@ -11,9 +11,10 @@ import { Fragment, useEffect, useState } from "react";
 export default function MainNav({
   theme = "default",
   navData,
+  settings,
 }: {
   theme: "light" | "default";
-} & { navData: Navigation }) {
+} & { navData: Navigation; settings: Settings }) {
   const selectedLayoutSegment = useSelectedLayoutSegment();
   const [navOpen, setNavOpen] = useState(false);
   const active = selectedLayoutSegment?.toLowerCase();
@@ -23,7 +24,11 @@ export default function MainNav({
     <nav className="absolute left-0 top-0 w-full flex items-center justify-center text-white py-5 z-10">
       <div className="w-full max-w-[1600px] flex justify-between items-center gap-8 sm:gap-12 px-4 sm:px-5">
         <div className="md:flex-[0.5] flex">
-          <Logo text="CHAVALIT TSAO" theme={theme} />
+          <Logo
+            siteBranding={settings.siteBranding}
+            text="CHAVALIT TSAO"
+            theme={theme}
+          />
         </div>
         <ul className="hidden md:flex flex-[0.5] items-center justify-between gap-6 sm:gap-12 md:gap-16">
           {(navData?.mainNavigation ?? []).map(

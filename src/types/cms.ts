@@ -26,7 +26,7 @@ export interface Config {
     footer: Footer;
     favicon: Favicon;
     socials: Social;
-    settings: Setting;
+    settings: Settings;
     'work-summary': WorkSummary;
   };
 }
@@ -548,7 +548,7 @@ export interface Social {
   updatedAt?: string;
   createdAt?: string;
 }
-export interface Setting {
+export interface Settings {
   id: string;
   siteTitle: string;
   siteDescription: string;
