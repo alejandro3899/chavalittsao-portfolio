@@ -47,6 +47,10 @@
   button {
     @apply font-sans focus:border-none outline-dashed outline-transparent outline-1 focus-visible:outline-royal-purple;
   }
+
+  input {
+    @apply outline-none;
+  }
 }
 
 @layer components {

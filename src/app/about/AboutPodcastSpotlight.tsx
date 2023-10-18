@@ -1,5 +1,5 @@
 import { Aboutpage, Media, Podcast } from "@/types/cms";
-import PrimaryButton from "@/components/PrimaryButton";
+import Button from "@/components/Button";
 import ImageKit from "@/components/ImageKit";
 import Link from "next/link";
 
@@ -45,9 +45,9 @@ export default function AboutPodcastSpotlight({
 
             {podcast.linkToListen && (
               <Link href={podcast?.linkToListen?.url!} className="w-fit">
-                <PrimaryButton className="w-fit" tabIndex={-1}>
+                <Button className="w-fit" tabIndex={-1} theme="primary">
                   {podcast.linkToListen?.label}
-                </PrimaryButton>
+                </Button>
               </Link>
             )}
           </div>

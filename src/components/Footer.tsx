@@ -1,9 +1,10 @@
 "use client";
 
 import { Footer as FooterType, Media, Social } from "@/types/cms";
+import slateToHtml, { richTextConfig } from "@/utils/slateToHtml";
 import clsx from "clsx";
 import Link from "next/link";
-import ImageKit from "./ImageKit";
+import JoinMovementForm from "./JoinMovementForm";
 
 export default function Footer({
   footerData,
@@ -12,36 +13,28 @@ export default function Footer({
   footerData: FooterType;
   socialsData: Social;
 }) {
-  const { footerLogo, footerLinks, footerText, companyLinks, contact } =
-    footerData;
+  const {
+    footerLogo,
+    joinTheMovement: { heading, text, form },
+    footerLinks,
+    contact,
+  } = footerData;
 
   return (
     <footer className="w-full pt-12">
       <div className="container w-full flex flex-col">
         {/* top */}
-        <div className="w-full bg-lilac flex flex-col lg:flex-row items-stretch justify-between shadow-sm rounded-lg px-10 sm:px-16 py-20 gap-20 lg:gap-8">
+        <div className="w-full bg-lilac flex flex-col lg:flex-row items-stretch justify-between shadow-sm rounded-lg px-8 sm:px-16 py-20 gap-20 lg:gap-8">
           {/* left */}
-          <div className="max-w-lg w-full flex flex-col-reverse sm:flex-col gap-6">
-            <div className="h-full">
-              <p className="text-base font-serif">{footerText}</p>
+          <div className="max-w-lg w-full flex flex-col gap-6">
+            <div className="h-full max-w-[410px]">
+              <h3 className="text-base-purple text-3xl mb-1">{heading}</h3>
+              <div
+                className="richtext [&>*]:text-sm sm:[&>*]:text-base leading-snug"
+                dangerouslySetInnerHTML={slateToHtml(text, richTextConfig)}
+              />
             </div>
-            <div className="h-[60px] lg:min-h-[60px] flex items-center gap-6">
-              {(companyLinks ?? []).map(
-                ({ hide, link, logo }, i) =>
-                  !hide && (
-                    <Link key={i} href={link}>
-                      <ImageKit
-                        image={logo as Media}
-                        alt={(logo as Media)?.altText}
-                        width={0}
-                        height={0}
-                        sizes="100vw"
-                        className="h-[60px] w-auto object-contain"
-                      />
-                    </Link>
-                  )
-              )}
-            </div>
+            <JoinMovementForm formBlocks={form!} />
           </div>
 
           {/* right */}

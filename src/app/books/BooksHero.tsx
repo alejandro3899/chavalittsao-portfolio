@@ -1,6 +1,6 @@
 import { Book, Bookspage, Media } from "@/types/cms";
 import ImageKit from "@/components/ImageKit";
-import PrimaryButton from "@/components/PrimaryButton";
+import Button from "@/components/Button";
 import ClampedText from "@/components/ClampedText";
 import Link from "next/link";
 
@@ -29,9 +29,12 @@ export default function BooksHero({ hero }: { hero: Bookspage["hero"] }) {
 
             {linkToBuy && (
               <Link href={linkToBuy?.url!} className="w-fit">
-                <PrimaryButton className="text-xs font-semibold leading-tight -tracking-[0.24px]">
+                <Button
+                  className="text-xs font-semibold leading-tight -tracking-[0.24px]"
+                  theme="primary"
+                >
                   {linkToBuy?.label ?? "BUY"}
-                </PrimaryButton>
+                </Button>
               </Link>
             )}
           </div>

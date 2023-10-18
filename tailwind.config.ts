@@ -26,13 +26,14 @@ const config: Config = {
         pebble: "#F2F1ED",
         grey: "#EAEBEA",
         neutral: "#E5E0CF",
+        "dark-grey": "#444444",
       },
       fontFamily: {
         sans: ["var(--font-poppins)"],
         serif: ["var(--font-gt-alpina)"],
       },
       fontSize: {
-        "3xl": "28px",
+        "3xl": ["1.75rem", "2.25rem"],
       },
       backgroundImage: {},
       letterSpacing: {
