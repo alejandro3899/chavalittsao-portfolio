@@ -494,9 +494,17 @@ export interface Navigation {
   id: string;
   mainNavigation?: {
     label: string;
+    type: 'single' | 'dropdown';
+    newTab: boolean;
+    hide: boolean;
     url: string;
-    newTab?: boolean;
-    hide?: boolean;
+    dropdown?: {
+      label: string;
+      url: string;
+      newTab?: boolean;
+      hide?: boolean;
+      id?: string;
+    }[];
     id?: string;
   }[];
   updatedAt?: string;

@@ -39,7 +39,10 @@ export default async function BaseLayout({
   return (
     <>
       <MainNav settings={settings} theme={theme} navData={navData} />
-      <main className="w-full min-h-screen flex flex-col items-center">
+      <main
+        id="main"
+        className="w-full min-h-screen flex flex-col items-center"
+      >
         {children}
       </main>
       <Footer socialsData={socialsData} footerData={footerData} />

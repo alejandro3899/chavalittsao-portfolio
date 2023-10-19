@@ -25,6 +25,7 @@
     "postcss": "8.4.29",
     "qs": "^6.11.2",
     "react": "18.2.0",
+    "react-animate-height": "^3.2.2",
     "react-dom": "18.2.0",
     "slate-serializers": "^2.0.0",
     "swiper": "^10.2.0",

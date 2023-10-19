@@ -26,7 +26,7 @@ export default function AboutPodcastSpotlight({
 
             <div className="w-full max-w-xl flex flex-col lg:flex-row justify-between gap-4 md:gap-12 md:mb-0 mb-4">
               <div>
-                <h5 className="text-sm font-semibold uppercase leading-tight tracking-[-0.28px] mb-2">
+                <h5 className="text-sm font-semibold uppercase leading-tight -tracking-[0.28px] mb-2">
                   Presented and hosted by
                 </h5>
                 <p className="font-serif font-light text-lg leading-none">
@@ -34,7 +34,7 @@ export default function AboutPodcastSpotlight({
                 </p>
               </div>
               <div>
-                <h5 className="text-sm font-semibold uppercase leading-tight tracking-[-0.28px] mb-2">
+                <h5 className="text-sm font-semibold uppercase leading-tight -tracking-[0.28px] mb-2">
                   Moderator
                 </h5>
                 <p className="font-serif font-light text-lg leading-none">

@@ -15,7 +15,7 @@
   }
 
   body {
-    @apply text-base-purple antialiased;
+    @apply text-base-purple antialiased overflow-x-hidden;
   }
 
   h1,

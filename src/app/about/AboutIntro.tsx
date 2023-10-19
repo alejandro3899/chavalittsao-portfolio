@@ -22,7 +22,7 @@ export default function AboutIntro({ intro }: { intro: Aboutpage["intro"] }) {
           />
         </div>
         <div className="md:flex-[0.5] flex items-end">
-          <div className="max-w-[480px] w-full flex flex-col justify-end md:gap-6">
+          <div className="max-w-[540px] w-full flex flex-col justify-end md:gap-6">
             <h2 className="hidden md:block text-[21px] uppercase leading-tight">
               {heading}
             </h2>
