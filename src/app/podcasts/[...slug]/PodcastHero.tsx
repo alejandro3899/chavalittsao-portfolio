@@ -1,16 +1,29 @@
-import { Media, Podcast, Podcastspage } from "@/types/cms";
-import PodcastsShare from "./PodcastsShare";
+import { Media, Podcast } from "@/types/cms";
+import PodcastsShare from "./PodcastShare";
 import ImageKit from "@/components/ImageKit";
 
-export default function PodcastsHero({ hero }: { hero: Podcastspage["hero"] }) {
-  const { heroImage, showcasePodcast } = hero;
-  const { title, summary, description, share } = showcasePodcast as Podcast;
+export default function PodcastHero({
+  hero,
+  info,
+  title,
+  description,
+  share: podcastShare,
+}: {
+  title: Podcast["title"];
+  description: Podcast["description"];
+  hero: Podcast["hero"];
+  info: Podcast["info"];
+  share: Podcast["share"];
+}) {
+  const { heroImage } = hero;
+  const { summary } = info;
+  const { share } = podcastShare;
 
   return (
     <section className="w-full flex items-stretch pt-[var(--nav-offset)] pb-8 sm:pb-12">
       <div className="container">
-        <div className="h-full w-full max-w-[600px] lg:max-w-full flex flex-col-reverse lg:flex-row gap-8 lg:gap-12 mx-auto">
-          <div className="lg:flex-[0.5] h-fit flex flex-col justify-between gap-20 lg:py-8">
+        <div className="h-full w-full max-w-[600px] lg:max-w-full flex flex-col-reverse lg:flex-row lg:items-center gap-8 lg:gap-12 mx-auto">
+          <div className="lg:flex-[0.5] h-full flex flex-col justify-between gap-20 lg:py-8">
             <div className="flex flex-col">
               <h1 className="lg:max-w-[305px] text-3xl sm:text-[32px] leading-none tracking-tighter mb-6">
                 {title}

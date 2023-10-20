@@ -9,7 +9,7 @@
 export interface Config {
   collections: {
     media: Media;
-    podcasts: Podcast;
+    'podcasts-list': Podcast;
     books: Book;
     users: User;
     forms: Form;
@@ -18,7 +18,6 @@ export interface Config {
   globals: {
     homepage: Homepage;
     aboutpage: Aboutpage;
-    podcastspage: Podcastspage;
     mediapage: Mediapage;
     bookspage: Bookspage;
     privacypolicypage: Privacypolicypage;
@@ -52,34 +51,52 @@ export interface Podcast {
   id: string;
   title: string;
   description: string;
-  summary: string;
-  image: string | Media;
-  presentedBy?: string;
-  moderator?: string;
-  linkToListen?: {
-    label?: string;
-    url?: string;
-    newTab?: boolean;
-  };
-  episodes?: {
-    title: string;
-    presentedBy: string;
-    moderator: string;
-    date: string;
-    duration: string;
-    linkToEpisode?: {
+  slug?: string;
+  info: {
+    summary: string;
+    image: string | Media;
+    presentedBy?: string;
+    moderator?: string;
+    linkToListen?: {
       label?: string;
       url?: string;
       newTab?: boolean;
     };
-    id?: string;
-  }[];
+  };
+  hero: {
+    heroImage: string | Media;
+  };
+  episodes: {
+    episodes?: {
+      title: string;
+      presentedBy: string;
+      moderator: string;
+      date: string;
+      duration: string;
+      linkToEpisode?: {
+        label?: string;
+        url?: string;
+        newTab?: boolean;
+      };
+      id?: string;
+    }[];
+  };
   share: {
-    label: string;
-    platform: 'appleMusic' | 'spotify' | 'youTube' | 'amazon' | 'deezer';
-    link: string;
-    id?: string;
-  }[];
+    share: {
+      label: string;
+      platform: 'appleMusic' | 'spotify' | 'youTube' | 'amazon' | 'deezer';
+      link: string;
+      id?: string;
+    }[];
+  };
+  workSummary: {
+    heading: string;
+  };
+  meta?: {
+    title?: string;
+    description?: string;
+    image?: string | Media;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -99,6 +116,11 @@ export interface Book {
     label?: string;
     url?: string;
     newTab?: boolean;
+  };
+  meta?: {
+    title?: string;
+    description?: string;
+    image?: string | Media;
   };
   updatedAt: string;
   createdAt: string;
@@ -379,23 +401,6 @@ export interface Aboutpage {
   updatedAt?: string;
   createdAt?: string;
 }
-export interface Podcastspage {
-  id: string;
-  hero: {
-    heroImage: string | Media;
-    showcasePodcast: string | Podcast;
-  };
-  workSummary: {
-    heading: string;
-  };
-  meta?: {
-    title?: string;
-    description?: string;
-    image?: string | Media;
-  };
-  updatedAt?: string;
-  createdAt?: string;
-}
 export interface Mediapage {
   id: string;
   header: {
@@ -431,6 +436,7 @@ export interface Mediapage {
       name: string;
       bio: string;
       image: string | Media;
+      hide: boolean;
       id?: string;
     }[];
   };

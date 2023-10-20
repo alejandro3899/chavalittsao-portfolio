@@ -1,7 +1,7 @@
 import { Podcastspage, WorkSummary } from "@/types/cms";
 import { getGlob } from "@/utils/api";
 import { baseMetadata } from "@/utils/baseMetadata";
-import PodcastsPage from "./PodcastsPage";
+import PodcastsPage from "./[...slug]/PodcastsPage";
 import BaseLayout from "@/components/BaseLayout";
 
 export async function generateMetadata() {

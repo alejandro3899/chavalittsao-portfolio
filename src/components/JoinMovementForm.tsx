@@ -77,6 +77,7 @@ export default function JoinMovementForm({
             value={email}
             placeholder={mailFieldPlaceholder}
             className="w-full flex items-center justify-center bg-transparent text-xs border border-black/50 py-3 px-3 rounded focus:outline-none focus:border-black"
+            required
             onChange={(e) => setEmail(e.target.value)}
           />
           <Button

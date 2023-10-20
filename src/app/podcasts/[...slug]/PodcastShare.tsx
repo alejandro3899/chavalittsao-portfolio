@@ -1,14 +1,14 @@
 import { Podcast } from "@/types/cms";
 import Link from "next/link";
 
-export default function PodcastsShare({
+export default function PodcastShare({
   share,
 }: {
-  share: Podcast["share"][0];
+  share: Podcast["share"]["share"][0];
 }) {
   const { label, link, platform } = share;
 
-  function getShareIcon(platform: Podcast["share"][0]["platform"]) {
+  function getShareIcon(platform: Podcast["share"]["share"][0]["platform"]) {
     switch (platform) {
       case "appleMusic":
         return (

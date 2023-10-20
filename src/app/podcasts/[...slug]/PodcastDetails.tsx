@@ -1,24 +1,21 @@
 "use client";
 
-import { Podcast, Podcastspage } from "@/types/cms";
+import { Podcast } from "@/types/cms";
 import LinkButton from "@/components/LinkButton";
 import clsx from "clsx";
 import Link from "next/link";
 import { Fragment, useState } from "react";
 
-export default function PodcastsDetails({
-  podcast,
-}: {
-  podcast: Podcastspage["hero"]["showcasePodcast"];
-}) {
+export default function PodcastDetails({ podcast }: { podcast: Podcast }) {
   const [hideAll, setHideAll] = useState(true);
 
-  const { episodes = [] } = podcast as Podcast;
+  const { episodes: podcastEpisodes } = podcast as Podcast;
+  const { episodes = [] } = podcastEpisodes;
 
   function LinkIcon({
     link,
   }: {
-    link: NonNullable<Podcast["episodes"]>[0]["linkToEpisode"];
+    link: NonNullable<Podcast["episodes"]["episodes"]>[0]["linkToEpisode"];
   }) {
     return (
       link && (

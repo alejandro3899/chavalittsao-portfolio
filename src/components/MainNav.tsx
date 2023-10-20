@@ -6,7 +6,6 @@ import Logo from "./Logo";
 import NavDropdown from "./NavDropdown";
 import NavMobile from "./NavMobile";
 import clsx from "clsx";
-import { Menu } from "@headlessui/react";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -34,7 +33,6 @@ export default function MainNav({
     const main = document.getElementById("main")!;
 
     const handleClick = () => {
-      console.log("click");
       setActiveDropdown(null);
     };
 
@@ -102,7 +100,6 @@ export default function MainNav({
                 key={i}
                 onClick={() => {
                   setActiveDropdown((prev) => {
-                    console.log("click drop: ", activeDropdown, label);
                     return prev && prev.label === label
                       ? null
                       : {
