@@ -15,7 +15,7 @@ export async function generateMetadata({ params: { slug } }: { params: any }) {
   return baseMetadata({
     title: meta?.title ?? "Book",
     description: meta?.description,
-    slug: `books/${pageSlug}`,
+    slug: `book/${pageSlug}`,
     image: (meta?.image as any)?.imagekit?.url,
   });
 }

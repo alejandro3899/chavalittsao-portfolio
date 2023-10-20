@@ -6,10 +6,10 @@ import { Book, Media } from "@/types/cms";
 import slateToHtml, { richTextConfig } from "@/utils/slateToHtml";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 import ImageKit from "@/components/ImageKit";
-import Link from "next/link";
 import clsx from "clsx";
-import SwiperType from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperType from "swiper";
+import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
 export default function BookBooksList({
@@ -167,7 +167,7 @@ export default function BookBooksList({
                           )}
                         />
                         <Link
-                          href={`/books/${slug}`}
+                          href={`/book/${slug}`}
                           className={clsx(
                             "font-semibold text-royal-purple/90 text-xs leading-tight -tracking-[0.24px]",
                             "hover:text-royal-purple"

@@ -1,9 +1,9 @@
 import { Podcast, WorkSummary } from "@/types/cms";
 import { getColl, getGlob } from "@/utils/api";
-import PodcastPage from "./PodcastPage";
-import { notFound } from "next/navigation";
-import BaseLayout from "@/components/BaseLayout";
 import { baseMetadata } from "@/utils/baseMetadata";
+import PodcastPage from "./PodcastPage";
+import BaseLayout from "@/components/BaseLayout";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params: { slug } }: { params: any }) {
   const pageSlug = slug?.[0];
@@ -15,7 +15,7 @@ export async function generateMetadata({ params: { slug } }: { params: any }) {
   return baseMetadata({
     title: meta?.title ?? "Podcast",
     description: meta?.description,
-    slug: `podcasts/${pageSlug}`,
+    slug: `podcast/${pageSlug}`,
     image: (meta?.image as any)?.imagekit?.url,
   });
 }
