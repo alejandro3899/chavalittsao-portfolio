@@ -1,18 +1,23 @@
-import { Book, Bookspage, Media } from "@/types/cms";
+import { Book, Media } from "@/types/cms";
 import ImageKit from "@/components/ImageKit";
 import Button from "@/components/Button";
 import ClampedText from "@/components/ClampedText";
 import Link from "next/link";
 
-export default function BooksHero({ hero }: { hero: Bookspage["hero"] }) {
-  const { bookShowcase, heroImage } = hero;
-  const { name, description, linkToBuy } = bookShowcase as Book;
+export default function BookHero({ book }: { book: Book }) {
+  const {
+    name,
+    description,
+    info,
+    hero: { heroImage },
+  } = book;
+  const { linkToBuy } = info;
 
   return (
     <section className="w-full pb-8 sm:pb-12 pt-[var(--nav-offset)]">
       <div className="container lg:max-h-[800px] w-full lg:h-[calc(100vh-var(--nav-offset))]">
         <div className="max-w-[640px] lg:max-w-full w-full h-full flex flex-col-reverse lg:flex-row justify-between gap-8 lg:gap-12 mx-auto">
-          <div className="max-w-[390px] lg:flex-[0.5] h-full flex flex-col gap-8">
+          <div className="max-w-[480px] lg:flex-[0.5] h-full flex flex-col gap-8">
             <div className="w-full h-full flex flex-col justify-end">
               <h1 className="text-3xl sm:text-[32px] tracking-tighter mb-2">
                 {name}

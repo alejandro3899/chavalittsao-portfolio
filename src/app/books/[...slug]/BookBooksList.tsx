@@ -2,7 +2,8 @@
 
 import "swiper/css/bundle";
 
-import { Bookspage, Book, Media } from "@/types/cms";
+import { Book, Media } from "@/types/cms";
+import slateToHtml, { richTextConfig } from "@/utils/slateToHtml";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 import ImageKit from "@/components/ImageKit";
 import Link from "next/link";
@@ -10,13 +11,12 @@ import clsx from "clsx";
 import SwiperType from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useState, useRef, useEffect } from "react";
-import slateToHtml, { richTextConfig } from "@/utils/slateToHtml";
 
-export default function BooksOtherBooks({
+export default function BookBooksList({
   otherBooks,
   books,
 }: {
-  otherBooks: Bookspage["otherBooks"];
+  otherBooks: Book["otherBooks"];
   books: Book[];
 }) {
   const [tabIndex, setTabIndex] = useState(0);
@@ -135,50 +135,52 @@ export default function BooksOtherBooks({
             }}
             className="w-full"
           >
-            {books.map(({ name, bookImage, description, learnMoreLink }, i) => {
-              return (
-                <SwiperSlide
-                  key={i}
-                  className={clsx(
-                    "max-w-full md:max-w-[calc(50%-(16px/2))] lg:max-w-[calc(calc(100%/3)-(32px/3))]",
-                    i !== books.length - 1 ? "mr-4" : "!mr-0"
-                  )}
-                >
-                  <div key={i} className="flex flex-col">
-                    <div className="h-auto md:h-[480px] lg:h-[530px] rounded-lg overflow-hidden mb-6">
-                      <ImageKit
-                        image={bookImage as Media}
-                        alt={(bookImage as Media)?.altText}
-                        width={512}
-                        height={530}
-                        className="w-full h-full object-cover"
-                      />
+            {books.map(
+              ({ name, description, slug, info: { bookImage } }, i) => {
+                return (
+                  <SwiperSlide
+                    key={i}
+                    className={clsx(
+                      "max-w-full md:max-w-[calc(50%-(16px/2))] lg:max-w-[calc(calc(100%/3)-(32px/3))]",
+                      i !== books.length - 1 ? "mr-4" : "!mr-0"
+                    )}
+                  >
+                    <div key={i} className="flex flex-col">
+                      <div className="h-auto md:h-[480px] lg:h-[530px] rounded-lg overflow-hidden mb-6">
+                        <ImageKit
+                          image={bookImage as Media}
+                          alt={(bookImage as Media)?.altText}
+                          width={512}
+                          height={530}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="sm:max-w-[370px] md:mx-auto flex flex-col md:items-center gap-3">
+                        <h3 className="text-base leading-none tracking-tighter md:text-center uppercase">
+                          {name}
+                        </h3>
+                        <div
+                          className="leading-[1.3] text-sm text-light md:text-center tracking-tightest"
+                          dangerouslySetInnerHTML={slateToHtml(
+                            description,
+                            richTextConfig
+                          )}
+                        />
+                        <Link
+                          href={`/books/${slug}`}
+                          className={clsx(
+                            "font-semibold text-royal-purple/90 text-xs leading-tight -tracking-[0.24px]",
+                            "hover:text-royal-purple"
+                          )}
+                        >
+                          LEARN MORE
+                        </Link>
+                      </div>
                     </div>
-                    <div className="sm:max-w-[370px] md:mx-auto flex flex-col md:items-center gap-3">
-                      <h3 className="text-base leading-none tracking-tighter md:text-center uppercase">
-                        {name}
-                      </h3>
-                      <div
-                        className="leading-[1.3] text-sm text-light md:text-center tracking-tightest"
-                        dangerouslySetInnerHTML={slateToHtml(
-                          description,
-                          richTextConfig
-                        )}
-                      />
-                      <Link
-                        href={"#"}
-                        className={clsx(
-                          "font-semibold text-royal-purple/90 text-xs leading-tight -tracking-[0.24px]",
-                          "hover:text-royal-purple"
-                        )}
-                      >
-                        {learnMoreLink?.label ?? "LEARN MORE"}
-                      </Link>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              );
-            })}
+                  </SwiperSlide>
+                );
+              }
+            )}
           </Swiper>
         </div>
       </div>

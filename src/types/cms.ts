@@ -19,7 +19,6 @@ export interface Config {
     homepage: Homepage;
     aboutpage: Aboutpage;
     mediapage: Mediapage;
-    bookspage: Bookspage;
     privacypolicypage: Privacypolicypage;
     navigation: Navigation;
     footer: Footer;
@@ -106,16 +105,28 @@ export interface Book {
   description: {
     [k: string]: unknown;
   }[];
-  bookImage: string | Media;
-  learnMoreLink?: {
-    label?: string;
-    url?: string;
-    newTab?: boolean;
+  slug?: string;
+  info: {
+    bookImage: string | Media;
+    linkToBuy?: {
+      label?: string;
+      url?: string;
+      newTab?: boolean;
+    };
   };
-  linkToBuy?: {
-    label?: string;
-    url?: string;
-    newTab?: boolean;
+  hero: {
+    heroImage: string | Media;
+  };
+  intro: {
+    introText: string;
+  };
+  excerpt: {
+    excerpt: string;
+    page: string;
+    image: string | Media;
+  };
+  otherBooks: {
+    heading: string;
   };
   meta?: {
     title?: string;
@@ -448,31 +459,6 @@ export interface Mediapage {
       link: string;
       id?: string;
     }[];
-  };
-  meta?: {
-    title?: string;
-    description?: string;
-    image?: string | Media;
-  };
-  updatedAt?: string;
-  createdAt?: string;
-}
-export interface Bookspage {
-  id: string;
-  hero: {
-    heroImage: string | Media;
-    bookShowcase: string | Book;
-  };
-  intro: {
-    introText: string;
-  };
-  bookExcerpt: {
-    excerpt: string;
-    page: string;
-    image: string | Media;
-  };
-  otherBooks: {
-    heading: string;
   };
   meta?: {
     title?: string;

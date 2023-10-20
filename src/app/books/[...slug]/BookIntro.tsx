@@ -1,6 +1,6 @@
-import { Bookspage } from "@/types/cms";
+import { Book } from "@/types/cms";
 
-export default function BooksIntro({ intro }: { intro: Bookspage["intro"] }) {
+export default function BookIntro({ intro }: { intro: Book["intro"] }) {
   const { introText } = intro;
 
   return (

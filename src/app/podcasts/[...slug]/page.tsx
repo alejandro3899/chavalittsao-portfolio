@@ -13,7 +13,7 @@ export async function generateMetadata({ params: { slug } }: { params: any }) {
   const { meta } = docs?.[0] ?? { meta: {} };
 
   return baseMetadata({
-    title: meta?.title ?? "Podcasts",
+    title: meta?.title ?? "Podcast",
     description: meta?.description,
     slug: `podcasts/${pageSlug}`,
     image: (meta?.image as any)?.imagekit?.url,
@@ -33,10 +33,11 @@ export async function generateStaticParams() {
 export default async function Page({
   params: { slug },
 }: {
-  params: { slug: string };
+  params: { slug: string[] };
 }) {
+  const pageSlug = slug?.[0];
   const { docs } = await getColl<Podcast>("/podcasts-list", {
-    where: { slug: { equals: slug?.[0] } },
+    where: { slug: { equals: pageSlug } },
   });
   const podcast = docs?.[0];
 

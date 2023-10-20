@@ -1,11 +1,7 @@
-import { Bookspage, Media } from "@/types/cms";
+import { Book, Media } from "@/types/cms";
 import ImageKit from "@/components/ImageKit";
 
-export default function BooksExcerpt({
-  excerpt,
-}: {
-  excerpt: Bookspage["bookExcerpt"];
-}) {
+export default function BookExcerpt({ excerpt }: { excerpt: Book["excerpt"] }) {
   const { excerpt: excerptText, image, page } = excerpt;
 
   return (
