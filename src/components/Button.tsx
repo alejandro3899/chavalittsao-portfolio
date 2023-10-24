@@ -18,17 +18,17 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             "bg-base-purple text-neutral": theme === "primary",
             "bg-black text-white": theme === "base",
           },
-          "leading-tight -tracking-[0.24px] uppercase outline-none",
+          "leading-tight -tracking-[0.24px] uppercase",
           {
             "px-4 py-4": size === "sm",
             "px-8 py-4": size === "md",
             "px-8 py-6": size === "lg",
           },
-          "transition-all focus:outline-none focus-visible:outline-none disabled:cursor-not-allowed",
+          "transition-all disabled:cursor-not-allowed",
           {
-            "hover:bg-base-purple/90 disabled:bg-base-purple/50 disabled:hover:bg-base-purple/50":
+            "focus-visible:outline-base-purple hover:bg-base-purple/90 disabled:bg-base-purple/50 disabled:hover:bg-base-purple/50":
               theme === "primary",
-            "hover:bg-black/90 disabled:bg-black/50 disabled:hover:bg-black/50":
+            "focus-visible:outline-black hover:bg-black/90 disabled:bg-black/50 disabled:hover:bg-black/50":
               theme === "base",
           },
           className

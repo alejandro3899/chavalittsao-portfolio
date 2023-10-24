@@ -38,9 +38,9 @@ export default function Hero({
           `@media (min-width: ${
             bgBreak === "sm" ? "640px" : bgBreak === "md" ? "768px" : "1024px"
           }) {
-          .hero-bg {
-            background-image: url(${bgImage});
-          }
+            .hero-bg {
+              background-image: url(${bgImage});
+            }
           }`
         }
         `}

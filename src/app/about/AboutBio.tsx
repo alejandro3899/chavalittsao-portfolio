@@ -24,7 +24,7 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
                     ?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                <span
+                <button
                   className={clsx(
                     "text-xs uppercase",
                     active === i
@@ -34,7 +34,7 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
                   )}
                 >
                   {title}
-                </span>
+                </button>
               </li>
             );
           })}

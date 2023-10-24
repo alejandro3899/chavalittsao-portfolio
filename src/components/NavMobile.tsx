@@ -32,9 +32,11 @@ export default function NavMobile({
         aria-label="menu"
         className={clsx(
           "relative grid place-content-center",
-          theme === "default" || open ? "text-royal-purple" : "text-white",
+          theme === "default" || open
+            ? "text-royal-purple focus-visible:outline-royal-purple"
+            : "text-white focus-visible:outline-white",
           "py-2 z-10",
-          "transition-all focus:outline-none"
+          "transition-all"
         )}
         style={{
           transitionDelay,

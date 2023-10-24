@@ -67,7 +67,14 @@ export default function MainNav({
           <Logo
             siteBranding={settings.siteBranding}
             text="CHAVALIT TSAO"
-            theme={theme}
+            theme={navMobileOpen ? "default" : theme}
+            linkProps={{
+              ...({
+                style: {
+                  transitionDelay,
+                },
+              } as any),
+            }}
           />
         </div>
         <ul className="hidden md:flex flex-[0.5] items-center justify-between gap-6 sm:gap-12 md:gap-16">
@@ -96,8 +103,9 @@ export default function MainNav({
                 </Link>
               </li>
             ) : (
-              <span
+              <button
                 key={i}
+                tabIndex={0}
                 onClick={() => {
                   setActiveDropdown((prev) => {
                     return prev && prev.label === label
@@ -122,7 +130,7 @@ export default function MainNav({
                 }}
               >
                 {label}
-              </span>
+              </button>
             );
           })}
         </ul>

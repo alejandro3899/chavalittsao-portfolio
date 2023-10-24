@@ -98,6 +98,7 @@ export interface Podcast {
   };
   updatedAt: string;
   createdAt: string;
+  _status?: 'draft' | 'published';
 }
 export interface Book {
   id: string;
@@ -118,10 +119,14 @@ export interface Book {
     heroImage: string | Media;
   };
   intro: {
-    introText: string;
+    introText: {
+      [k: string]: unknown;
+    }[];
   };
   excerpt: {
-    excerpt: string;
+    excerpt: {
+      [k: string]: unknown;
+    }[];
     page: string;
     image: string | Media;
   };
@@ -135,6 +140,7 @@ export interface Book {
   };
   updatedAt: string;
   createdAt: string;
+  _status?: 'draft' | 'published';
 }
 export interface User {
   id: string;
@@ -327,6 +333,9 @@ export interface Homepage {
   workSummary: {
     heading: string;
   };
+  siteBranding: {
+    theme?: 'light' | 'default';
+  };
   meta?: {
     title?: string;
     description?: string;
@@ -445,7 +454,9 @@ export interface Mediapage {
     heading: string;
     bios?: {
       name: string;
-      bio: string;
+      bio: {
+        [k: string]: unknown;
+      }[];
       image: string | Media;
       hide: boolean;
       id?: string;

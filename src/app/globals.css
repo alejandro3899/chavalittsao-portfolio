@@ -49,7 +49,7 @@
   }
 
   input {
-    @apply outline-none;
+    @apply outline-none appearance-none rounded-none;
   }
 }
 

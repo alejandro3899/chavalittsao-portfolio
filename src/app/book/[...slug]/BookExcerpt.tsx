@@ -1,5 +1,6 @@
 import { Book, Media } from "@/types/cms";
 import ImageKit from "@/components/ImageKit";
+import slateToHtml, { richTextConfig } from "@/utils/slateToHtml";
 
 export default function BookExcerpt({ excerpt }: { excerpt: Book["excerpt"] }) {
   const { excerpt: excerptText, image, page } = excerpt;
@@ -25,11 +26,16 @@ export default function BookExcerpt({ excerpt }: { excerpt: Book["excerpt"] }) {
               <h2 className="text-xs uppercase text-center">Excerpt</h2>
             </div>
             <div className="flex items-center justify-center">
-              <p className="flex flex-col gap-1 font-serif font-light text-base sm:text-[21px] text-center leading-[1.3] tracking-tightest">
+              <div className="flex flex-col gap-1 font-serif font-light text-base sm:text-[21px] text-center leading-[1.3] tracking-tightest">
                 <span>“</span>
-                <span>{excerptText}</span>
-                <span>“</span>
-              </p>
+                <div
+                  dangerouslySetInnerHTML={slateToHtml(
+                    excerptText,
+                    richTextConfig
+                  )}
+                />
+                <span>”</span>
+              </div>
             </div>
             <div>
               <p className="text-xs text-center">{page}</p>
