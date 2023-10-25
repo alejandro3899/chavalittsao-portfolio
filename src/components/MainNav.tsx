@@ -62,8 +62,8 @@ export default function MainNav({
           transitionDelay,
         }}
       />
-      <div className="relative w-full max-w-[1600px] flex justify-between items-center gap-8 sm:gap-12 px-4 sm:px-5 z-10">
-        <div className="relative md:flex-[0.5] flex z-10">
+      <div className="relative w-full max-w-[1600px] flex justify-between items-center gap-8 sm:gap-12 px-4 sm:px-5">
+        <div className="relative md:flex-[0.5] flex">
           <Logo
             siteBranding={settings.siteBranding}
             text="CHAVALIT TSAO"

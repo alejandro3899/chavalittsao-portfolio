@@ -334,7 +334,7 @@ export interface Homepage {
     heading: string;
   };
   siteBranding: {
-    theme?: 'light' | 'default';
+    image?: string | Media;
   };
   meta?: {
     title?: string;
@@ -413,6 +413,9 @@ export interface Aboutpage {
   workSummary: {
     heading: string;
   };
+  siteBranding: {
+    image?: string | Media;
+  };
   meta?: {
     title?: string;
     description?: string;
@@ -470,6 +473,9 @@ export interface Mediapage {
       link: string;
       id?: string;
     }[];
+  };
+  siteBranding: {
+    image?: string | Media;
   };
   meta?: {
     title?: string;

@@ -74,21 +74,23 @@ export default function NavMobile({
                     !hide && (
                       <li key={i} className="w-full">
                         {item.type === "single" ? (
-                          <Link
-                            href={item.url}
-                            target={item.newTab ? "_blank" : "_self"}
-                            className="text-xl text-royal-purple leading-none"
+                          <m.div
+                            variants={slideIn((i + 1) * 0.075)}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            className="px-4"
                           >
-                            <m.span
-                              variants={slideIn((i + 1) * 0.075)}
-                              initial="hidden"
-                              animate="visible"
-                              exit="exit"
-                              className="block capitalize py-0.5 px-4"
+                            <Link
+                              href={item.url}
+                              target={item.newTab ? "_blank" : "_self"}
+                              className="block text-xl text-royal-purple leading-none py-0.5"
                             >
-                              {label.toLowerCase()}
-                            </m.span>
-                          </Link>
+                              <span className="block capitalize">
+                                {label.toLowerCase()}
+                              </span>
+                            </Link>
+                          </m.div>
                         ) : (
                           <AnimateHeight
                             height={!isHidden ? "auto" : 28}
@@ -99,10 +101,10 @@ export default function NavMobile({
                               initial="hidden"
                               animate="visible"
                               exit="exit"
-                              className="w-full flex flex-col text-royal-purple overflow-hidden"
+                              className="w-full flex flex-col text-royal-purple overflow-hidden py-0.5 px-4"
                             >
-                              <div
-                                className="w-full flex justify-between items-center gap-4 cursor-pointer py-0.5 px-4"
+                              <button
+                                className="w-full flex justify-between items-center gap-4 cursor-pointer"
                                 onClick={() =>
                                   setOpenItem((prev) =>
                                     prev === id ? null : id!
@@ -122,7 +124,7 @@ export default function NavMobile({
                                     )}
                                   />
                                 </span>
-                              </div>
+                              </button>
                               <NavMobileDropdown
                                 hidden={isHidden}
                                 dropdownItems={item.dropdown}

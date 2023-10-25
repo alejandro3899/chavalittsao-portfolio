@@ -35,7 +35,7 @@ export default function WorkSummary({
               <Link
                 href={link?.url ?? "#"}
                 className={clsx(
-                  "font-semibold text-royal-purple/90 text-xs leading-tight -tracking-[0.24px] hover:text-royal-purple"
+                  "w-fit font-semibold text-royal-purple/90 text-xs leading-tight -tracking-[0.24px] hover:text-royal-purple"
                 )}
               >
                 {link?.label ?? "LEARN MORE"}

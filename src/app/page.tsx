@@ -1,4 +1,4 @@
-import { Homepage, WorkSummary } from "@/types/cms";
+import { Homepage, Media, WorkSummary } from "@/types/cms";
 import { getGlob } from "@/utils/api";
 import { baseMetadata } from "@/utils/baseMetadata";
 import BaseLayout from "@/components/BaseLayout";
@@ -26,9 +26,10 @@ export default async function Home() {
     {},
     { next: { tags: ["work-summary"] } }
   );
+  const altBranding = home.siteBranding?.image as Media;
 
   return (
-    <BaseLayout theme="light">
+    <BaseLayout theme="light" altBranding={altBranding}>
       <HomePage home={home} workSummary={workSummary} />
     </BaseLayout>
   );

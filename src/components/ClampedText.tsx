@@ -33,7 +33,7 @@ export default function ClampedText({
           {
             overflow: "hidden",
             display: "-webkit-box",
-            "-webkit-box-orient": "vertical",
+            WebkitBoxOrient: "vertical",
             "-webkit-line-clamp": clamped ? lines.toString() : "unset",
           } as any
         }

@@ -16,7 +16,7 @@ export default function NavMobileDropdown({
     <LazyMotion features={domAnimation}>
       <AnimatePresence>
         {!hidden && (
-          <m.ul className="flex flex-col gap-3 pt-4 px-4">
+          <m.ul className="flex flex-col gap-3 pt-4 px-0">
             {dropdownItems.map(
               ({ label, url, hide, newTab }, i) =>
                 !hide && (
@@ -25,7 +25,7 @@ export default function NavMobileDropdown({
                     variants={rightLeft(i * 0.075, 25)}
                     initial="visible"
                     exit="visible"
-                    className="text-sm leading-snug"
+                    className="text-sm leading-snug py-0.5"
                   >
                     <Link
                       href={url}

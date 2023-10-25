@@ -93,7 +93,7 @@ export default function Footer({
             })}
           </ul>
           <button
-            className="min-w-fit text-sm uppercase outline-none"
+            className="min-w-fit text-sm uppercase"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             {footerLogo}

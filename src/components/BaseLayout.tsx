@@ -1,5 +1,6 @@
 import {
   Footer as FooterType,
+  Media,
   Navigation,
   Settings,
   Social,
@@ -11,9 +12,11 @@ import MainNav from "./MainNav";
 export default async function BaseLayout({
   children,
   theme = "default",
+  altBranding,
 }: {
   children: React.ReactNode;
   theme?: "light" | "default";
+  altBranding?: Media;
 }) {
   const settings = await getGlob<Settings>(
     "/settings",
@@ -38,7 +41,14 @@ export default async function BaseLayout({
 
   return (
     <>
-      <MainNav settings={settings} theme={theme} navData={navData} />
+      <MainNav
+        settings={{
+          ...settings,
+          ...(altBranding ? { siteBranding: altBranding } : {}),
+        }}
+        theme={theme}
+        navData={navData}
+      />
       <main
         id="main"
         className="w-full min-h-screen flex flex-col items-center"
