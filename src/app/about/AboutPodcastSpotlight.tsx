@@ -9,6 +9,9 @@ export default function AboutPodcastSpotlight({
   podcastSpotlight: Aboutpage["podcastSpotlight"];
 }) {
   const podcast = podcastSpotlight.podcastSpotlight as Podcast;
+  const {
+    info: { presentedBy, image: podcastImage, moderator, linkToListen },
+  } = podcast;
 
   return (
     <section className="w-full py-8 sm:py-12">
@@ -30,7 +33,7 @@ export default function AboutPodcastSpotlight({
                   Presented and hosted by
                 </h5>
                 <p className="font-serif font-light text-lg leading-none">
-                  {podcast.presentedBy}
+                  {presentedBy}
                 </p>
               </div>
               <div>
@@ -38,15 +41,15 @@ export default function AboutPodcastSpotlight({
                   Moderator
                 </h5>
                 <p className="font-serif font-light text-lg leading-none">
-                  {podcast.moderator}
+                  {moderator}
                 </p>
               </div>
             </div>
 
-            {podcast.linkToListen && (
-              <Link href={podcast?.linkToListen?.url!} className="w-fit">
+            {linkToListen && (
+              <Link href={linkToListen?.url!} className="w-fit">
                 <Button className="w-fit" tabIndex={-1} theme="primary">
-                  {podcast.linkToListen?.label}
+                  {linkToListen?.label}
                 </Button>
               </Link>
             )}
@@ -55,8 +58,8 @@ export default function AboutPodcastSpotlight({
           <div className="flex flex-1 md:flex-[0.6] lg:flex-[0.5] md:items-end">
             <div className="w-full md:w-fit md:ml-auto">
               <ImageKit
-                image={podcast.image as Media}
-                alt={(podcast.image as Media)?.altText ?? "Podcast"}
+                image={podcastImage as Media}
+                alt={(podcastImage as Media)?.altText ?? "Podcast"}
                 width={0}
                 height={0}
                 sizes="100vw"

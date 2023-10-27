@@ -93,9 +93,6 @@ export default function MainNav({
                       : "text-royal-purple hover:text-royal-purple",
                     "transiton-all"
                   )}
-                  style={{
-                    transitionDelay,
-                  }}
                   href={item.url}
                   onClick={() => setActiveDropdown(null)}
                 >
