@@ -8,7 +8,7 @@ import NavMobile from "./NavMobile";
 import clsx from "clsx";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function MainNav({
   theme = "default",
@@ -20,14 +20,14 @@ export default function MainNav({
   const [activeDropdown, setActiveDropdown] = useState<Dropdown | null>(null);
   const [navMobileOpen, setNavMobileOpen] = useState(false);
   const [dropdownKey, setDropdownKey] = useState<string | null>(null);
-  const selectedLayoutSegment = useSelectedLayoutSegment();
 
+  const selectedLayoutSegment = useSelectedLayoutSegment();
   const active = selectedLayoutSegment?.toLowerCase();
   const isLight = theme === "light";
   const itemsLength = activeDropdown?.items?.length ?? 0;
-  const transitionDelay = !activeDropdown
-    ? `${(itemsLength >= 1 ? itemsLength - 1 : itemsLength) * 0.075 + 0.3}s`
-    : "0s";
+  let transitionDelay = !activeDropdown
+    ? (itemsLength >= 1 ? itemsLength - 1 : itemsLength) * 0.075 + 0.3
+    : 0;
 
   useEffect(() => {
     const main = document.getElementById("main")!;
@@ -59,7 +59,7 @@ export default function MainNav({
           "transition-all duration-500"
         )}
         style={{
-          transitionDelay,
+          transitionDelay: `${transitionDelay}s`,
         }}
       />
       <div className="relative w-full max-w-[1600px] flex justify-between items-center gap-8 sm:gap-12 px-4 sm:px-5">
@@ -71,7 +71,7 @@ export default function MainNav({
             linkProps={{
               ...({
                 style: {
-                  transitionDelay,
+                  transition: `color 0.15s ease ${transitionDelay}s`,
                 },
               } as any),
             }}
@@ -122,9 +122,6 @@ export default function MainNav({
                     : "text-royal-purple hover:text-royal-purple",
                   "cursor-pointer transiton-all"
                 )}
-                style={{
-                  transitionDelay,
-                }}
               >
                 {label}
               </button>

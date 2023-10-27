@@ -6,7 +6,7 @@ import clsx from "clsx";
 import AnimateHeight from "react-animate-height";
 import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function NavMobile({
   open,
@@ -22,9 +22,9 @@ export default function NavMobile({
   const [openItem, setOpenItem] = useState<string | null>(null);
 
   const itemsLength = navItems.length ?? 0;
-  const transitionDelay = !open
-    ? `${(itemsLength >= 1 ? itemsLength - 1 : itemsLength) * 0.075 + 0.3}s`
-    : "0s";
+  let transitionDelay = !open
+    ? (itemsLength >= 1 ? itemsLength - 1 : itemsLength) * 0.075 + 0.3
+    : 0;
 
   return (
     <div className="md:hidden">
@@ -39,7 +39,7 @@ export default function NavMobile({
           "transition-all"
         )}
         style={{
-          transitionDelay,
+          transition: `color 0.15s ease ${transitionDelay}s`,
         }}
         onClick={() => {
           open && setOpenItem(null);
