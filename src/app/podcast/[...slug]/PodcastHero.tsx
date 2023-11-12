@@ -48,9 +48,10 @@ export default function PodcastHero({
               <ImageKit
                 image={heroImage as Media}
                 alt={(heroImage as Media)?.altText ?? "Podcast"}
-                width={600}
-                height={750}
-                className="aspect-[1_/_1.05] lg:aspect-[1_/_1.0787] max-h-full w-full h-auto lg:h-full rounded-lg lg:object-cover"
+                sizes="100vw"
+                width={0}
+                height={0}
+                className="aspect-[1_/_1.20455] lg:aspect-[1_/_1.0787] max-h-full w-full h-auto lg:h-full rounded-lg lg:object-cover"
               />
             </div>
           </div>

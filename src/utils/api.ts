@@ -23,7 +23,7 @@ function apiFetch(url: string, options: RequestInit = {}) {
       return res.json();
     }
     throw new Error(
-      `Error fetching from Payload API: ${res.statusText} (${res.status})}`
+      `Error fetching from Payload API: ${res.statusText} (${res.status})`
     );
   });
 }
