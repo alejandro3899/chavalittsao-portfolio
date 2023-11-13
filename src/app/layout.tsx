@@ -1,6 +1,6 @@
 import "./globals.css";
 
-import { Favicon, Media } from "@/types/cms";
+import { Favicon, Media, Settings } from "@/types/cms";
 import { getGlob } from "@/utils/api";
 import clsx from "clsx";
 import { Poppins } from "next/font/google";
@@ -34,6 +34,11 @@ export default async function RootLayout({
 }) {
   const { favicon } = await getGlob<Favicon>("/favicon");
   const faviconUrl = (favicon as Media)?.imagekit?.url;
+  const settings = await getGlob<Settings>(
+    "/settings",
+    {},
+    { next: { tags: ["settings"] } }
+  );
 
   return (
     <html lang="en" suppressHydrationWarning={true}>
@@ -53,6 +58,7 @@ export default async function RootLayout({
           gtAlpina.variable,
           "bg-sand font-sans text-royal-purple"
         )}
+        style={{backgroundColor: settings.siteBackgroundColor}}
         suppressHydrationWarning={true}
       >
         {children}

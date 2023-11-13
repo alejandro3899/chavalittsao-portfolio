@@ -1,18 +1,19 @@
 import "swiper/css/bundle";
 import "swiper/css/autoplay";
 
-import { Homepage, Media } from "@/types/cms";
+import { HomepageGalleryMedia, Media } from "@/types/cms";
 import ImageKit from "@/components/ImageKit";
 import clsx from "clsx";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import SwiperType from "swiper";
 import { useRef, useState } from "react";
+import Link from "next/link";
 
 export default function HomeForum({
   gallery,
 }: {
-  gallery: Homepage["gallery"];
+  gallery: HomepageGalleryMedia;
 }) {
   const [tabIndex, setTabIndex] = useState(0);
   const slideRef = useRef<SwiperType | null>(null);
@@ -70,6 +71,38 @@ export default function HomeForum({
     );
   }
 
+  function GalleryMedia({
+    entry
+  }: {
+    entry: HomepageGalleryMedia;
+  }) {
+    var media = <ImageKit
+      image={entry.image}
+      alt={entry.image?.altText}
+      width={0}
+      height={0}
+      sizes="100vw"
+      className="w-full rounded-lg object-contain"
+    />;
+
+    if (entry.link?.url) {
+      return (<Link
+          href={entry.link?.url}
+          target={entry.link?.newTab ? "_blank" : "_self"}
+          title={entry.link?.label}
+          className="w-full h-full flex items-center"
+        >
+          {media}
+        </Link>
+      );
+    }
+    else {
+      return (
+        <div className="w-full h-full flex items-center">{media}</div>
+      );
+    }
+  }
+
   return (
     <section className="w-full py-8 sm:py-12">
       <div className="relative container flex flex-col text-royal-purple gap-6">
@@ -107,23 +140,14 @@ export default function HomeForum({
               }}
               className="w-full h-full"
             >
-              {images.map(({ image }, i) => {
+              {images.map((entry: HomepageGalleryMedia, i: string) => {
                 return (
                   <SwiperSlide
                     key={i}
                     className="bg-sand w-full !h-auto flex items-center"
                   >
                     <div className="h-full flex md:flex-[0.5]">
-                      <div className="w-full h-full flex items-center">
-                        <ImageKit
-                          image={image as Media}
-                          alt={(image as Media)?.altText}
-                          width={0}
-                          height={0}
-                          sizes="100vw"
-                          className="w-full rounded-lg object-contain"
-                        />
-                      </div>
+                      <GalleryMedia entry={entry} />
                     </div>
                   </SwiperSlide>
                 );

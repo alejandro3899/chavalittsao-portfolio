@@ -284,6 +284,16 @@ export interface FormSubmission {
   updatedAt: string;
   createdAt: string;
 }
+export interface HomepageGalleryMedia {
+  label: string;
+  image: string | Media;
+  id?: string;
+  link?: {
+    url?: string;
+    newTab?: boolean;
+    label?: string;
+  };
+}
 export interface Homepage {
   id: string;
   hero: {
@@ -292,8 +302,11 @@ export interface Homepage {
     heroText?: string;
     backgroundImage: {
       baseImage: string | Media;
+      baseImageEffectMask: string | Media;
       tabletImage?: string | Media;
+      tabletImageEffectMask?: string | Media;
       mobileImage?: string | Media;
+      mobileImageEffectMask?: string | Media;
     };
   };
   intro: {
@@ -324,11 +337,7 @@ export interface Homepage {
     };
   };
   gallery: {
-    images?: {
-      label: string;
-      image: string | Media;
-      id?: string;
-    }[];
+    images?: HomepageGalleryMedia[];
   };
   workSummary: {
     heading: string;
@@ -570,6 +579,7 @@ export interface Settings {
   siteTitle: string;
   siteDescription: string;
   siteBranding?: string | Media;
+  siteBackgroundColor?: string | undefined;
   updatedAt?: string;
   createdAt?: string;
 }

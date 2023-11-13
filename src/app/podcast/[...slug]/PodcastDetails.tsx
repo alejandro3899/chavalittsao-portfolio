@@ -2,6 +2,7 @@
 
 import { Podcast } from "@/types/cms";
 import LinkButton from "@/components/LinkButton";
+import AudioPlayer from "@/components/AudioPlayer";
 import clsx from "clsx";
 import Link from "next/link";
 import { Fragment, useState } from "react";
@@ -48,6 +49,17 @@ export default function PodcastDetails({ podcast }: { podcast: Podcast }) {
   }
 
   return (
+    <>
+    <style>
+      {`
+        audio {
+          border-radius: 1000px;
+        }
+        audio::-webkit-media-controls-enclosure {
+          background-color: #ccc;
+        }
+      `}
+    </style>
     <section className="w-full py-8 sm:py-12">
       <div className="container w-full flex-col">
         <h3 className="hidden sm:block text-xs leading-tight tracking-tight mb-7">
@@ -82,6 +94,7 @@ export default function PodcastDetails({ podcast }: { podcast: Podcast }) {
                         <h4 className="font-serif font-light text-3xl sm:text-[34px]">
                           {title}
                         </h4>
+                        <AudioPlayer url={linkToEpisode?.url}></AudioPlayer>
                         <div className="flex gap-6">
                           <span className="leading-tight tracking-tight text-xs uppercase">
                             {duration}
@@ -138,5 +151,6 @@ export default function PodcastDetails({ podcast }: { podcast: Podcast }) {
         )}
       </div>
     </section>
+    </>
   );
 }

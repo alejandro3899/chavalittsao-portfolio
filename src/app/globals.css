@@ -95,6 +95,11 @@
   background-color: rgb(190, 190, 190);
 }
 
+/* Audio Player */
+.js-audio-player {
+  width: 100%;
+}
+
 /* rich text */
 .richtext p:empty,
 .richtext hr,
