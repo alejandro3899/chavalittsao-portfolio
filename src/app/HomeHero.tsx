@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 
 export default function HomeHero({ hero }: { hero: Homepage["hero"] }) {
   const { baseImage, baseImageEffectMask, mobileImage, mobileImageEffectMask, tabletImage, tabletImageEffectMask } = hero.backgroundImage;
-
+  
   return (
     <Hero
       className="items-stretch pb-20"
