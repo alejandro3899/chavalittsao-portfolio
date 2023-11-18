@@ -6,6 +6,7 @@ import { Book, Media } from "@/types/cms";
 import slateToHtml, { richTextConfig } from "@/utils/slateToHtml";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 import ImageKit from "@/components/ImageKit";
+import ClampedText from "@/components/ClampedText";
 import clsx from "clsx";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperType from "swiper";
@@ -159,13 +160,17 @@ export default function BookBooksList({
                         <h3 className="text-base leading-none tracking-tighter md:text-center uppercase">
                           {name}
                         </h3>
+                        
                         <div
                           className="leading-[1.3] text-sm text-light md:text-center tracking-tightest"
-                          dangerouslySetInnerHTML={slateToHtml(
-                            description,
-                            richTextConfig
-                          )}
-                        />
+                        >
+                          <ClampedText
+                            richContent={description}
+                            lines={10}
+                            className="text-[13px] -tracking-[0.26px] leading-snug"
+                            buttonClassName="hidden"
+                          />
+                        </div>
                         <Link
                           href={`/book/${slug}`}
                           className={clsx(

@@ -33,7 +33,7 @@ export default function PodcastHero({
               </p>
             </div>
             <div className="flex flex-col">
-              <p className="max-w-[378px] hidden lg:block text-sm tracking-tight leading-snug mb-6">
+              <p className="max-w-[538px] hidden lg:block text-sm tracking-tight leading-snug mb-6">
                 {description}
               </p>
               <div className="flex gap-6 items-center">
