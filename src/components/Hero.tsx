@@ -87,7 +87,7 @@ export default function Hero({
           className
         )}
       >
-        <div className="hero-bg-effect absolute w-full h-full top-0 left-0 bg-cover bg-center bg-no-repeat pointer-events-none">
+        <div className="hero-bg-effect absolute w-full min-h-[100vh] top-0 left-0 bg-cover bg-center bg-no-repeat pointer-events-none">
           <svg className="absolute pointer-events-none opacity-0">
             <filter id="turbulence" x="0" y="0" width="100%" height="100%">
               <feTurbulence id="sea-filter" numOctaves="3" seed="2" baseFrequency="0.02 0.05"></feTurbulence>
