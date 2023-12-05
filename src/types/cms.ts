@@ -285,13 +285,12 @@ export interface FormSubmission {
   createdAt: string;
 }
 export interface HomepageGalleryMedia {
-  label: string;
+  title: string;
   image: string | Media;
   id?: string;
   link?: {
     url?: string;
     newTab?: boolean;
-    label?: string;
   };
 }
 export interface Homepage {

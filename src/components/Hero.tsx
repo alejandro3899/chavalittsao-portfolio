@@ -91,7 +91,7 @@ export default function Hero({
           <svg className="absolute pointer-events-none opacity-0">
             <filter id="turbulence" x="0" y="0" width="100%" height="100%">
               <feTurbulence id="sea-filter" numOctaves="3" seed="2" baseFrequency="0.02 0.05"></feTurbulence>
-              <feDisplacementMap scale="6" in="SourceGraphic"></feDisplacementMap>
+              <feDisplacementMap scale="8" in="SourceGraphic"></feDisplacementMap>
               <animate xlinkHref="#sea-filter" attributeName="baseFrequency" dur="120s" keyTimes="0;0.5;1" values="0.02 0.06;0.03 0.01;0.02 0.06" repeatCount="indefinite"></animate>
             </filter>
           </svg>

@@ -75,9 +75,16 @@
   }
 }
 
+.max-w-\[960px\] {
+  max-width: 960px;
+}
+
 /* Swiper */
 .swiper-wrapper {
   align-items: stretch;
+}
+.swiper-wrapper .swiper-slide:not(.swiper-slide-visible) {
+  opacity: 0 !important;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
