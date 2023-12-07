@@ -83,7 +83,7 @@
 .swiper-wrapper {
   align-items: stretch;
 }
-.swiper-wrapper .swiper-slide:not(.swiper-slide-visible) {
+.home-gallery-swiper.swiper .swiper-wrapper .swiper-slide:not(.swiper-slide-visible) {
   opacity: 0 !important;
 }
 

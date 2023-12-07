@@ -147,7 +147,7 @@ export default function HomeForum({
             onRealIndexChange={(swiper) => {
               setTabIndex(swiper.realIndex);
             }}
-            className="w-full h-full"
+            className="w-full h-full home-gallery-swiper"
           >
             {images.map((entry: HomepageGalleryMedia, i: string) => {
               return (
