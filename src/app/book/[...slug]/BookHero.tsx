@@ -33,14 +33,14 @@ export default function BookHero({ book }: { book: Book }) {
             </div>
 
             {linkToBuy && (
-              <Link href={linkToBuy?.url!} className="w-fit">
+              <a href={linkToBuy?.url!} className="w-fit" target={linkToBuy?.newTab ? "_blank" : "_self"}>
                 <Button
                   className="text-xs font-semibold leading-tight -tracking-[0.24px]"
                   theme="primary"
                 >
                   {linkToBuy?.label ?? "BUY"}
                 </Button>
-              </Link>
+              </a>
             )}
           </div>
 
