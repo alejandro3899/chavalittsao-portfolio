@@ -75,7 +75,7 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
         </div>
         <div className="md:sticky top-0 sm:right-5 flex flex-col md:flex-[0.5]">
           {bioSections.map(({ title, description, images = [] }, i) => {
-            const firstImage = images?.[0].image;
+            const firstImage = images?.[0]?.image;
 
             return (
               <Fragment key={i}>
