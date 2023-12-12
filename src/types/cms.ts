@@ -328,12 +328,11 @@ export interface Homepage {
     }[];
   };
   quoteBlock: {
-    quote: {
-      quoteText: string;
+    quotes: {
+      quote: string;
       image: string | Media;
       size?: 'extraSmall' | 'small' | 'medium' | 'large';
-      hide: boolean;
-    };
+    }[];
   };
   gallery: {
     images?: HomepageGalleryMedia[];
