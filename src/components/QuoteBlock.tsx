@@ -34,7 +34,7 @@ export default function QuoteBlock({
                     loopPreventsSliding={true}
                     className="w-full h-full"
                 >
-                    {quotes.map((quote, index) => {
+                    {quotes?.map((quote, index) => {
                         return (
                             <SwiperSlide
                                 key={index}
@@ -76,8 +76,8 @@ function SingleQuoteBlock({
             <Image
                 src={(image as Media)?.imagekit?.url!}
                 alt={(image as Media)?.altText ?? "Quote"}
-                layout="fill"
-                objectFit="cover"
+                fill
+                style={{objectFit:"cover"}}
                 className="absolute left-0 top-0 pointer-events-none z-[1]"
             />
             <div className="w-full max-w-[450px] mx-auto z-[2]">
