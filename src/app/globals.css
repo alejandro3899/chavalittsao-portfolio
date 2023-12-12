@@ -83,9 +83,9 @@
 .swiper-wrapper {
   align-items: stretch;
 }
-.home-gallery-swiper.swiper .swiper-wrapper .swiper-slide:not(.swiper-slide-visible) {
+/* .home-gallery-swiper.swiper .swiper-wrapper .swiper-slide:not(.swiper-slide-visible) {
   opacity: 0 !important;
-}
+} */
 
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;

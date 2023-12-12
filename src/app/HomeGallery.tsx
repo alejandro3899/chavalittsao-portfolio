@@ -1,19 +1,15 @@
 import "swiper/css/bundle";
-import "swiper/css/autoplay";
 
 import { HomepageGalleryMedia, Media } from "@/types/cms";
-import ImageKit from "@/components/ImageKit";
 import clsx from "clsx";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade } from "swiper/modules";
 import SwiperType from "swiper";
 import { useRef, useState } from "react";
-import Link from "next/link";
 
 export default function HomeForum({
   gallery,
 }: {
-  gallery: HomepageGalleryMedia;
+  gallery: {images?: HomepageGalleryMedia[] };
 }) {
   const [tabIndex, setTabIndex] = useState(0);
   const slideRef = useRef<SwiperType | null>(null);
@@ -134,10 +130,8 @@ export default function HomeForum({
             `}
           </style>
           <Swiper
-            modules={[Autoplay, EffectFade]}
-            effect="fade"
             grabCursor={true}
-            speed={1000}
+            speed={1200}
             spaceBetween={12}
             preventInteractionOnTransition={true}
             loopPreventsSliding={true}
@@ -147,9 +141,9 @@ export default function HomeForum({
             onRealIndexChange={(swiper) => {
               setTabIndex(swiper.realIndex);
             }}
-            className="w-full h-full home-gallery-swiper"
+            className="w-full h-full"
           >
-            {images.map((entry: HomepageGalleryMedia, i: string) => {
+            {images.map((entry: HomepageGalleryMedia, i: number) => {
               return (
                 <SwiperSlide
                   key={i}
