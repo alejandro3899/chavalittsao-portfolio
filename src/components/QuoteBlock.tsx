@@ -1,9 +1,10 @@
 import "swiper/css/bundle";
+import 'swiper/css/effect-fade';
 
 import { Homepage, Media } from "@/types/cms";
 import clsx from "clsx";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, EffectFade } from "swiper/modules";
 import Image from "next/image";
 
 interface Quote {
@@ -20,18 +21,18 @@ export default function QuoteBlock({
 }) {
     return (
         <>
-            <div className="relative max-w-[100%]">
+            <div className="relative w-[100%]">
                 <Swiper
                     autoplay={{
                         delay: 2500,
-                        disableOnInteraction: false,
+                        disableOnInteraction: true,
                     }}
-                    modules={[Autoplay]}
-                    grabCursor={true}
-                    speed={1200}
+                    modules={[Autoplay, EffectFade]}
+                    effect={'fade'}
+                    speed={1500}
                     spaceBetween={12}
                     preventInteractionOnTransition={true}
-                    loopPreventsSliding={true}
+                    loop={true}
                     className="w-full h-full"
                 >
                     {quotes?.map((quote, index) => {
@@ -64,13 +65,7 @@ function SingleQuoteBlock({
     return (
         <div
             className={clsx(
-                "relative w-full flex justify-center items-center rounded-lg overflow-hidden px-6 sm:px-8 md:px-12",
-                {
-                    "h-[360px] md:h-[400px]": size === "extraSmall",
-                    "h-[480px] md:h-[600px]": size === "small",
-                    "h-[500px] md:h-[640px]": size === "medium",
-                    "h-[580px] md:h-[720px]": size === "large",
-                }
+                "relative w-full h-[400px] md:h-[520px] flex justify-center items-center rounded-lg overflow-hidden px-6 sm:px-8 md:px-12",
             )}
         >
             <Image
