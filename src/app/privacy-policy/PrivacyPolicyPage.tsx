@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage({
       <div className="container flex md:flex-row flex-col justify-between gap-6 md:gap-12">
         <div className="md:flex-[0.5]">
           <div className="max-w-[280px]">
-            <h1 className="text-3xl sm:text-[32px] leading-none -tracking-[0.96px] sm:tracking-tighter">
+            <h1 className="text-3xl sm:text-[33.33px] leading-none -tracking-[0.96px] sm:tracking-tighter">
               {heading}
             </h1>
           </div>

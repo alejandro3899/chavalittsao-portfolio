@@ -19,7 +19,7 @@ export default function BookHero({ book }: { book: Book }) {
         <div className="max-w-[640px] lg:max-w-full w-full h-full flex flex-col-reverse lg:flex-row justify-between gap-8 lg:gap-12 mx-auto">
           <div className="max-w-[480px] lg:flex-[0.5] h-full flex flex-col gap-8">
             <div className="w-full h-full flex flex-col justify-end">
-              <h1 className="text-3xl sm:text-[32px] tracking-tighter mb-2">
+              <h1 className="text-3xl sm:text-[33.33px] tracking-tighter mb-2">
                 {name}
               </h1>
               <div>

@@ -33,7 +33,16 @@ const config: Config = {
         serif: ["var(--font-gt-alpina)"],
       },
       fontSize: {
-        "3xl": ["1.75rem", "2.25rem"],
+        'xs': '0.8331rem', // 0.75rem + 1pt
+        'sm': '0.9581rem', // 0.875rem + 1pt
+        'base': '1.0831rem', // 1rem + 1pt
+        'lg': '1.2081rem', // 1.125rem + 1pt
+        'xl': '1.3331rem', // 1.25rem + 1pt
+        '2xl': '1.5831rem', // 1.5rem + 1pt
+        '3xl': '1.9581rem', // 1.875rem + 1pt
+        '4xl': '2.3331rem', // 2.25rem + 1pt
+        '5xl': '3.0831rem', // 3rem + 1pt
+        '6xl': '4.0831rem', // 4rem + 1pt
       },
       backgroundImage: {},
       letterSpacing: {

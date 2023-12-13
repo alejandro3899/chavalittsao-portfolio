@@ -20,7 +20,7 @@ export default function HomeHero({ hero }: { hero: Homepage["hero"] }) {
             <p className="text-sm text-white leading-[1.4] tracking-[-0.24px] uppercase mb-2">
               {hero.heading}
             </p>
-            <h1 className="text-white text-3xl md:text-[32px] tracking-[-0.32px]">
+            <h1 className="text-white text-3xl md:text-[33.33px] tracking-[-0.32px]">
               {hero.subHeading}
             </h1>
           </div>

@@ -7,7 +7,7 @@ export default function MediaPress({ press }: { press: Mediapage["press"] }) {
   return (
     <section className="w-full bg-lilac py-8 sm:py-12">
       <div className="container xl:!max-w-[1200px] w-full">
-        <h2 className="text-3xl sm:text-[32px] uppercase mb-8">Press</h2>
+        <h2 className="text-3xl sm:text-[33.33px] uppercase mb-8">Press</h2>
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
           {pressReleases.map(({ title, date, link }, i) => {
             const formattedDate = new Date(date).toLocaleString("en-US", {

@@ -20,7 +20,7 @@ const LinkButton = forwardRef<HTMLButtonElement, LinkButtonProps>(
       <button
         ref={ref}
         className={clsx(
-          "text-[13px] underline text-royal-purple",
+          "text-[14.33px] underline text-royal-purple",
           className,
           "hover:text-royal-purple outline-dashed outline-transparent outline-1 focus-visible:outline-royal-purple transition-all"
         )}

@@ -125,13 +125,13 @@ export default function HomeAbout({ about }: { about: Homepage["about"] }) {
                           {title}
                         </h3>
                         <div
-                          className="richtext font-light md:text-center leading-snug text-[13px] -tracking-[0.26px]"
+                          className="richtext font-light md:text-center leading-snug text-[14.33px] -tracking-[0.26px]"
                           dangerouslySetInnerHTML={slateToHtml(
                             description,
                             richTextConfig
                           )}
                         />
-                        <span className="absolute bottom-0 left-1/2 hidden md:block text-[13px] leading-none -transalte-x-1/2">
+                        <span className="absolute bottom-0 left-1/2 hidden md:block text-[14.33px] leading-none -transalte-x-1/2">
                           {(i + 1).toString().padStart(2, "0")}
                         </span>
                       </div>

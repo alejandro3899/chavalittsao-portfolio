@@ -12,7 +12,7 @@ export default function AboutHero({ hero }: { hero: Aboutpage["hero"] }) {
             <h1 className="leading-snug -tracking-[0.24px] text-sm">
               {heading}
             </h1>
-            <p className="text-[32px] tracking-tighter">{subHeading}</p>
+            <p className="text-[33.33px] tracking-tighter">{subHeading}</p>
           </div>
           <div className="flex-[0.5]">
             <div className="w-full flex">

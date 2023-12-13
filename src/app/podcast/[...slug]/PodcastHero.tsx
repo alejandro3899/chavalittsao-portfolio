@@ -23,15 +23,10 @@ export default function PodcastHero({
     <section className="w-full flex items-stretch pt-[var(--nav-offset)] pb-8 sm:pb-12">
       <div className="container">
         <div className="h-full w-full max-w-[600px] lg:max-w-full flex flex-col-reverse lg:flex-row lg:items-center gap-8 lg:gap-12 mx-auto">
-          <div className="lg:flex-[0.5] h-full flex flex-col justify-between gap-20 lg:py-8">
-            <div className="flex flex-col">
-              <h1 className="lg:max-w-[305px] text-3xl sm:text-[32px] leading-none tracking-tighter mb-6">
-                {title}
-              </h1>
-              <p className="max-w-[538px] text-base leading-snug tracking-tighter">
-                {summary}
-              </p>
-            </div>
+          <div className="lg:flex-[0.5] h-full flex flex-col justify-end lg:py-8">
+            <h1 className="lg:max-w-[305px] text-3xl sm:text-[33.33px] leading-none tracking-tighter mb-6">
+              {title}
+            </h1>
             <div className="flex flex-col">
               <p className="max-w-[538px] hidden lg:block text-sm tracking-tight leading-snug mb-6">
                 {description}

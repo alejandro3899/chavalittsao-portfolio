@@ -58,7 +58,6 @@ export default function QuoteBlock({
 
 function SingleQuoteBlock({
     theme,
-    size = "medium",
     quote,
     image,
 }: Quote & { theme?: "light" | "dark" }) {
@@ -72,13 +71,12 @@ function SingleQuoteBlock({
                 src={(image as Media)?.imagekit?.url!}
                 alt={(image as Media)?.altText ?? "Quote"}
                 fill
-                style={{objectFit:"cover"}}
-                className="absolute left-0 top-0 pointer-events-none z-[1]"
+                className="bg-cover bg-center object-cover pointer-events-none z-[1]"
             />
             <div className="w-full max-w-[450px] mx-auto z-[2]">
-                <p
+                <h4
                     className={clsx(
-                        "text-base leading-none tracking-tight text-center",
+                        "font-bold tracking-tight text-center",
                         {
                             "text-white": theme === "light",
                             "text-royal-purple": theme === "dark",
@@ -86,7 +84,7 @@ function SingleQuoteBlock({
                     )}
                 >
                     {quote}
-                </p>
+                </h4>
             </div>
         </div>
     );

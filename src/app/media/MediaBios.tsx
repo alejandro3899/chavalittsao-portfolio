@@ -9,7 +9,7 @@ export default function MediaBios({ bios }: { bios: Mediapage["bios"] }) {
     <section className="w-full py-8 sm:py-12">
       <div className="container xl:!max-w-[1200px] w-full">
         <div className="mb-8">
-          <h2 className="text-3xl sm:text-[32px] text-center tracking-tighter leading-none">
+          <h2 className="text-3xl sm:text-[33.33px] text-center tracking-tighter leading-none">
             {heading}
           </h2>
         </div>
