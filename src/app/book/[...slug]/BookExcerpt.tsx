@@ -21,11 +21,11 @@ export default function BookExcerpt({ excerpt }: { excerpt: Book["excerpt"] }) {
           </div>
         </div>
         <div className="lg:flex-[0.5]">
-          <div className="max-w-[522px] mx-auto w-full h-full flex flex-col justify-between gap-6">
+          <div className="max-w-[522px] mx-auto w-full h-full flex flex-col gap-6">
             <div>
               <h2 className="text-xs uppercase text-center">Excerpt</h2>
             </div>
-            <div className="flex items-center justify-center">
+            <div className="h-full flex items-center justify-center">
               <div className="flex flex-col gap-1 font-sans font-light text-base sm:text-[22.33px] text-center leading-[1.3] tracking-tightest">
                 <span>“</span>
                 <div
