@@ -76,7 +76,7 @@ function SingleQuoteBlock({
             <div className="w-full max-w-[450px] mx-auto z-[2]">
                 <h4
                     className={clsx(
-                        "font-bold tracking-tight text-center",
+                        "tracking-tight text-center",
                         {
                             "text-white": theme === "light",
                             "text-royal-purple": theme === "dark",

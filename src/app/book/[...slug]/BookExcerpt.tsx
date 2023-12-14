@@ -37,9 +37,6 @@ export default function BookExcerpt({ excerpt }: { excerpt: Book["excerpt"] }) {
                 <span>”</span>
               </div>
             </div>
-            <div>
-              <p className="text-xs text-center">{page}</p>
-            </div>
           </div>
         </div>
       </div>
