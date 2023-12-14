@@ -84,6 +84,12 @@ export interface Podcast {
     share: {
       label: string;
       platform: 'appleMusic' | 'spotify' | 'youTube' | 'amazon' | 'deezer';
+      logo: {
+        altText: string;
+        imagekit: {
+          url: string;
+        }
+      };
       link: string;
       id?: string;
     }[];
@@ -330,6 +336,8 @@ export interface Homepage {
   quoteBlock: {
     quotes: {
       quote: string;
+      quotee: string;
+      color: string;
       image: string | Media;
       size?: 'extraSmall' | 'small' | 'medium' | 'large';
     }[];
@@ -395,6 +403,8 @@ export interface Aboutpage {
   quoteBlock1: {
     quote: {
       quoteText: string;
+      quotee: string;
+      color: string;
       image: string | Media;
       size?: 'extraSmall' | 'small' | 'medium' | 'large';
       hide: boolean;
@@ -403,6 +413,8 @@ export interface Aboutpage {
   quoteBlock2: {
     quote: {
       quoteText: string;
+      quotee: string;
+      color: string;
       image: string | Media;
       size?: 'extraSmall' | 'small' | 'medium' | 'large';
       hide: boolean;
@@ -416,6 +428,7 @@ export interface Aboutpage {
       image: string | Media;
       id?: string;
     }[];
+    hide: boolean;
   };
   workSummary: {
     heading: string;

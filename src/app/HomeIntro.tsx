@@ -26,7 +26,7 @@ export default function HomeIntro({ intro }: { intro: Homepage["intro"] }) {
               <ClampedText
                 richContent={excerpt}
                 lines={5}
-                className="text-[14.33px] -tracking-[0.26px] leading-snug"
+                className="text-[14.33px] font-sans text-royal-purple -tracking-[0.26px] leading-snug"
               />
             </div>
           </div>
