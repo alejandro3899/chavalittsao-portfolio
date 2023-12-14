@@ -65,7 +65,6 @@ function SingleQuoteBlock({
     color,
     image,
 }: Quote & { theme?: "light" | "dark" }) {
-   
     return (
         <div
             className={clsx(
@@ -80,15 +79,19 @@ function SingleQuoteBlock({
             />
             <div className="w-full max-w-[450px] mx-auto z-[2]">
                 <h4
-                    className={clsx("font-sans font-[400] text-[1.75rem] tracking-tight text-center", {
-                        "text-white": theme === "light",
-                        [`text-[${color}]`]: theme === "dark",
-                    })}
+                    style={{ color: theme === "light" ? "#fff" : color }}
+                    className={clsx(
+                        "font-sans font-[400] text-[1.75rem] tracking-tight text-center",
+                        {}
+                    )}
                 >
                     {quote}
                 </h4>
 
-                <p className={`text-center mt-3 font-serif text-[${color}] font-light text-[1.25rem] sm:text-[22.33px] leading-[1.25] tracking-tightest`}>
+                <p
+                    style={{ color }}
+                    className={`text-center mt-3 font-serif font-light text-[1.25rem] sm:text-[22.33px] leading-[1.25] tracking-tightest`}
+                >
                     {quotee}
                 </p>
             </div>
