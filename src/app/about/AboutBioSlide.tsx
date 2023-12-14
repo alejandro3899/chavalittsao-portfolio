@@ -42,9 +42,9 @@ export default function AboutBioSlide({
             </p>
           </div>
 
-          <div className="w-full flex flex-col-reverse lg:flex-col gap-20 lg:gap-0">
+          <div className="w-full flex flex-col md:flex-col-reverse lg:flex-col gap-7 md:gap-20 lg:gap-0">
             {/* mobile */}
-            <div className="custom-scrollbar w-full max-w-full flex justify-center lg:hidden overflow-auto mb-10">
+            <div className="custom-scrollbar w-full max-w-full flex justify-center lg:hidden overflow-auto mb-0 md:mb-10">
               <ul className="flex flex-wrap gap-6 sm:gap-8 mx-auto items-center py-0.5">
                 {(bioSlide ?? []).map((_, i) => (
                   <li key={i}>

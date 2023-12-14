@@ -112,22 +112,13 @@ export default function HomeForum({
   return (
     <section className="w-full py-8 sm:py-12">
       <div className="relative container text-royal-purple gap-6">
-        <p className="text-4xl sm:text-[42px] tracking-[-1.26px]">
+        <p className="text-center md:text-start text-4xl sm:text-[42px] tracking-[-1.26px]">
           Public Forum
         </p>
 
-        <div className="px-12 py-12 max-w-[960px] mx-auto">
+        <div className="px-0 md:px-12 py-12 max-w-[960px] mx-auto">
           <style>
-            {`
-              .home-gallery-control {
-                top: 150px;
-              }
-              @media (min-width: 768px) {
-                .home-gallery-control {
-                  top: 50%;
-                }
-              }
-            `}
+          
           </style>
           <Swiper
             grabCursor={true}
@@ -157,7 +148,7 @@ export default function HomeForum({
             })}
           </Swiper>
 
-          <div className="absolute left-0 w-full home-gallery-control">
+          <div className="absolute left-0 w-full top-[12%] md:top-[50%] home-gallery-control">
             <SlideControl />
           </div>
         </div>

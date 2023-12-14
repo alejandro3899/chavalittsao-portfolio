@@ -81,7 +81,7 @@ function SingleQuoteBlock({
                 <h4
                     style={{ color: theme === "light" ? "#fff" : color }}
                     className={clsx(
-                        "font-sans font-[400] text-[1.75rem] tracking-tight text-center",
+                        "font-sans font-[400] text-[0.875rem] md:text-[1.25rem] tracking-tight text-center",
                         {}
                     )}
                 >
@@ -90,7 +90,7 @@ function SingleQuoteBlock({
 
                 <p
                     style={{ color }}
-                    className={`text-center mt-3 font-serif font-light text-[1.25rem] sm:text-[22.33px] leading-[1.25] tracking-tightest`}
+                    className={`text-center mt-5 font-serif font-light text-[0.875rem] md:text-[1rem] leading-[1.25] tracking-tightest`}
                 >
                     {quotee}
                 </p>

@@ -15,7 +15,7 @@ export default function WorkSummary({
       {works.map(({ title, excerpt, image, link }, i) => {
         return (
           <div key={i} className="w-full flex flex-col">
-            <div className="w-full h-auto md:h-[480px] xl:h-[530px] rounded-lg overflow-hidden mb-6">
+            <div className="w-full h-[480px] md:h-[480px] xl:h-[530px] rounded-lg overflow-hidden mb-6">
               <ImageKit
                 image={image as Media}
                 alt={(image as Media)?.altText}

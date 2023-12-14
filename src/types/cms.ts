@@ -365,7 +365,12 @@ export interface Aboutpage {
     heading: string;
     subHeading: string;
     text?: string;
-    heroImage: string | Media;
+    heroImage: {
+      altText: string;
+      imagekit: {
+        url: string;
+      }
+    };
   };
   intro: {
     heading: string;

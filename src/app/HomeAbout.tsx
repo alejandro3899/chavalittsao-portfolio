@@ -106,7 +106,7 @@ export default function HomeAbout({ about }: { about: Homepage["about"] }) {
               {(bioSlide ?? []).map(({ title, description, image }, i) => {
                 return (
                   <SwiperSlide key={i} className="bg-sand w-full !h-auto">
-                    <div className="w-full mx-auto max-w-[480px] md:max-w-full flex flex-col md:flex-row justify-between gap-10">
+                    <div className="w-full mx-auto max-w-[480px] md:max-w-full flex flex-col md:flex-row justify-between gap-[1.25rem]">
                       <div className="w-full md:flex-[0.5] flex items-stretch mx-auto max-w-[480px] md:max-w-full h-[320px] lg:h-auto min-h-[320px] lg:min-h-[600px]">
                         {image ? (
                           <ImageKit
@@ -121,7 +121,7 @@ export default function HomeAbout({ about }: { about: Homepage["about"] }) {
                         )}
                       </div>
                       <div className="relative max-w-[552px] mx-auto md:flex-[0.5] flex flex-col justify-center md:items-center">
-                        <h3 className="text-xl md:text-center tracking-tight mb-4">
+                        <h3 className="text-xl md:text-center tracking-tight mb-2">
                           {title}
                         </h3>
                         <div

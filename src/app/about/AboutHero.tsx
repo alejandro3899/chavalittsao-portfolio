@@ -1,12 +1,13 @@
 import { Aboutpage, Media } from "@/types/cms";
 import ImageKit from "@/components/ImageKit";
+import Image from "next/image";
 
 export default function AboutHero({ hero }: { hero: Aboutpage["hero"] }) {
   const { heading, subHeading, text, heroImage } = hero;
 
   return (
     <section className="w-full bg-lilac pt-[var(--nav-offset)] pb-8 sm:pb-12">
-      <div className="container w-full flex flex-col gap-8 sm:gap-10">
+      <div className="container w-full flex flex-col gap-8 sm:gap-10 py-3 md:py-0">
         <div className="w-full flex flex-col sm:flex-row sm:justify-between gap-2 sm:gap-12">
           <div className="flex-[0.5]">
             <h1 className="leading-snug -tracking-[0.24px] text-sm">
@@ -25,15 +26,12 @@ export default function AboutHero({ hero }: { hero: Aboutpage["hero"] }) {
           </div>
         </div>
         <div className="w-full flex items-stretch">
-          <div className="w-full h-fit rounded-lg overflow-hidden">
-            <ImageKit
-              image={heroImage as Media}
-              alt={(heroImage as Media)?.altText ?? "About"}
-              width={700}
-              height={700}
-              sizes="100vw"
-              priority={true}
-              className="w-full object-contain"
+          <div className="relative w-full h-[22rem] md:h-[50rem] rounded-lg overflow-hidden">
+            <Image
+              src={heroImage?.imagekit?.url}
+              alt={heroImage.altText ?? "About"}
+              fill
+              className="w-full object-cover md:object-contain"
             />
           </div>
         </div>

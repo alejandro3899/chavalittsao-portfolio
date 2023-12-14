@@ -51,7 +51,7 @@ export default function BookHero({ book }: { book: Book }) {
               sizes="100vw"
               width={0}
               height={0}
-              className="max-w-[630px] w-full lg:w-auto h-auto lg:h-full aspect-[1_/_1.20452] lg:aspect-[1_/_1.185] rounded-lg lg:object-cover"
+              className="max-w-[630px] w-full lg:w-auto h-auto lg:h-full aspect-[1_/_1.20452] lg:aspect-[1_/_1.185] rounded-lg object-cover"
             />
           </div>
         </div>
