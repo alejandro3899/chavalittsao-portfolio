@@ -1,7 +1,6 @@
 "use client";
 
 import { Aboutpage, WorkSummary as WorkSummaryType } from "@/types/cms";
-import QuoteBlock from "@/components/QuoteBlock";
 import WorkSummary from "@/components/WorkSummary";
 import AboutBio from "./AboutBio";
 import AboutBioSlide from "./AboutBioSlide";
@@ -9,6 +8,7 @@ import AboutGallery from "./AboutGallery";
 import AboutHero from "./AboutHero";
 import AboutIntro from "./AboutIntro";
 import AboutPodcastSpotlight from "./AboutPodcastSpotlight";
+import AboutQuoteBlock from "./AboutQuoteBlock";
 
 export default function AboutPage({
   about,
@@ -38,14 +38,14 @@ export default function AboutPage({
       {!quote1.hide && (
         <section className="w-full py-8 sm:py-12">
           <div className="container flex justify-center">
-            <QuoteBlock theme="dark" quote={quote1} />
+            <AboutQuoteBlock theme="dark" quote={quote1} />
           </div>
         </section>
       )}
       {!quote2.hide && (
         <section className="w-full py-8 sm:py-12">
           <div className="container flex justify-center">
-            <QuoteBlock theme="light" quote={quote2} />
+            <AboutQuoteBlock theme="light" quote={quote2} />
           </div>
         </section>
       )}
