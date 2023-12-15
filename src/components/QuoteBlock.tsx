@@ -68,7 +68,7 @@ function SingleQuoteBlock({
     return (
         <div
             className={clsx(
-                "relative w-full h-[400px] md:h-[520px] flex justify-center items-center rounded-lg overflow-hidden px-6 sm:px-8 md:px-12"
+                "relative w-full h-[520px] flex justify-center items-center rounded-lg overflow-hidden px-16 sm:px-8 md:px-12"
             )}
         >
             <Image
