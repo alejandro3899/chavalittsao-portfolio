@@ -1,9 +1,8 @@
-import { Aboutpage, Media } from "@/types/cms";
-import ImageKit from "@/components/ImageKit";
+import { Aboutpage } from "@/types/cms";
 import Image from "next/image";
 
 export default function AboutHero({ hero }: { hero: Aboutpage["hero"] }) {
-  const { heading, subHeading, text, heroImage } = hero;
+  const { heading, subHeading, text, heroImage, heroImageMobile } = hero;
 
   return (
     <section className="w-full bg-lilac pt-[var(--nav-offset)] pb-8 sm:pb-12">
@@ -31,7 +30,13 @@ export default function AboutHero({ hero }: { hero: Aboutpage["hero"] }) {
               src={heroImage?.imagekit?.url}
               alt={heroImage.altText ?? "About"}
               fill
-              className="w-full object-cover md:object-contain"
+              className="w-full object-contain hidden md:block"
+            />
+            <Image
+              src={heroImageMobile?.imagekit?.url}
+              alt={heroImageMobile.altText ?? "About"}
+              fill
+              className="w-full object-cover block md:hidden"
             />
           </div>
         </div>

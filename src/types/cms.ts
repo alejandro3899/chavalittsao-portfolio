@@ -371,6 +371,12 @@ export interface Aboutpage {
         url: string;
       }
     };
+    heroImageMobile: {
+      altText: string;
+      imagekit: {
+        url: string;
+      }
+    };
   };
   intro: {
     heading: string;

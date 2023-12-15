@@ -21,7 +21,7 @@ export default function HomeForum({
       <div className="flex items-center justify-between px-4">
         <button
           className={clsx(
-            "text-[#534B6B] hover:text-royal-purple",
+            "text-[#534B6B] hover:text-royal-purple bg-sand",
             "disabled:text-[#534B6B]/40 disabled:hover:text-[#534B6B]/40 disabled:cursor-default"
           )}
           disabled={tabIndex === 0}
@@ -46,7 +46,7 @@ export default function HomeForum({
         </button>
         <button
           className={clsx(
-            "text-[#534B6B] hover:text-royal-purple",
+            "text-[#534B6B] hover:text-royal-purple bg-sand",
             "disabled:text-[#534B6B]/40 disabled:hover:text-[#534B6B]/40 disabled:cursor-default"
           )}
           disabled={tabIndex === images.length - 1}
@@ -103,7 +103,7 @@ export default function HomeForum({
         <div style={{paddingBottom: "56.25%", position: "relative"}} className="shadow-sm">
           {elm}
         </div>
-        <div className="text-center text-xl mt-4">
+        <div className="text-center text-sm mt-4 px-8">
           {entry.title}
         </div>
       </div>);
@@ -148,7 +148,7 @@ export default function HomeForum({
             })}
           </Swiper>
 
-          <div className="absolute left-0 w-full top-[12%] md:top-[50%] home-gallery-control">
+          <div className="absolute left-0 w-full top-[74.3%] md:top-[50%] home-gallery-control z-[100]">
             <SlideControl />
           </div>
         </div>
