@@ -103,7 +103,7 @@ export default function HomeForum({
         <div style={{paddingBottom: "56.25%", position: "relative"}} className="shadow-sm">
           {elm}
         </div>
-        <div className="text-center text-sm mt-4 px-8">
+        <div className="text-center text-sm md:text-xl mt-4 px-8">
           {entry.title}
         </div>
       </div>);
