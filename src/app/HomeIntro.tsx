@@ -1,6 +1,6 @@
 import { Homepage, Media } from "@/types/cms";
 import ImageKit from "@/components/ImageKit";
-import ClampedText from "@/components/ClampedText";
+import ClampedParagraph from "@/components/ClampedParagraph";
 
 export default function HomeIntro({ intro }: { intro: Homepage["intro"] }) {
   const { heading, image, excerpt } = intro;
@@ -23,9 +23,9 @@ export default function HomeIntro({ intro }: { intro: Homepage["intro"] }) {
               />
             </div>
             <div>
-              <ClampedText
+              <ClampedParagraph
                 richContent={excerpt}
-                lines={5}
+                number={2}
                 className="text-[14.33px] font-sans text-royal-purple -tracking-[0.26px] leading-snug"
               />
             </div>
