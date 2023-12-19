@@ -62,12 +62,12 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
 
     useEffect(() => {
         const handleScroll = () => {
-            // const sections = document.querySelectorAll("[class^=influence-]");
-            // const offsets = new Array(sections.length).fill(0).map((_, i) => {
-            //     return Math.abs(sections[i].getBoundingClientRect().top);
-            // });
-            // const min = Math.min(...offsets);
-            // setActive(offsets.indexOf(min));
+            const sections = document.querySelectorAll("[class^=influence-]");
+            const offsets = new Array(sections.length).fill(0).map((_, i) => {
+                return Math.abs(sections[i].getBoundingClientRect().top);
+            });
+            const min = Math.min(...offsets);
+            setActive(offsets.indexOf(min));
         };
 
         window.addEventListener("scroll", handleScroll);
