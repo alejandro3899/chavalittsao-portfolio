@@ -26,16 +26,16 @@ export default function WorkSummary({
               />
             </div>
             <div className="sm:max-w-[370px] md:mx-auto flex flex-col md:items-center gap-3">
-              <h3 className="text-base leading-none tracking-tighter md:text-center uppercase">
+              <h3 className="text-base font-sans leading-none tracking-tighter md:text-center uppercase">
                 {title}
               </h3>
-              <p className="text-sm font-serif font-light leading-[1.3] md:text-center tracking-tightest">
+              <p className="text-sm font-sans font-light leading-[1.3] md:text-center tracking-tightest">
                 {excerpt}
               </p>
               <Link
                 href={link?.url ?? "#"}
                 className={clsx(
-                  "w-fit font-semibold text-royal-purple/90 text-xs leading-tight -tracking-[0.24px] hover:text-royal-purple"
+                  "w-fit font-semibold font-sans text-royal-purple/90 text-xs leading-tight -tracking-[0.24px] hover:text-royal-purple"
                 )}
               >
                 {link?.label ?? "LEARN MORE"}

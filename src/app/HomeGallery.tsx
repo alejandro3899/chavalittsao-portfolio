@@ -18,7 +18,7 @@ export default function HomeForum({
 
   function SlideControl() {
     return (
-      <div className="flex items-center justify-between px-4">
+      <div className="max-w-full md:max-w-[66rem] mx-auto flex items-center justify-between px-4">
         <button
           className={clsx(
             "text-[#534B6B] hover:text-royal-purple bg-sand",
@@ -103,7 +103,7 @@ export default function HomeForum({
         <div style={{paddingBottom: "56.25%", position: "relative"}} className="shadow-sm">
           {elm}
         </div>
-        <div className="text-center text-sm md:text-xl mt-4 px-8">
+        <div className="text-center font-sans text-sm md:text-xl mt-4 px-8">
           {entry.title}
         </div>
       </div>);

@@ -25,9 +25,9 @@ export default function MediaPress({ press }: { press: Mediapage["press"] }) {
                   <span className="text-lavender text-xs -tracking-[0.24px] leading-snug mb-2">
                     {formattedDate}
                   </span>
-                  <p className="font-serif font-light text-2xl leading-snug -tracking-[0.48px]">
+                  <Link href={link?.url!} className="block font-serif font-light text-2xl leading-snug -tracking-[0.48px]">
                     {title}
-                  </p>
+                  </Link>
                 </div>
                 {link && (
                   <div className="w-full flex justify-end items-center">

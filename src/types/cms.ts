@@ -391,8 +391,14 @@ export interface Aboutpage {
       description: {
         [k: string]: unknown;
       }[];
+      excerpt: string;
       images?: {
-        image: string | Media;
+        image: {
+          altText: string;
+          imagekit: {
+            url: string;
+          }
+        };
         size?: 'default' | 'full';
         id?: string;
       }[];
