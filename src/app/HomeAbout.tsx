@@ -121,11 +121,11 @@ export default function HomeAbout({ about }: { about: Homepage["about"] }) {
                         )}
                       </div>
                       <div className="relative max-w-[552px] mx-auto md:flex-[0.5] flex flex-col justify-center md:items-center">
-                        <h3 className="text-xl md:text-center tracking-tight mb-2">
+                        <h3 className="text-xl font-sans md:text-center tracking-tight mb-2">
                           {title}
                         </h3>
                         <div
-                          className="richtext font-light md:text-center leading-snug text-[14.33px] -tracking-[0.26px]"
+                          className="richtext font-[400] font-sans md:text-center leading-snug text-[14.33px] -tracking-[0.26px]"
                           dangerouslySetInnerHTML={slateToHtml(
                             description,
                             richTextConfig
