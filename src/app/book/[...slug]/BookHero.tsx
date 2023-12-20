@@ -25,7 +25,7 @@ export default function BookHero({ book }: { book: Book }) {
               <div>
                 <ClampedText
                   richContent={description}
-                  lines={7}
+                  lines={5}
                   buttonClassName="mt-0"
                   className="text-xs leading-snug -tracking-[0.24px]"
                 />

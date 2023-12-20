@@ -1,6 +1,7 @@
 import { Media, Podcast } from "@/types/cms";
 import PodcastsShare from "./PodcastShare";
 import ImageKit from "@/components/ImageKit";
+import ClampedText from "@/components/ClampedText";
 
 export default function PodcastHero({
   hero,
@@ -28,9 +29,15 @@ export default function PodcastHero({
               {title}
             </h1>
             <div className="flex flex-col">
-              <p className="max-w-[538px] text-sm tracking-tight leading-snug mb-6">
-                {description}
-              </p>
+             
+              <ClampedText
+                  text={description}
+                  lines={5}
+                  buttonClassName="mt-0"
+                  className="max-w-[538px] text-sm tracking-tight leading-snug mb-6"
+                />
+               
+           
               <div className="flex gap-6 items-center">
                 {share.map((sharePlatform, i) => (
                   <PodcastsShare key={i} share={sharePlatform} />
