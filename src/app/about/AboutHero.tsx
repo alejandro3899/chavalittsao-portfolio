@@ -17,7 +17,7 @@ export default function AboutHero({ hero }: { hero: Aboutpage["hero"] }) {
           <div className="flex-[0.5]">
             <div className="w-full flex">
               <div className="w-full max-w-[440px]">
-                <p className="text-sm -tracking-[0.24px] leading-snug">
+                <p className="paragraph">
                   {text}
                 </p>
               </div>

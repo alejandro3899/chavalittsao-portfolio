@@ -30,12 +30,12 @@ export default function MediaBios({ bios }: { bios: Mediapage["bios"] }) {
                     />
                   </div>
                   <div>
-                    <h3 className="text-base text-center tracking-tighter leading-none mb-4">
+                    <h3 className="text-lg text-center tracking-tighter leading-none mb-4">
                       {name}
                     </h3>
                     <div
                       dangerouslySetInnerHTML={slateToHtml(bio, richTextConfig)}
-                      className="max-w-[344px] mx-auto font-serif text-center leading-[1.3] tracking-tightest text-sm"
+                      className="max-w-[344px] mx-auto font-serif text-center paragraph"
                     />
                   </div>
                 </div>

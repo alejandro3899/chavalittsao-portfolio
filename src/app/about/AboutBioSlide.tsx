@@ -131,7 +131,7 @@ export default function AboutBioSlide({
                           {title}
                         </h3>
                         <div
-                          className="richtext font-light md:text-center leading-snug text-[14.33px] -tracking-[0.26px]"
+                          className="richtext font-light md:text-center leading-snug paragraph"
                           dangerouslySetInnerHTML={slateToHtml(
                             description,
                             richTextConfig

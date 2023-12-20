@@ -27,7 +27,7 @@ export default function BookHero({ book }: { book: Book }) {
                   richContent={description}
                   lines={5}
                   buttonClassName="mt-0"
-                  className="text-xs leading-snug -tracking-[0.24px]"
+                  className="paragraph"
                 />
               </div>
             </div>

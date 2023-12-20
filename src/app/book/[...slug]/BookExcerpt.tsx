@@ -26,7 +26,7 @@ export default function BookExcerpt({ excerpt }: { excerpt: Book["excerpt"] }) {
               <h2 className="text-xs uppercase text-center">Excerpt</h2>
             </div>
             <div className="h-full flex items-center justify-center">
-              <div className="flex flex-col gap-1 font-sans text-royal-purple font-light text-[1.25rem] sm:text-[22.33px] text-center leading-[1.3] tracking-tightest">
+              <div className="flex flex-col gap-1 font-sans text-royal-purple font-light paragraph text-center">
                 <span>“</span>
                 <div
                   dangerouslySetInnerHTML={slateToHtml(

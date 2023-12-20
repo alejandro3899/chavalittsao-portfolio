@@ -29,7 +29,7 @@ export default function WorkSummary({
               <h3 className="text-base font-sans leading-none tracking-tighter md:text-center uppercase">
                 {title}
               </h3>
-              <p className="text-sm font-sans font-light leading-[1.3] md:text-center tracking-tightest">
+              <p className="paragraph font-sans font-light md:text-center">
                 {excerpt}
               </p>
               <Link

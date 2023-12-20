@@ -34,7 +34,7 @@ export default function PodcastHero({
                   text={description}
                   lines={5}
                   buttonClassName="mt-0"
-                  className="max-w-[538px] text-sm tracking-tight leading-snug mb-6"
+                  className="max-w-[538px] paragraph mb-6"
                 />
                
            

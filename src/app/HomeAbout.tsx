@@ -125,7 +125,7 @@ export default function HomeAbout({ about }: { about: Homepage["about"] }) {
                           {title}
                         </h3>
                         <div
-                          className="richtext font-[400] font-sans md:text-center leading-snug text-[14.33px] -tracking-[0.26px]"
+                          className="richtext font-[400] font-sans md:text-center paragraph"
                           dangerouslySetInnerHTML={slateToHtml(
                             description,
                             richTextConfig

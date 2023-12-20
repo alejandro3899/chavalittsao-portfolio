@@ -26,7 +26,7 @@ export default function HomeIntro({ intro }: { intro: Homepage["intro"] }) {
               <ClampedParagraph
                 richContent={excerpt}
                 number={2}
-                className="text-[14.33px] font-sans text-royal-purple -tracking-[0.26px] leading-snug"
+                className="paragraph font-sans text-royal-purple"
               />
             </div>
           </div>

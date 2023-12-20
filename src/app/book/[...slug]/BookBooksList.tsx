@@ -167,7 +167,7 @@ export default function BookBooksList({
                           <ClampedText
                             richContent={description}
                             lines={4}
-                            className="text-[14.33px] -tracking-[0.26px] leading-snug"
+                            className="paragraph"
                             buttonClassName="hidden"
                           />
                         </div>

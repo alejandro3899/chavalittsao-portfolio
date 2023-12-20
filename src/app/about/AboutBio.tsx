@@ -155,20 +155,20 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
                                                     {title}
                                                 </div>
                                                 <div
-                                                    className="richtext hidden md:block text-[1rem] font-[400] [&_*]:text-[1rem] [&_*]:-tracking-[0.24px] [&_*]:leading-snug"
+                                                    className="richtext hidden md:block paragraph font-[400]"
                                                     dangerouslySetInnerHTML={slateToHtml(
                                                         firstParagraph,
                                                         richTextConfig
                                                     )}
                                                 />
                                                 {excerpt && (
-                                                    <div className="bg-[#D5D2F2] hidden md:block rounded-[1rem] w-full text-start px-[5rem] py-[2rem]">
+                                                    <div className="bg-[#D5D2F2] hidden md:block paragraph rounded-[1rem] w-full text-start px-[5rem] py-[2rem]">
                                                         {excerpt}
                                                     </div>
                                                 )}
 
                                                 <div
-                                                    className="richtext hidden md:block text-[1rem] font-[400] [&_*]:text-[1rem] [&_*]:-tracking-[0.24px] [&_*]:leading-snug"
+                                                    className="richtext hidden md:block paragraph font-[400]"
                                                     dangerouslySetInnerHTML={slateToHtml(
                                                         restParagraphs,
                                                         richTextConfig
@@ -226,7 +226,7 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
                                                 <ClampedParagraph
                                                     richContent={description}
                                                     number={1}
-                                                    className="text-[0.6875rem] font-sans font-[400] text-royal-purple -tracking-[0.26px] leading-snug"
+                                                    className="paragraph font-sans font-[400] text-royal-purple"
                                                 />
                                             </div>
                                         </div>
