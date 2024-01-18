@@ -28,13 +28,13 @@ export default function AboutHero({ hero }: { hero: Aboutpage["hero"] }) {
           <div className="relative w-full h-[22rem] md:h-[50rem] rounded-lg overflow-hidden">
             <Image
               src={heroImage?.imagekit?.url}
-              alt={heroImage.altText ?? "About"}
+              alt={heroImage?.altText ?? "About"}
               fill
               className="w-full object-contain hidden md:block"
             />
             <Image
               src={heroImageMobile?.imagekit?.url}
-              alt={heroImageMobile.altText ?? "About"}
+              alt={heroImageMobile?.altText ?? "About"}
               fill
               className="w-full object-cover block md:hidden"
             />
