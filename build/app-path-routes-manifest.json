@@ -1,12 +1,12 @@
 {
-  "/favicon.ico/route": "/favicon.ico",
   "/page": "/",
   "/sitemap.xml/route": "/sitemap.xml",
+  "/favicon.ico/route": "/favicon.ico",
   "/media/page": "/media",
   "/privacy-policy/page": "/privacy-policy",
   "/api/revalidate/route": "/api/revalidate",
-  "/about/page": "/about",
   "/api/subscribe/route": "/api/subscribe",
   "/book/[...slug]/page": "/book/[...slug]",
-  "/podcast/[...slug]/page": "/podcast/[...slug]"
+  "/podcast/[...slug]/page": "/podcast/[...slug]",
+  "/about/page": "/about"
 }

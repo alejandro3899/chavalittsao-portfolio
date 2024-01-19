@@ -1041,7 +1041,7 @@ async function Page({ params: { slug } }) {
 var __webpack_require__ = require("../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [587,914,565,980,652,292,154], () => (__webpack_exec__(91042)));
+var __webpack_exports__ = __webpack_require__.X(0, [587,914,565,980,549,292,154], () => (__webpack_exec__(91042)));
 module.exports = __webpack_exports__;
 
 })();
