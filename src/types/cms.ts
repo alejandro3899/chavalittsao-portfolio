@@ -405,6 +405,13 @@ export interface Aboutpage {
       id?: string;
     }[];
   };
+  imageBlock: {
+    image: {
+      image: string | Media;
+      size?: 'extraSmall' | 'small' | 'medium' | 'large';
+      hide: boolean;
+    };
+  };
   about: {
     heading: string;
     subHeading: string;

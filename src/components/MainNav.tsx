@@ -94,7 +94,7 @@ export default function MainNav({
                     "transiton-all"
                   )}
                   href={item.url}
-                  onClick={() => setActiveDropdown(null)}
+                  onMouseEnter={() => setActiveDropdown(null)}
                 >
                   {label}
                 </Link>
@@ -103,11 +103,9 @@ export default function MainNav({
               <button
                 key={i}
                 tabIndex={0}
-                onClick={() => {
-                  setActiveDropdown((prev) => {
-                    return prev && prev.label === label
-                      ? null
-                      : {
+                onMouseEnter={() => {
+                  setActiveDropdown(() => {
+                    return {
                           label,
                           items: item.dropdown,
                         };

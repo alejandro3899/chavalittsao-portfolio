@@ -9,6 +9,7 @@ import AboutHero from "./AboutHero";
 import AboutIntro from "./AboutIntro";
 import AboutPodcastSpotlight from "./AboutPodcastSpotlight";
 import AboutQuoteBlock from "./AboutQuoteBlock";
+import AboutImageBlock from "./AboutImageBlock";
 
 export default function AboutPage({
     about,
@@ -22,6 +23,7 @@ export default function AboutPage({
         intro,
         about: aboutTab,
         bio,
+        imageBlock,
         gallery,
         quoteBlock1: { quote: quote1 },
         quoteBlock2: { quote: quote2 },
@@ -34,6 +36,13 @@ export default function AboutPage({
             <AboutHero hero={hero} />
             <AboutIntro intro={intro} />
             <AboutBio bio={bio} />
+            {!quote1.hide && (
+                <section className="w-full py-8 sm:py-12">
+                    <div className="container flex justify-center">
+                        <AboutImageBlock theme="dark" image={imageBlock.image} />
+                    </div>
+                </section>
+            )}
             <AboutBioSlide about={aboutTab} />
             {!quote1.hide && (
                 <section className="w-full py-8 sm:py-12">

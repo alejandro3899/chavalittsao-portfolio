@@ -40,7 +40,7 @@ export default function BookBooksList({
   useEffect(() => {
     updateNextDisabled(tabIndex);
   }, [width]);
-
+ console.log("otherBooks", otherBooks)
   return (
     <section className="w-full py-8 sm:py-12">
       <div className="container flex flex-col">

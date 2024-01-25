@@ -17,6 +17,7 @@ export default function NavDropdown({
       <AnimatePresence>
         {activeDropdown && (
           <m.div
+            onMouseLeave={()=> setActiveDropdown(null)}
             variants={navFadeIn(
               (itemsLength >= 1 ? itemsLength - 1 : itemsLength) * 0.075 + 0.3,
               0.5

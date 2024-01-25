@@ -22,7 +22,7 @@ export async function generateMetadata({ params: { slug } }: { params: any }) {
 
 export async function generateStaticParams() {
   const { docs: allBooks } = await getColl<Book>("/books");
-
+ 
   const params = allBooks.map(({ slug }) => {
     return { slug: [slug] };
   });
@@ -42,7 +42,6 @@ export default async function Page({
   const book = docs?.[0];
 
   const { docs: otherBooks } = await getColl<Book>("/books", {
-    limit: 3,
     where: {
       slug: { not_equals: pageSlug },
     },
