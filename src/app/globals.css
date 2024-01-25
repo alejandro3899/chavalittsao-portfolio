@@ -211,3 +211,13 @@
     font-size: 3rem;
   }
 }
+.custom-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px; 
+  background-color: #3D284F;
+  transition: width 0.3s ease; 
+}
