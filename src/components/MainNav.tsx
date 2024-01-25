@@ -108,7 +108,7 @@ export default function MainNav({
                     {(navData?.mainNavigation ?? []).map((item, i) => {
                         const { label, type, hide } = item;
                         const isActive = labelMatchesPathname(label, pathname);
-                        
+
                         return !hide && type === "single" ? (
                             <li key={i}>
                                 <Link
@@ -145,7 +145,7 @@ export default function MainNav({
                                 className={clsx(
                                     "text-xs uppercase leading-snug",
                                     isActive
-                                        ? "text-base-purple hover:text-base-purple custom-underline relative"
+                                        ? "text-base-purple hover:text-base-purple custom-underline-btn relative"
                                         : activeDropdown
                                         ? "text-base-purple hover:text-base-purple"
                                         : isLight
