@@ -51,7 +51,7 @@ export default function NavDropdown({
                       <Link
                         href={url}
                         target={newTab ? "_blank" : "_self"}
-                        className="block w-fit text-black"
+                        className="block w-fit text-[#3D284F] hover:underline"
                         onClick={() => setActiveDropdown(null)}
                       >
                         {label}

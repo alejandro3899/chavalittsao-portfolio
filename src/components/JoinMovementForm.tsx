@@ -104,12 +104,13 @@ export default function JoinMovementForm({
                     />
                     <Button
                         type="submit"
-                        className="min-w-[106px] font-medium text-[10px] leading-none rounded"
+                        className={`min-w-[106px] ${success? "bg-[#BCBCBC] text-[#FFFFFF]": ""} font-medium text-[10px] leading-none rounded`}
                         disabled={loading}
                     >
                         {loading ? (
                             <Loader2 size={14} className="animate-spin" />
                         ) : (
+                            success? "Subscribed" :
                             submitButtonLabel
                         )}
                     </Button>

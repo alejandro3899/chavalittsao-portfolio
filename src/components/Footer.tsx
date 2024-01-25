@@ -56,7 +56,7 @@ export default function Footer({
                       <Link
                         key={i}
                         href={link}
-                        className="w-6 py-2 flex items-center justify-center"
+                        className="w-10 h-10 p-2 flex items-center justify-center border-[#3D284F] border rounded-full"
                       >
                         <img
                           src={(logo as Media)?.imagekit?.url}

@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { SlateToDomConfig } from "slate-serializers";
 import { useEffect, useState } from "react";
 import LinkButton from "./LinkButton";
+import { AnimateChangeInHeight } from "./AnimateChangeInHeight";
 
 export default function ClampedParagraph({
     className = "",
@@ -40,15 +41,17 @@ export default function ClampedParagraph({
 
     return (
         <>
-            <div
-                id="clamped-text-container"
-                className={clsx("richtext", className)}
-                dangerouslySetInnerHTML={slateToHtml(
-                    paragraphToShow,
-                    config ?? richTextConfig
-                )}
-                {...props}
-            />
+            <AnimateChangeInHeight>
+                <div
+                    id="clamped-text-container"
+                    className={clsx("richtext", className)}
+                    dangerouslySetInnerHTML={slateToHtml(
+                        paragraphToShow,
+                        config ?? richTextConfig
+                    )}
+                    {...props}
+                />
+            </AnimateChangeInHeight>
             {isOverflowing && (
                 <LinkButton
                     className={clsx("w-fit mt-4", buttonClassName)}

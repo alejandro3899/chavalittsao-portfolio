@@ -1,10 +1,20 @@
-"use client";
-
-import slateToHtml, { richTextConfig } from "@/utils/slateToHtml";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
+import slateToHtml, { richTextConfig } from "@/utils/slateToHtml";
 import { SlateToDomConfig } from "slate-serializers";
-import { useEffect, useState } from "react";
 import LinkButton from "./LinkButton";
+import { AnimateChangeInHeight } from "./AnimateChangeInHeight";
+
+interface ClampedTextProps {
+    className?: string;
+    richContent?: {
+        [k: string]: unknown;
+    }[];
+    text?: string;
+    lines?: number;
+    config?: SlateToDomConfig;
+    buttonClassName?: string;
+}
 
 export default function ClampedText({
     className = "",
@@ -14,18 +24,11 @@ export default function ClampedText({
     config,
     buttonClassName,
     ...props
-}: {
-    richContent?: {
-        [k: string]: unknown;
-    }[];
-    text?: string;
-    lines?: number;
-    config?: SlateToDomConfig;
-    buttonClassName?: string;
-} & React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLDivElement>,
-    HTMLDivElement
->) {
+}: ClampedTextProps &
+    React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLDivElement>,
+        HTMLDivElement
+    >) {
     const [clamped, setClamped] = useState(true);
     const [isOverflowing, setIsOverflowing] = useState(false);
 
@@ -34,48 +37,39 @@ export default function ClampedText({
         if (element) {
             setIsOverflowing(element.scrollHeight > element.clientHeight);
         }
-    }, [richContent, lines]);
+    }, [richContent, text, lines]);
 
     return (
         <>
-            {richContent && (
-                <div
-                    id="clamped-text-container"
-                    style={
-                        {
-                            overflow: "hidden",
+            {(richContent || text) && (
+                <AnimateChangeInHeight>
+                    <div
+                        id="clamped-text-container"
+                        style={{
                             display: "-webkit-box",
                             WebkitBoxOrient: "vertical",
                             WebkitLineClamp: clamped
                                 ? lines.toString()
                                 : "unset",
-                        } as any
-                    }
-                    className={clsx("richtext", className)}
-                    dangerouslySetInnerHTML={slateToHtml(
-                        richContent,
-                        config ?? richTextConfig
-                    )}
-                    {...props}
-                />
-            )}
-            {text && (
-                <div
-                   id="clamped-text-container"
-                    style={
-                        {
                             overflow: "hidden",
-                            display: "-webkit-box",
-                            WebkitBoxOrient: "vertical",
-                            WebkitLineClamp: clamped
-                                ? lines.toString()
-                                : "unset",
-                        } as any
-                    }
-                    className={className}
-                >
-                    {text}
-                </div>
+                        }}
+                        className={clsx(
+                            "richtext",
+                            className
+                        )}
+                        dangerouslySetInnerHTML={
+                            richContent
+                                ? slateToHtml(
+                                      richContent,
+                                      config ?? richTextConfig
+                                  )
+                                : undefined
+                        }
+                        {...props}
+                    >
+                        {text && text}
+                    </div>
+                </AnimateChangeInHeight>
             )}
             {isOverflowing && (
                 <LinkButton

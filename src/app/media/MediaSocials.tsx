@@ -23,7 +23,7 @@ export default function MediaSocials({
                 <Link
                   key={i}
                   href={link}
-                  className="w-16 h-16 flex items-center justify-center border-neutral border rounded-full"
+                  className="w-16 h-16 flex items-center justify-center border-[#3D284F] border rounded-full"
                 >
                   <img
                     src={(icon as Media)?.imagekit?.url}

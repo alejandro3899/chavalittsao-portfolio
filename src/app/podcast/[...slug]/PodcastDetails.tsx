@@ -102,7 +102,7 @@ export default function PodcastDetails({ podcast }: { podcast: Podcast }) {
                                         >
                                             <div className="flex-[0.5] flex justify-between gap-2 sm:gap-12">
                                                 <div className="w-full h-full flex flex-col justify-between gap-2 sm:gap-0">
-                                                    <div className="w-full flex justify-between items-center gap-2 mb-3">
+                                                    <div className="w-full flex justify-between items-center gap-2 sm:gap-0">
                                                         <h4 className="font-serif font-light text-3xl sm:text-[34px]">
                                                             {title}
                                                         </h4>
@@ -118,7 +118,7 @@ export default function PodcastDetails({ podcast }: { podcast: Podcast }) {
                                                     <AudioPlayer
                                                         url={linkToEpisode?.url}
                                                     ></AudioPlayer>
-                                                    <div className="flex gap-6 mt-3 sm:mt-0">
+                                                    <div className="flex gap-6 mt-3">
                                                         <span className="leading-tight tracking-tight text-xs uppercase">
                                                             {duration}
                                                         </span>

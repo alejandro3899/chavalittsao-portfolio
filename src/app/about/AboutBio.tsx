@@ -3,7 +3,7 @@ import "swiper/css/bundle";
 import { Aboutpage, Media } from "@/types/cms";
 import slateToHtml, { richTextConfig } from "@/utils/slateToHtml";
 import clsx from "clsx";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade } from "swiper/modules";
@@ -59,7 +59,7 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
                             >
                                 <button
                                     className={clsx(
-                                        "text-[0.7rem] uppercase",
+                                        "text-base uppercase",
                                         tabIndex === i
                                             ? "text-royal-purple"
                                             : "text-royal-purple/40 hover:text-royal-purple",

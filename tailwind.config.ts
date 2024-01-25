@@ -57,6 +57,9 @@ const config: Config = {
         snug: "1.4",
         tight: "1.2",
       },
+      transitionProperty: {
+        'height': 'height'
+      },
     },
   },
   plugins: [],
