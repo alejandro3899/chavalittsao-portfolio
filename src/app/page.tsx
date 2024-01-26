@@ -26,10 +26,9 @@ export default async function Home() {
     {},
     { next: { tags: ["work-summary"] } }
   );
-  const altBranding = home.siteBranding?.image as Media;
 
   return (
-    <BaseLayout theme="light" altBranding={altBranding}>
+    <BaseLayout theme="light">
       <HomePage home={home} workSummary={workSummary} />
     </BaseLayout>
   );

@@ -15,6 +15,7 @@ export default function Logo({
   linkProps?: Omit<LinkProps, "href">;
 }) {
   siteBranding = siteBranding as Media;
+ 
 
   return (
     <div className="flex items-center justify-center">

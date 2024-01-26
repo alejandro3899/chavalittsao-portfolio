@@ -21,16 +21,10 @@ export default function MainNav({
     const [navMobileOpen, setNavMobileOpen] = useState(false);
     const [dropdownKey, setDropdownKey] = useState<string | null>(null);
 
-    const [activeLabel, setActiveLabel] = useState<string | null>(null);
     const pathname = usePathname();
 
-    // useEffect(() => {
-    //   if (activeLabel && pathname) {
-    //     setIsActive(pathname.includes(`/${activeLabel.toLowerCase()}`));
-    //   } else {
-    //     setIsActive(false);
-    //   }
-    // }, [pathname, activeLabel]);
+    const isHomePage = pathname === "/";
+    console.log("pathname", pathname);
 
     const isLight = theme === "light";
     const itemsLength = activeDropdown?.items?.length ?? 0;
@@ -61,7 +55,7 @@ export default function MainNav({
         if (lowercasePathname.includes(`/${lowercaseLabel}/`)) {
             return true;
         }
-       
+
         const singularLabel = lowercaseLabel.endsWith("s")
             ? lowercaseLabel.slice(0, -1)
             : lowercaseLabel;
@@ -71,7 +65,7 @@ export default function MainNav({
 
         return singularPathname.includes(`/${singularLabel}/`);
     };
-
+    console.log("settings", settings);
     return (
         <nav
             className="absolute left-0 top-0 w-full flex flex-col items-center justify-center text-white py-5 z-10"
@@ -92,7 +86,13 @@ export default function MainNav({
             <div className="relative w-full max-w-[1600px] flex justify-between items-center gap-8 sm:gap-12 px-4 sm:px-5">
                 <div className="relative md:flex-[0.5] flex">
                     <Logo
-                        siteBranding={settings.siteBranding}
+                        siteBranding={
+                            activeDropdown
+                                ? settings.siteBranding
+                                : isHomePage
+                                ? settings.alternativeBranding
+                                : settings.siteBranding
+                        }
                         text="CHAVALIT TSAO"
                         theme={navMobileOpen ? "default" : theme}
                         linkProps={{
@@ -125,7 +125,6 @@ export default function MainNav({
                                     )}
                                     href={item.url}
                                     onMouseEnter={() => setActiveDropdown(null)}
-                                    onClick={() => setActiveLabel(label)}
                                 >
                                     {label}
                                 </Link>

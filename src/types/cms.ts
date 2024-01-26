@@ -614,6 +614,7 @@ export interface Settings {
   siteTitle: string;
   siteDescription: string;
   siteBranding?: string | Media;
+  alternativeBranding?: string | Media;
   siteBackgroundColor?: string | undefined;
   updatedAt?: string;
   createdAt?: string;

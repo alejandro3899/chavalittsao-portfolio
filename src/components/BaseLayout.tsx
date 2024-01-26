@@ -16,7 +16,7 @@ export default async function BaseLayout({
 }: {
   children: React.ReactNode;
   theme?: "light" | "default";
-  altBranding?: Media;
+  altBranding?: any;
 }) {
   const settings = await getGlob<Settings>(
     "/settings",
@@ -38,7 +38,7 @@ export default async function BaseLayout({
     {},
     { next: { tags: ["socials"] } }
   );
-
+ 
   return (
     <>
       <MainNav
