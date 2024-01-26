@@ -1,32 +1,15 @@
-import "swiper/css/bundle";
-
 import { Aboutpage, Media } from "@/types/cms";
 import slateToHtml, { richTextConfig } from "@/utils/slateToHtml";
 import clsx from "clsx";
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade } from "swiper/modules";
-import SwiperType from "swiper";
 import ImageKit from "@/components/ImageKit";
 import ClampedParagraph from "@/components/ClampedParagraph";
 
 export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
-    const [tabIndex, setTabIndex] = useState(0);
-    const slideRef = useRef<SwiperType | null>(null);
+    const [active, setActive] = useState(0);
 
     const { bioSections = [] } = bio;
-
-    function handleSlide(index: number) {
-        const prev = tabIndex === 0 ? bioSections.length - 1 : tabIndex - 1;
-        const next = tabIndex === bioSections.length - 1 ? 0 : tabIndex + 1;
-
-        index === next
-            ? slideRef.current?.slideNext()
-            : index === prev
-            ? slideRef.current?.slidePrev()
-            : slideRef.current?.slideToLoop(index);
-    }
 
     function Nav() {
         return (
@@ -47,20 +30,21 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
                                                 .top -
                                             document.body.getBoundingClientRect()
                                                 .top -
-                                            100;
+                                            150;
 
                                         window.scrollTo({
                                             behavior: "smooth",
                                             top: offsetTop,
                                         });
+
+                                        setActive(i);
                                     }
-                                    handleSlide(i);
                                 }}
                             >
                                 <button
                                     className={clsx(
                                         "text-base uppercase",
-                                        tabIndex === i
+                                        active === i
                                             ? "text-royal-purple"
                                             : "text-royal-purple/40 hover:text-royal-purple",
                                         "transition-colors"
@@ -76,6 +60,23 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
         );
     }
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = document.querySelectorAll("[class^=influence-]");
+            const offsets = new Array(sections.length).fill(0).map((_, i) => {
+                return Math.abs(sections[i].getBoundingClientRect().top);
+            });
+            const min = Math.min(...offsets);
+            setActive(offsets.indexOf(min));
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     return (
         <section className="relative w-full bg-sand pt-8 md:pt-0">
             <div className="container flex flex-col justify-center">
@@ -84,109 +85,12 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
                         <Nav />
                     </div>
                 </div>
-                {/* desktop content*/}
-                <div className="hidden md:block">
-                    <Swiper
-                        modules={[EffectFade]}
-                        effect="fade"
-                        loop={true}
-                        speed={1000}
-                        spaceBetween={12}
-                        preventInteractionOnTransition={true}
-                        loopPreventsSliding={true}
-                        autoHeight
-                        onInit={(swiper) => {
-                            slideRef.current = swiper;
-                        }}
-                        onRealIndexChange={(swiper) => {
-                            setTabIndex(swiper.realIndex);
-                        }}
-                        className="w-full"
-                    >
-                        {(bioSections ?? []).map(
-                            (
-                                { title, description, excerpt, images = [] },
-                                i
-                            ) => {
-                                const firstParagraph = description.slice(0, 1);
-                                const restParagraphs = description.slice(2);
-
-                                return (
-                                    <SwiperSlide
-                                        key={i}
-                                        className={`w-full !h-auto influence-${
-                                            i + 1
-                                        }`}
-                                    >
-                                        <div
-                                            className={clsx(
-                                                "custom-scrollbar max-w-[480px] md:max-w-full w-full flex flex-col md:flex-row  mx-auto pb-8 sm:pb-12 overflow-auto bg-sand"
-                                            )}
-                                        >
-                                            <div className="w-[41rem] mx-auto flex flex-col gap-6 md:gap-8">
-                                                <div className="flex w-full flex-wrap gap-5 justify-center">
-                                                    {(images ?? []).map(
-                                                        ({ image }, i) => (
-                                                            <div
-                                                                key={i}
-                                                                className="relative w-full min-h-[27rem] h-auto bg-center"
-                                                            >
-                                                                <Image
-                                                                    src={
-                                                                        image
-                                                                            .imagekit
-                                                                            ?.url
-                                                                    }
-                                                                    alt={
-                                                                        (
-                                                                            image as Media
-                                                                        )
-                                                                            ?.altText!
-                                                                    }
-                                                                    fill
-                                                                    className="rounded-lg object-cover min-w-0"
-                                                                />
-                                                            </div>
-                                                        )
-                                                    )}
-                                                </div>
-
-                                                <div className="hidden md:block text-[1.5rem] font-[400] font-sans tracking-[-0.03rem]">
-                                                    {title}
-                                                </div>
-                                                <div
-                                                    className="richtext hidden md:block paragraph font-[400]"
-                                                    dangerouslySetInnerHTML={slateToHtml(
-                                                        firstParagraph,
-                                                        richTextConfig
-                                                    )}
-                                                />
-                                                {excerpt && (
-                                                    <div className="bg-[#D5D2F2] hidden md:block paragraph rounded-[1rem] w-full text-start px-[5rem] py-[2rem]">
-                                                        {excerpt}
-                                                    </div>
-                                                )}
-
-                                                <div
-                                                    className="richtext hidden md:block paragraph font-[400]"
-                                                    dangerouslySetInnerHTML={slateToHtml(
-                                                        restParagraphs,
-                                                        richTextConfig
-                                                    )}
-                                                />
-                                            </div>
-                                        </div>
-                                    </SwiperSlide>
-                                );
-                            }
-                        )}
-                    </Swiper>
-                </div>
-                {/* mobile content*/}
-                <div className="flex md:hidden flex-col w-full">
+                <div className="flex flex-col w-full">
                     {bioSections.map(
-                        ({ title, description, images = [] }, i) => {
+                        ({ title, description, excerpt, images = [] }, i) => {
                             const firstImage = images?.[0]?.image;
+                            const firstParagraph = description.slice(0, 1);
+                            const restParagraphs = description.slice(2);
 
                             return (
                                 <Fragment key={i}>
@@ -198,15 +102,20 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
                                     />
                                     <div
                                         className={clsx(
-                                            "custom-scrollbar max-w-[480px] md:max-w-full w-full flex flex-col mx-auto pb-8 overflow-auto bg-sand"
+                                            "custom-scrollbar max-w-[480px] md:max-w-full w-full flex flex-col md:flex-row  mx-auto pb-8 sm:pb-12 overflow-auto bg-sand"
+                                            // {
+                                            //     "md:max-h-screen":
+                                            //         i !==
+                                            //         bioSections.length - 1,
+                                            // }
                                         )}
                                     >
-                                        <div className="w-full mx-auto flex flex-col gap-6">
-                                            <h2 className="text-[21px] uppercase leading-tight">
+                                        <div className="w-full md:w-[41rem] mx-auto flex flex-col gap-6 md:gap-8">
+                                            <h2 className="block md:hidden text-[21px] uppercase leading-tight">
                                                 {title}
                                             </h2>
                                             {firstImage && (
-                                                <div className="w-full">
+                                                <div className="w-full block md:hidden">
                                                     <ImageKit
                                                         image={
                                                             firstImage as Media
@@ -222,13 +131,60 @@ export default function AboutBio({ bio }: { bio: Aboutpage["bio"] }) {
                                                     />
                                                 </div>
                                             )}
-                                            <div className="mb-10">
+                                            <div className="block md:hidden mb-10">
                                                 <ClampedParagraph
                                                     richContent={description}
                                                     number={1}
-                                                    className="paragraph font-sans font-[400] text-royal-purple"
+                                                    className="text-[0.6875rem] font-sans font-[400] text-royal-purple -tracking-[0.26px] leading-snug"
                                                 />
                                             </div>
+                                            <div className="hidden md:flex w-full flex-wrap gap-5 justify-center">
+                                                {(images ?? []).map(
+                                                    ({ image }, i) => (
+                                                        <div
+                                                            key={i}
+                                                            className="relative w-full min-h-[27rem] h-auto bg-center"
+                                                        >
+                                                            <Image
+                                                                src={
+                                                                    image
+                                                                        .imagekit
+                                                                        ?.url
+                                                                }
+                                                                alt={
+                                                                    (
+                                                                        image as Media
+                                                                    )?.altText!
+                                                                }
+                                                                fill
+                                                                className="rounded-lg object-cover min-w-0"
+                                                            />
+                                                        </div>
+                                                    )
+                                                )}
+                                            </div>
+
+                                            <div className="hidden md:block text-[1.5rem] font-[400] font-sans tracking-[-0.03rem]">
+                                                {title}
+                                            </div>
+                                            <div
+                                                className="richtext hidden md:block text-[1rem] font-[400] [&_*]:text-[1rem] [&_*]:-tracking-[0.24px] [&_*]:leading-snug"
+                                                dangerouslySetInnerHTML={slateToHtml(
+                                                    firstParagraph,
+                                                    richTextConfig
+                                                )}
+                                            />
+                                            <div className="bg-[#D5D2F2] hidden md:block rounded-[1rem] w-full text-start px-[5rem] py-[2rem]">
+                                                {excerpt}
+                                            </div>
+
+                                            <div
+                                                className="richtext hidden md:block text-[1rem] font-[400] [&_*]:text-[1rem] [&_*]:-tracking-[0.24px] [&_*]:leading-snug"
+                                                dangerouslySetInnerHTML={slateToHtml(
+                                                    restParagraphs,
+                                                    richTextConfig
+                                                )}
+                                            />
                                         </div>
                                     </div>
                                 </Fragment>

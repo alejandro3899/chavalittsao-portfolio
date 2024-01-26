@@ -24,7 +24,6 @@ export default function MainNav({
     const pathname = usePathname();
 
     const isHomePage = pathname === "/";
-    console.log("pathname", pathname);
 
     const isLight = theme === "light";
     const itemsLength = activeDropdown?.items?.length ?? 0;
@@ -65,7 +64,7 @@ export default function MainNav({
 
         return singularPathname.includes(`/${singularLabel}/`);
     };
-    console.log("settings", settings);
+
     return (
         <nav
             className="absolute left-0 top-0 w-full flex flex-col items-center justify-center text-white py-5 z-10"
@@ -83,8 +82,8 @@ export default function MainNav({
                     transitionDelay: `${transitionDelay}s`,
                 }}
             />
-            <div className="relative w-full max-w-[1600px] flex justify-between items-center gap-8 sm:gap-12 px-4 sm:px-5">
-                <div className="relative md:flex-[0.5] flex">
+            <div className="relative w-full max-w-[1600px] flex items-center gap-8 sm:gap-12 px-4 sm:px-5">
+                <div className="absolute md:flex-[0.5] flex">
                     <Logo
                         siteBranding={
                             activeDropdown
@@ -104,60 +103,67 @@ export default function MainNav({
                         }}
                     />
                 </div>
-                <ul className="hidden md:flex flex-[0.5] items-center justify-between gap-6 sm:gap-12 md:gap-16">
-                    {(navData?.mainNavigation ?? []).map((item, i) => {
-                        const { label, type, hide } = item;
-                        const isActive = labelMatchesPathname(label, pathname);
+                <div className="w-full flex justify-end">
+                    <ul className="hidden md:flex flex-[0.5] items-center justify-between gap-6 sm:gap-12 md:gap-16">
+                        {(navData?.mainNavigation ?? []).map((item, i) => {
+                            const { label, type, hide } = item;
+                            const isActive = labelMatchesPathname(
+                                label,
+                                pathname
+                            );
 
-                        return !hide && type === "single" ? (
-                            <li key={i}>
-                                <Link
+                            return !hide && type === "single" ? (
+                                <li key={i}>
+                                    <Link
+                                        className={clsx(
+                                            "text-xs uppercase leading-snug",
+                                            isActive
+                                                ? "text-base-purple hover:text-base-purple custom-underline relative"
+                                                : activeDropdown
+                                                ? "text-base-purple hover:text-base-purple"
+                                                : isLight
+                                                ? "text-sand hover:text-sand"
+                                                : "text-royal-purple hover:text-royal-purple",
+                                            "transiton-all"
+                                        )}
+                                        href={item.url}
+                                        onMouseEnter={() =>
+                                            setActiveDropdown(null)
+                                        }
+                                    >
+                                        {label}
+                                    </Link>
+                                </li>
+                            ) : (
+                                <button
+                                    key={i}
+                                    tabIndex={0}
+                                    onMouseEnter={() => {
+                                        setActiveDropdown(() => {
+                                            return {
+                                                label,
+                                                items: item.dropdown,
+                                            };
+                                        });
+                                    }}
                                     className={clsx(
                                         "text-xs uppercase leading-snug",
                                         isActive
-                                            ? "text-base-purple hover:text-base-purple custom-underline relative"
+                                            ? "text-base-purple hover:text-base-purple custom-underline-btn relative"
                                             : activeDropdown
                                             ? "text-base-purple hover:text-base-purple"
                                             : isLight
                                             ? "text-sand hover:text-sand"
                                             : "text-royal-purple hover:text-royal-purple",
-                                        "transiton-all"
+                                        "cursor-pointer transiton-all"
                                     )}
-                                    href={item.url}
-                                    onMouseEnter={() => setActiveDropdown(null)}
                                 >
                                     {label}
-                                </Link>
-                            </li>
-                        ) : (
-                            <button
-                                key={i}
-                                tabIndex={0}
-                                onMouseEnter={() => {
-                                    setActiveDropdown(() => {
-                                        return {
-                                            label,
-                                            items: item.dropdown,
-                                        };
-                                    });
-                                }}
-                                className={clsx(
-                                    "text-xs uppercase leading-snug",
-                                    isActive
-                                        ? "text-base-purple hover:text-base-purple custom-underline-btn relative"
-                                        : activeDropdown
-                                        ? "text-base-purple hover:text-base-purple"
-                                        : isLight
-                                        ? "text-sand hover:text-sand"
-                                        : "text-royal-purple hover:text-royal-purple",
-                                    "cursor-pointer transiton-all"
-                                )}
-                            >
-                                {label}
-                            </button>
-                        );
-                    })}
-                </ul>
+                                </button>
+                            );
+                        })}
+                    </ul>
+                </div>
                 <NavMobile
                     open={navMobileOpen}
                     setOpen={(open) => setNavMobileOpen(open)}

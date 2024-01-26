@@ -36,7 +36,7 @@ export default function AboutPage({
             <AboutHero hero={hero} />
             <AboutIntro intro={intro} />
             <AboutBio bio={bio} />
-            {!quote1.hide && (
+            {!imageBlock.image.hide && (
                 <section className="w-full py-8 sm:py-12">
                     <div className="container flex justify-center">
                         <AboutImageBlock theme="dark" image={imageBlock.image} />
